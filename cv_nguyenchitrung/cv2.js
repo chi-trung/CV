@@ -39,6 +39,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setTimeout(typeWriter, 1000);
 
+    // Dynamic Skill Bars - using Intersection Observer
+    const skillProgressBars = document.querySelectorAll('.progress');
+    if (skillProgressBars.length > 0) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillLevel = entry.target;
+                    const level = skillLevel.dataset.level; // Get level from data-level attribute
+                    if (level) {
+                        skillLevel.style.width = level + '%';
+                    }
+                    observer.unobserve(skillLevel); // Stop observing after animation
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% of the item is visible
+
+        skillProgressBars.forEach(bar => {
+            // Initial width is already set to 0% in CSS
+            observer.observe(bar);
+        });
+    }
+
     // Project Modal Logic
     const projectModal = document.getElementById('projectModal');
     const closeButton = document.querySelector('.close-button');
