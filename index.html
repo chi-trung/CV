@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Tổng Hợp Nhóm | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Background with CSS stars -->
+    <div class="stars-container">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <span>Team</span>Portfolio
+        </div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="nav-links">
+            <a href="#home">Trang chủ</a>
+            <a href="#team">Đội ngũ</a>
+            <a href="#about">Giới thiệu</a>
+            <a href="#expertise">Chuyên môn</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="glitch-text" data-text="Nhóm 5">Nhóm 5</h1>
+            <p class="subtitle">Chúng tôi là những nhà phát triển đam mê sáng tạo</p>
+            <div class="hero-buttons">
+                <a href="#team" class="btn btn-primary">Xem đội ngũ</a>
+                <a href="#about" class="btn btn-secondary">Về chúng tôi</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div>
+                <span class="scroll-arrow">
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="section-header">
+            <h2>Đội ngũ <span>của chúng tôi</span></h2>
+            <p>Gặp gỡ những thành viên tài năng đằng sau dự án</p>
+        </div>
+
+        <div class="members-container">
+            <!-- Member 1 -->
+            <div class="member-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="avatar">
+                            <img src="https://cdn-icons-png.flaticon.com/128/3940/3940417.png" alt="Trần Minh Nhựt">
+                            <div class="status online"></div>
+                        </div>
+                        <h3>Trần Minh Nhựt</h3>
+                        <p class="role">Frontend Developer</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-code"></i> HTML, CSS, JavaScript</span>
+                            <span><i class="fab fa-react"></i> React, Vue.js</span>
+                            <span><i class="fas fa-mobile-alt"></i> Responsive Design</span>
+                            <span><i class="fas fa-project-diagram"></i> E-commerce, Portfolio</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="back-content">
+                            <h3>Giới thiệu</h3>
+                            <p class="member-bio">Frontend Developer với đam mê sáng tạo giao diện đẹp mắt và trải nghiệm người dùng tuyệt vời.</p>
+                            <div class="member-interests">
+                                <h4>Mục tiêu</h4>
+                                <p>Xây dựng các giao diện web hiện đại, tương thích trên mọi thiết bị và tối ưu trải nghiệm người dùng.</p>
+                            </div>
+                            <a href="#cv1" class="view-profile-btn">Xem CV <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="member-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="avatar">
+                            <img src="https://cdn-icons-png.flaticon.com/128/1326/1326390.png" alt="Nguyễn Chí Trung">
+                            <div class="status online"></div>
+                        </div>
+                        <h3>Nguyễn Chí Trung</h3>
+                        <p class="role">Fullstack Developer</p>
+                    </div>
+                    <div class="card-back">
+                        <div class="back-content">
+                            <h3>Giới thiệu</h3>
+                            <p class="member-bio">Fullstack Developer với khả năng làm việc trên cả frontend và backend. Chuyên sâu về Java, Spring Boot, Python, Django và có kỹ năng thiết kế với Figma, HTML, CSS.</p>
+                            <div class="member-interests">
+                                <h4>Mục tiêu</h4>
+                                <p>Phát triển các ứng dụng web toàn diện từ giao diện đến hệ thống backend, tạo ra các giải pháp hoàn chỉnh đáp ứng nhu cầu người dùng và doanh nghiệp.</p>
+                            </div>
+                            <a href="cv_nguyenchitrung/cv2.html" class="view-profile-btn">Xem CV <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member 3 -->
+            <div class="member-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="avatar">
+                            <img src="https://cdn-icons-png.flaticon.com/128/1326/1326405.png" alt="Đặng Thanh Duy">
+                            <div class="status away"></div>
+                        </div>
+                        <h3>Đặng Thanh Duy</h3>
+                        <p class="role">Backend Developer</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-server"></i> Node.js, PHP</span>
+                            <span><i class="fas fa-database"></i> MongoDB, PostgreSQL</span>
+                            <span><i class="fas fa-cloud"></i> AWS, Azure</span>
+                            <span><i class="fas fa-project-diagram"></i> CMS, E-learning</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="back-content">
+                            <h3>Giới thiệu</h3>
+                            <p class="member-bio">Backend Developer chuyên nghiệp với khả năng xây dựng các hệ thống mạnh mẽ, bảo mật và có khả năng mở rộng.</p>
+                            <div class="member-interests">
+                                <h4>Mục tiêu</h4>
+                                <p>Phát triển các giải pháp backend hiệu quả, ổn định và có khả năng xử lý lượng lớn dữ liệu.</p>
+                            </div>
+                            <a href="#cv3" class="view-profile-btn">Xem CV <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member 4 -->
+            <div class="member-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="avatar">
+                            <img src="https://cdn-icons-png.flaticon.com/128/3940/3940403.png" alt="Phạm Thị Hương">
+                            <div class="status online"></div>
+                        </div>
+                        <h3>Phạm Thị Hương</h3>
+                        <p class="role">Project Manager</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-tasks"></i> Agile, Scrum</span>
+                            <span><i class="fas fa-users"></i> Team Management</span>
+                            <span><i class="fas fa-chart-line"></i> Risk Analysis</span>
+                            <span><i class="fas fa-project-diagram"></i> Enterprise Projects</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="back-content">
+                            <h3>Giới thiệu</h3>
+                            <p class="member-bio">Project Manager với nhiều năm kinh nghiệm quản lý các dự án phức tạp và lãnh đạo nhóm hiệu quả.</p>
+                            <div class="member-interests">
+                                <h4>Mục tiêu</h4>
+                                <p>Đảm bảo các dự án hoàn thành đúng tiến độ, trong ngân sách và đáp ứng các yêu cầu của khách hàng.</p>
+                            </div>
+                            <a href="#cv4" class="view-profile-btn">Xem CV <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Về <span>chúng tôi</span></h2>
+            <p>Chúng tôi là một đội ngũ đam mê công nghệ và sáng tạo</p>
+        </div>
+        <div class="about-content" data-aos="fade-up" data-aos-delay="200">
+            <div class="about-text">
+                <p>Nhóm chúng tôi được thành lập với mục tiêu phát triển các giải pháp web hiện đại và sáng tạo. Chúng tôi kết hợp các kỹ năng đa dạng từ thiết kế đến lập trình để tạo ra những sản phẩm chất lượng cao.</p>
+                <p>Với kinh nghiệm trong nhiều lĩnh vực khác nhau, chúng tôi tự hào mang đến những giải pháp tối ưu cho mọi dự án.</p>
+            </div>
+            <div class="stats-container">
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-number"><span class="counter">2</span>+</div>
+                    <div class="stat-title">Dự án</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-number"><span class="counter">4</span></div>
+                    <div class="stat-title">Thành viên</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-number"><span class="counter">1    </span>+</div>
+                    <div class="stat-title">Năm kinh nghiệm</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-number"><span class="counter">100</span>%</div>
+                    <div class="stat-title">Hài lòng</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="expertise-section">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Chuyên <span>môn</span></h2>
+            <p>Lĩnh vực chuyên môn của chúng tôi</p>
+        </div>
+        <div class="expertise-container">
+            <div class="expertise-card">
+                <div class="expertise-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Phát triển Web</h3>
+                <p>Chuyên nghiệp trong việc xây dựng các trang web hiện đại, tương thích trên mọi thiết bị và tối ưu trải nghiệm người dùng.</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Thiết kế Responsive</h3>
+                <p>Tạo ra các giao diện thích ứng với mọi kích thước màn hình, đảm bảo trải nghiệm người dùng tốt nhất trên mọi thiết bị.</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3>Phát triển Backend</h3>
+                <p>Xây dựng các hệ thống mạnh mẽ, bảo mật và có khả năng mở rộng với các công nghệ hiện đại.</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Quản lý Dữ liệu</h3>
+                <p>Thiết kế và quản lý cơ sở dữ liệu hiệu quả, đảm bảo tốc độ, bảo mật và tính toàn vẹn của dữ liệu.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>Team</span>Portfolio
+            </div>
+            <p>Thiết kế và phát triển bởi Nhóm 5</p>
+            <p>&copy; 2024 Nhóm 5. Tất cả các quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- CV Modals -->
+    <!-- CV Modal 1 -->
+    <div class="modal" id="cv1">
+        <div class="modal-content">
+            <a href="#team" class="close-modal">&times;</a>
+            <div class="modal-body">
+                <div class="cv-header">
+                    <div class="cv-avatar">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3940/3940417.png" alt="Nguyễn Văn A">
+                    </div>
+                    <div class="cv-title">
+                        <h2>Nguyễn Văn A</h2>
+                        <p class="cv-role">Frontend Developer</p>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <h3><i class="fas fa-user"></i> Thông tin cá nhân</h3>
+                    <div class="cv-info">
+                        <p><strong>Ngày sinh:</strong> 01/01/1995</p>
+                        <p><strong>Địa chỉ:</strong> Hà Nội, Việt Nam</p>
+                        <p><strong>Email:</strong> nguyenvana@example.com</p>
+                        <p><strong>Điện thoại:</strong> +84 123 456 789</p>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Học vấn</h3>
+                    <div class="cv-timeline">
+                        <div class="cv-timeline-item">
+                            <div class="cv-timeline-date">2017 - 2021</div>
+                            <div class="cv-timeline-content">
+                                <h4>Cử nhân Công nghệ thông tin</h4>
+                                <p>Đại học Bách Khoa Hà Nội</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <h3><i class="fas fa-briefcase"></i> Kinh nghiệm làm việc</h3>
+                    <div class="cv-timeline">
+                        <div class="cv-timeline-item">
+                            <div class="cv-timeline-date">2021 - Hiện tại</div>
+                            <div class="cv-timeline-content">
+                                <h4>Frontend Developer</h4>
+                                <p>Công ty ABC Technology</p>
+                                <ul>
+                                    <li>Phát triển giao diện người dùng cho các ứng dụng web</li>
+                                    <li>Tối ưu hóa hiệu suất và trải nghiệm người dùng</li>
+                                    <li>Làm việc với các framework như React, Vue.js</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <h3><i class="fas fa-code"></i> Kỹ năng</h3>
+                    <div class="cv-skills">
+                        <div class="cv-skill-item">
+                            <span>Thiết kế giao diện</span>
+                            <div class="cv-skill-bar"><div class="cv-skill-level" style="width: 95%"></div></div>
+                        </div>
+                        <div class="cv-skill-item">
+                            <span>Tương thích đa thiết bị</span>
+                            <div class="cv-skill-bar"><div class="cv-skill-level" style="width: 90%"></div></div>
+                        </div>
+                        <div class="cv-skill-item">
+                            <span>Tối ưu trải nghiệm người dùng</span>
+                            <div class="cv-skill-bar"><div class="cv-skill-level" style="width: 85%"></div></div>
+                        </div>
+                        <div class="cv-skill-item">
+                            <span>Sáng tạo nội dung</span>
+                            <div class="cv-skill-bar"><div class="cv-skill-level" style="width: 80%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CV Modal 3 -->
+    <div class="modal" id="cv3">
+        <div class="modal-content">
+            <a href="#team" class="close-modal">&times;</a>
+            <div class="modal-body">
+                <div class="cv-header">
+                    <div class="cv-avatar">
+                        <img src="https://cdn-icons-png.flaticon.com/128/1326/1326405.png" alt="Đặng Thanh Duy">
+                    </div>
+                    <div class="cv-title">
+                        <h2>Đặng Thanh Duy</h2>
+                        <p class="cv-role">Backend Developer</p>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <h3><i class="fas fa-user"></i> Thông tin cá nhân</h3>
+                    <div class="cv-info">
+                        <p><strong>Ngày sinh:</strong> 20/08/1994</p>
+                        <p><strong>Địa chỉ:</strong> Hà Nội, Việt Nam</p>
+                        <p><strong>Email:</strong> levanc@example.com</p>
+                        <p><strong>Điện thoại:</strong> +84 912 345 678</p>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Học vấn</h3>
+                    <div class="cv-timeline">
+                        <div class="cv-timeline-item">
+                            <div class="cv-timeline-date">2016 - 2020</div>
+                            <div class="cv-timeline-content">
+                                <h4>Cử nhân Khoa học Máy tính</h4>
+                                <p>Đại học Công nghệ - Đại học Quốc gia Hà Nội</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <h3><i class="fas fa-briefcase"></i> Kinh nghiệm làm việc</h3>
+                    <div class="cv-timeline">
+                        <div class="cv-timeline-item">
+                            <div class="cv-timeline-date">2020 - Hiện tại</div>
+                            <div class="cv-timeline-content">
+                                <h4>Backend Developer</h4>
+                                <p>Công ty DEF Solutions</p>
+                                <ul>
+                                    <li>Phát triển và duy trì các API và dịch vụ backend</li>
+                                    <li>Tối ưu hóa cơ sở dữ liệu và hiệu suất hệ thống</li>
+                                    <li>Làm việc với Node.js, Python và các công nghệ cloud</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <h3><i class="fas fa-code"></i> Kỹ năng</h3>
+                    <div class="cv-skills">
+                        <div class="cv-skill-item">
+                            <span>Quản lý dữ liệu</span>
+                            <div class="cv-skill-bar"><div class="cv-skill-level" style="width: 95%"></div></div>
+                        </div>
+                        <div class="cv-skill-item">
+                            <span>Xây dựng API</span>
+                            <div class="cv-skill-bar"><div class="cv-skill-level" style="width: 90%"></div></div>
+                        </div>
+                        <div class="cv-skill-item">
+                            <span>Bảo mật hệ thống</span>
+                            <div class="cv-skill-bar"><div class="cv-skill-level" style="width: 85%"></div></div>
+                        </div>
+                        <div class="cv-skill-item">
+                            <span>Tối ưu hóa cơ sở dữ liệu</span>
+                            <div class="cv-skill-bar"><div class="cv-skill-level" style="width: 88%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CV Modal 4 -->
+    <div class="modal" id="cv4">
+        <div class="modal-content">
+            <a href="#team" class="close-modal">&times;</a>
+            <div class="modal-body">
+                <div class="cv-header">
+                    <div class="cv-avatar">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3940/3940403.png" alt="Phạm Thị Hương">
+                    </div>
+                    <div class="cv-title">
+                        <h2>Phạm Thị Hương</h2>
+                        <p class="cv-role">Project Manager</p>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <h3><i class="fas fa-user"></i> Thông tin cá nhân</h3>
+                    <div class="cv-info">
+                        <p><strong>Ngày sinh:</strong> 10/12/1992</p>
+                        <p><strong>Địa chỉ:</strong> Hà Nội, Việt Nam</p>
+                        <p><strong>Email:</strong> phamthihuong@example.com</p>
+                        <p><strong>Điện thoại:</strong> +84 901 234 567</p>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Học vấn</h3>
+                    <div class="cv-timeline">
+                        <div class="cv-timeline-item">
+                            <div class="cv-timeline-date">2014 - 2018</div>
+                            <div class="cv-timeline-content">
+                                <h4>Cử nhân Quản trị Kinh doanh</h4>
+                                <p>Đại học Kinh tế Quốc dân</p>
+                            </div>
+                        </div>
+                        <div class="cv-timeline-item">
+                            <div class="cv-timeline-date">2019 - 2020</div>
+                            <div class="cv-timeline-content">
+                                <h4>Chứng chỉ PMP (Project Management Professional)</h4>
+                                <p>Project Management Institute</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <h3><i class="fas fa-briefcase"></i> Kinh nghiệm làm việc</h3>
+                    <div class="cv-timeline">
+                        <div class="cv-timeline-item">
+                            <div class="cv-timeline-date">2018 - Hiện tại</div>
+                            <div class="cv-timeline-content">
+                                <h4>Project Manager</h4>
+                                <p>Công ty GHI Technology</p>
+                                <ul>
+                                    <li>Quản lý và điều phối các dự án phát triển phần mềm</li>
+                                    <li>Lập kế hoạch, phân bổ nguồn lực và theo dõi tiến độ dự án</li>
+                                    <li>Làm việc với khách hàng và các bên liên quan để đảm bảo dự án đáp ứng yêu cầu</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <h3><i class="fas fa-code"></i> Kỹ năng</h3>
+                    <div class="cv-skills">
+                        <div class="cv-skill-item">
+                            <span>Quản lý dự án</span>
+                            <div class="cv-skill-bar"><div class="cv-skill-level" style="width: 95%"></div></div>
+                        </div>
+                        <div class="cv-skill-item">
+                            <span>Lãnh đạo nhóm</span>
+                            <div class="cv-skill-bar"><div class="cv-skill-level" style="width: 90%"></div></div>
+                        </div>
+                        <div class="cv-skill-item">
+                            <span>Giao tiếp hiệu quả</span>
+                            <div class="cv-skill-bar"><div class="cv-skill-level" style="width: 92%"></div></div>
+                        </div>
+                        <div class="cv-skill-item">
+                            <span>Quản lý rủi ro</span>
+                            <div class="cv-skill-bar"><div class="cv-skill-level" style="width: 88%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script nhỏ để xử lý menu active -->
+    <script>
+        // Lấy hash từ URL (ví dụ: #team, #about, v.v.)
+        let currentHash = window.location.hash || '#home';
+
+        // Xóa active từ tất cả các link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.style.fontWeight = 'normal';
+            link.style.color = 'var(--text-muted)';
+        });
+
+        // Thêm active cho link hiện tại
+        const activeLink = document.querySelector(`.nav-links a[href="${currentHash}"]`);
+        if (activeLink) {
+            activeLink.style.fontWeight = '600';
+            activeLink.style.color = 'var(--text-light)';
+        }
+
+        // Thêm sự kiện khi hash thay đổi
+        window.addEventListener('hashchange', function() {
+            // Lấy hash mới
+            currentHash = window.location.hash;
+
+            // Xóa active từ tất cả các link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.style.fontWeight = 'normal';
+                link.style.color = 'var(--text-muted)';
+            });
+
+            // Thêm active cho link hiện tại
+            const activeLink = document.querySelector(`.nav-links a[href="${currentHash}"]`);
+            if (activeLink) {
+                activeLink.style.fontWeight = '600';
+                activeLink.style.color = 'var(--text-light)';
+            }
+        });
+    </script>
+</body>
+</html>
