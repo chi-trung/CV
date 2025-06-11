@@ -84,4 +84,56 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(bar);
         });
     }
+
+    // JavaScript for Counter Animation
+    function animateCounter(obj, finalTarget, unit, duration = 2000) {
+        let startValue = 0;
+        const increment = (finalTarget - startValue) / (duration / 16);
+        const startTime = performance.now();
+
+        function updateCounter(timestamp) {
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const current = startValue + (finalTarget - startValue) * progress;
+
+            obj.textContent = Math.floor(current) + unit;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                obj.textContent = finalTarget + unit;
+            }
+        }
+        requestAnimationFrame(updateCounter);
+    }
+
+    // Intersection Observer for Counters
+    const counters = document.querySelectorAll('.counter');
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const targetElement = entry.target;
+                const numericTarget = parseInt(targetElement.dataset.target); // Get target from data-target attribute
+                const unit = targetElement.dataset.unit || ''; // Get the unit from data-unit attribute
+
+                if (!isNaN(numericTarget)) {
+                    animateCounter(targetElement, numericTarget, unit, 2000);
+                }
+                observer.unobserve(targetElement); // Stop observing once animated
+            }
+        });
+    }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    counters.forEach(counter => {
+        // Store the original unit in a data-attribute for easier retrieval
+        const initialUnit = counter.textContent;
+        counter.setAttribute('data-unit', initialUnit);
+        // Initialize text to 0 + unit
+        counter.textContent = '0' + initialUnit;
+        counterObserver.observe(counter);
+    });
 });

@@ -1,15 +1,32 @@
 :root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --secondary-gradient: linear-gradient(135deg, #1A1A2E 0%, #20203A 100%);
-    --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --dark-bg: #0f0f23;
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --glass-bg: rgba(255, 255, 255, 0.1);
+    --primary-gradient: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+    --secondary-gradient: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+    --accent-gradient: linear-gradient(135deg, #00F5A0 0%, #00D9F5 100%);
+    --dark-bg: #0A0A1F;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --glass-bg: rgba(255, 255, 255, 0.05);
     --text-primary: #ffffff;
-    --text-secondary: #b8b8ff;
+    --text-secondary: #B8B8FF;
     --border-color: rgba(255, 255, 255, 0.1);
     --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    --glow: 0 0 20px rgba(102, 126, 234, 0.3);
+    --glow: 0 0 20px rgba(107, 115, 255, 0.3);
+    --card-hover-transform: translateY(-10px);
+    --card-hover-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+}
+
+/* Light Mode Variables */
+:root.light-mode {
+    --primary-gradient: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%); /* Greenish gradient */
+    --secondary-gradient: linear-gradient(135deg, #E0E0E0 0%, #F5F5F5 100%); /* Lighter grey for secondary */
+    --accent-gradient: linear-gradient(135deg, #FFC107 0%, #FF9800 100%); /* Amber gradient */
+    --dark-bg: #EFEFEF; /* Lighter background */
+    --card-bg: #FFFFFF; /* Pure white cards */
+    --glass-bg: rgba(255, 255, 255, 0.9); /* More opaque glass effect */
+    --text-primary: #333333;
+    --text-secondary: #666666; /* Slightly darker secondary text */
+    --border-color: rgba(0, 0, 0, 0.1);
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    --glow: 0 0 15px rgba(76, 175, 80, 0.3); /* Greenish glow */
 }
 
 * {
@@ -85,9 +102,8 @@ body {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-20px) rotate(1deg); }
-    66% { transform: translateY(10px) rotate(-1deg); }
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
 }
 
 /* Container */
@@ -124,7 +140,7 @@ body {
     box-shadow: var(--shadow), var(--glow);
     position: relative;
     overflow: hidden;
-    animation: pulse 3s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
     padding: 20px;
 }
 
@@ -233,7 +249,7 @@ body {
     border: 1px solid var(--border-color);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
 }
@@ -244,19 +260,19 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 2px;
-    background: var(--primary-gradient);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover::before {
-    transform: scaleX(1);
+    transform: translateX(100%);
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    transform: var(--card-hover-transform);
+    box-shadow: var(--card-hover-shadow);
 }
 
 .card-title {
@@ -319,19 +335,33 @@ body {
 }
 
 .progress-bar {
-    width: 100%;
-    height: 12px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
     overflow: hidden;
+    position: relative;
 }
 
 .progress {
-    height: 100%;
-    width: 0%; /* Initial width for animation */
     background: var(--accent-gradient);
-    border-radius: 5px;
-    transition: width 0.8s ease-out;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: progressShine 2s linear infinite;
+}
+
+@keyframes progressShine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 /* Section Divider for Skills & Certifications */
@@ -371,12 +401,14 @@ body {
     background: var(--glass-bg);
     border-radius: 20px;
     border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
 .project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: var(--card-hover-shadow);
 }
 
 .project-image {
@@ -385,6 +417,11 @@ body {
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 1rem;
+    transition: transform 0.5s ease;
+}
+
+.project:hover .project-image {
+    transform: scale(1.05);
 }
 
 .project-title {
@@ -443,23 +480,6 @@ body {
     border: 1px solid var(--border-color);
 }
 
-.education-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-}
-
-.education-degree {
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-}
-
-.education-major {
-    color: var(--text-secondary);
-    font-style: italic;
-}
-
 /* Hobbies Section */
 .hobbies-grid {
     display: grid;
@@ -511,11 +531,29 @@ body {
     text-decoration: none;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.social-link:hover::before {
+    opacity: 1;
 }
 
 .social-link:hover {
-    transform: translateY(-3px) scale(1.1);
-    background: var(--primary-gradient);
+    transform: translateY(-5px) scale(1.1);
     box-shadow: var(--glow);
 }
 
@@ -578,6 +616,17 @@ body {
 .card:nth-child(3) { animation-delay: 0.3s; }
 .card:nth-child(4) { animation-delay: 0.4s; }
 
+.hidden-before-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.hidden-before-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
 /* Project Modal Styles */
 .modal {
     display: none; /* Hidden by default */
@@ -639,7 +688,7 @@ body {
 
 .modal-image {
     width: 100%;
-    height: 300px;
+    height: 300px; /* Adjust height as needed */
     object-fit: cover;
     border-radius: 15px;
     margin-top: 1rem;
@@ -680,6 +729,24 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-modal-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.btn-modal-link:hover::before {
+    transform: translateX(100%);
 }
 
 .btn-modal-link:hover {
@@ -722,4 +789,127 @@ body {
     margin-top: 1rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.light-mode .theme-toggle i {
+    transform: rotate(180deg);
+}
+
+/* Update background for light mode */
+.light-mode body {
+    background: var(--dark-bg);
+}
+
+.light-mode .bg-animation {
+    background: linear-gradient(45deg, #D4EDDA, #C3E6CB, #B8DAFF);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+.light-mode .bg-animation::before {
+    background: radial-gradient(circle at 20% 80%, rgba(76, 175, 80, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 193, 7, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(33, 150, 243, 0.15) 0%, transparent 50%);
+}
+
+/* Adjust card styles for light mode */
+.light-mode .card {
+    background: var(--card-bg);
+    color: var(--text-primary);
+}
+
+.light-mode .contact-item,
+.light-mode .project,
+.light-mode .hobby-item,
+.light-mode .social-link,
+.light-mode .skill-category {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.light-mode .project-link,
+.light-mode .social-link,
+.light-mode .btn-modal-link {
+    color: var(--text-primary);
+}
+
+.light-mode .modal-content {
+    background: var(--card-bg);
+}
+
+.light-mode .name {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.light-mode .card-title i {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Enhanced Project Cards */
+.project {
+    position: relative;
+    overflow: hidden;
+}
+
+.project::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.project:hover::after {
+    transform: scaleX(1);
+}
+
+.project-image {
+    transition: transform 0.5s ease;
+}
+
+.project:hover .project-image {
+    transform: scale(1.05);
 } 

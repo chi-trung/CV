@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
@@ -40,7 +42,7 @@
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="logo">
+        <div class="logo" data-aos="fade-right">
             <span>Đom</span>Đóm
         </div>
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -49,7 +51,7 @@
             <span></span>
             <span></span>
         </label>
-        <div class="nav-links">
+        <div class="nav-links" data-aos="fade-left">
             <a href="#home">Trang chủ</a>
             <a href="#team">Đội ngũ</a>
             <a href="#about">Giới thiệu</a>
@@ -60,14 +62,14 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="glitch-text" data-text="Nhóm 5">Nhóm 5</h1>
-            <p class="subtitle">Chúng tôi là những nhà phát triển đam mê sáng tạo</p>
-            <div class="hero-buttons">
+            <h1 class="glitch-text" data-text="Nhóm 5" data-aos="fade-up">Nhóm 5</h1>
+            <p class="subtitle" data-aos="fade-up" data-aos-delay="200">Chúng tôi là những nhà phát triển đam mê sáng tạo</p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
                 <a href="#team" class="btn btn-primary">Xem đội ngũ</a>
                 <a href="#about" class="btn btn-secondary">Về chúng tôi</a>
             </div>
         </div>
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="600">
             <div class="mouse">
                 <div class="wheel"></div>
             </div>
@@ -80,16 +82,55 @@
         </div>
     </section>
 
+    <!-- Section Header Template -->
+    <template id="section-header-template">
+        <div class="section-header" data-aos="fade-up">
+            <h2><span></span></h2>
+            <p></p>
+        </div>
+    </template>
+
+    <!-- Member Card Template -->
+    <template id="member-card-template">
+        <div class="member-card" data-aos="zoom-in">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="avatar">
+                        <img src="" alt="">
+                        <div class="status"></div>
+                    </div>
+                    <h3></h3>
+                    <p class="role"></p>
+                    <div class="card-details">
+                        <span><i class="fas fa-birthday-cake"></i></span>
+                        <span><i class="fas fa-user-graduate"></i></span>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="back-content">
+                        <h3>Giới thiệu</h3>
+                        <p class="member-bio"></p>
+                        <div class="member-interests">
+                            <h4>Mục tiêu</h4>
+                            <p></p>
+                        </div>
+                        <a href="" class="view-profile-btn">Xem CV <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
     <!-- Team Section -->
     <section id="team" class="team-section">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <h2>Đội ngũ <span>của chúng tôi</span></h2>
             <p>Gặp gỡ những thành viên tài năng đằng sau dự án</p>
         </div>
 
         <div class="members-container">
             <!-- Member 1 -->
-            <div class="member-card">
+            <div class="member-card" data-aos="zoom-in" data-aos-delay="100">
                 <div class="card-inner">
                     <div class="card-front">
                         <div class="avatar">
@@ -118,7 +159,7 @@
             </div>
 
             <!-- Member 2 -->
-            <div class="member-card">
+            <div class="member-card" data-aos="zoom-in" data-aos-delay="200">
                 <div class="card-inner">
                     <div class="card-front">
                         <div class="avatar">
@@ -147,7 +188,7 @@
             </div>
 
             <!-- Member 3 -->
-            <div class="member-card">
+            <div class="member-card" data-aos="zoom-in" data-aos-delay="300">
                 <div class="card-inner">
                     <div class="card-front">
                         <div class="avatar">
@@ -176,7 +217,7 @@
             </div>
 
             <!-- Member 4 -->
-            <div class="member-card">
+            <div class="member-card" data-aos="zoom-in" data-aos-delay="400">
                 <div class="card-inner">
                     <div class="card-front">
                         <div class="avatar">
@@ -212,26 +253,26 @@
             <h2>Về <span>chúng tôi</span></h2>
             <p>Chúng tôi là một đội ngũ đam mê công nghệ và sáng tạo</p>
         </div>
-        <div class="about-content" data-aos="fade-up" data-aos-delay="200">
-            <div class="about-text">
+        <div class="about-content">
+            <div class="about-text" data-aos="fade-right" data-aos-delay="200">
                 <p>Nhóm chúng tôi được thành lập với mục tiêu phát triển các giải pháp web hiện đại và sáng tạo. Chúng tôi kết hợp các kỹ năng đa dạng từ thiết kế đến lập trình để tạo ra những sản phẩm chất lượng cao.</p>
                 <p>Với kinh nghiệm trong nhiều lĩnh vực khác nhau, chúng tôi tự hào mang đến những giải pháp tối ưu cho mọi dự án.</p>
             </div>
             <div class="stats-container">
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="stat-number"><span class="counter">2</span>+</div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-number"><span class="counter" data-target="2">+</span></div>
                     <div class="stat-title">Dự án</div>
                 </div>
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="stat-number"><span class="counter">4</span></div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-number"><span class="counter" data-target="4"></span></div>
                     <div class="stat-title">Thành viên</div>
                 </div>
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="stat-number"><span class="counter">2    </span>+</div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="stat-number"><span class="counter" data-target="2">+</span></div>
                     <div class="stat-title">Năm kinh nghiệm</div>
                 </div>
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="stat-number"><span class="counter">100</span>%</div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="stat-number"><span class="counter" data-target="100">%</span></div>
                     <div class="stat-title">Hài lòng</div>
                 </div>
             </div>
@@ -245,28 +286,28 @@
             <p>Lĩnh vực chuyên môn của chúng tôi</p>
         </div>
         <div class="expertise-container">
-            <div class="expertise-card">
+            <div class="expertise-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="expertise-icon">
                     <i class="fas fa-laptop-code"></i>
                 </div>
                 <h3>Phát triển Web</h3>
                 <p>Chuyên nghiệp trong việc xây dựng các trang web hiện đại, tương thích trên mọi thiết bị và tối ưu trải nghiệm người dùng.</p>
             </div>
-            <div class="expertise-card">
+            <div class="expertise-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="expertise-icon">
                     <i class="fas fa-mobile-alt"></i>
                 </div>
                 <h3>Thiết kế Responsive</h3>
                 <p>Tạo ra các giao diện thích ứng với mọi kích thước màn hình, đảm bảo trải nghiệm người dùng tốt nhất trên mọi thiết bị.</p>
             </div>
-            <div class="expertise-card">
+            <div class="expertise-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="expertise-icon">
                     <i class="fas fa-server"></i>
                 </div>
                 <h3>Phát triển Backend</h3>
                 <p>Xây dựng các hệ thống mạnh mẽ, bảo mật và có khả năng mở rộng với các công nghệ hiện đại.</p>
             </div>
-            <div class="expertise-card">
+            <div class="expertise-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="expertise-icon">
                     <i class="fas fa-database"></i>
                 </div>
@@ -287,7 +328,7 @@
                 <span>Đom</span>Đóm
             </div>
             <p>Thiết kế và phát triển bởi Nhóm 5</p>
-            <p>&copy; 2025 Nhóm 5. Tất cả các quyền được bảo lưu.</p>
+            <p>&copy; 2024 Nhóm 5. Tất cả các quyền được bảo lưu.</p>
         </div>
     </footer>
 
@@ -336,9 +377,22 @@
                 star.style.setProperty('--rand-x', (Math.random() - 0.5) * 2);
                 star.style.setProperty('--rand-y', (Math.random() - 0.5) * 2);
             });
+            // Add a class to trigger animation after variables are set
+            document.querySelector('.stars-container').classList.add('stars-ready');
+        });
+    </script>
+
+    <!-- AOS Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true
         });
     </script>
 
     <script src="scrip.js"></script>
+
 </body>
 </html>
