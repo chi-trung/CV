@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Dự án - Travel Homestay Camping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cv3-style.css"> <!-- Reuse existing style -->
+    <style>
+        .project-detail-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 15px;
+            animation: fadeIn 0.5s ease-in;
+        }
+        .project-detail-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+        .project-detail-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .project-detail-tech {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .project-detail-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+        .back-to-cv {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        .back-to-cv:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-to-home" title="Quay lại trang chủ">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    <div class="project-detail-container">
+        <img src="./hinhanh/thc.png" alt="Travel Homestay Camping" class="project-detail-image">
+        
+        <h1 class="project-detail-title">Travel Homestay Camping</h1>
+        <p class="project-detail-tech">Java</p>
+        <p class="project-detail-description">
+            Dự án Travel Homestay Camping là một nền tảng quản lý và đặt chỗ homestay, cắm trại toàn diện, được phát triển để kết nối người dùng với các địa điểm du lịch độc đáo. Hệ thống được xây dựng trên kiến trúc microservices với các module riêng biệt để quản lý người dùng, đặt chỗ, địa điểm và thanh toán, đảm bảo tính mở rộng và dễ bảo trì. Công nghệ chính được sử dụng là Java với Spring Boot cho phần backend, cùng với cơ sở dữ liệu MongoDB để lưu trữ dữ liệu phi cấu trúc và linh hoạt.
+            <br><br>
+            Các tính năng nổi bật bao gồm hệ thống tìm kiếm và lọc nâng cao, cho phép người dùng dễ dàng tìm kiếm địa điểm theo vị trí, loại hình, giá cả và tiện ích. Chức năng đặt chỗ trực tuyến được tích hợp với các cổng thanh toán phổ biến để mang lại trải nghiệm liền mạch. Bên cạnh đó, dự án còn có hệ thống đánh giá và nhận xét, giúp người dùng chia sẻ kinh nghiệm và cung cấp thông tin hữu ích cho cộng đồng. Về mặt kiến trúc, dự án sử dụng RESTful APIs cho giao tiếp giữa các services và frontend, đảm bảo tính nhất quán và hiệu quả. Security được chú trọng với việc triển khai JWT Authentication và mã hóa dữ liệu. Hiệu suất được tối ưu hóa thông qua caching và tối ưu hóa truy vấn cơ sở dữ liệu.
+            <br><br>
+            Travel Homestay Camping được thiết kế với giao diện người dùng thân thiện và dễ sử dụng, tập trung vào trải nghiệm người dùng. Hệ thống hỗ trợ đa nền tảng, có thể dễ dàng mở rộng để tích hợp các tính năng mới trong tương lai như quản lý tour du lịch, cho thuê thiết bị cắm trại hoặc tích hợp thêm các dịch vụ bản đồ và định vị nâng cao. Mục tiêu của dự án là trở thành một nền tảng hàng đầu cho những người yêu thích du lịch tự do và khám phá.
+        </p>
+        <div class="project-links">
+            <a href="https://github.com/DangTDuy/Travel---Homestay-Camping-Booking-Application-.git" class="project-link github-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i> Xem trên GitHub 
+            </a>
+        </div>
+        <a href="cv3.html" class="back-to-cv"><i class="fas fa-arrow-left"></i> Quay lại CV</a>
+    </div>
+</body>
+</html> 

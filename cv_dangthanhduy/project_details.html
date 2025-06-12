@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Dự án - Ứng dụng hỗ trợ cấp cứu tức thì</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cv3-style.css"> <!-- Reuse existing style -->
+    <style>
+        .project-detail-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 15px;
+            animation: fadeIn 0.5s ease-in;
+        }
+        .project-detail-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+        .project-detail-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .project-detail-tech {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .project-detail-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+        .back-to-cv {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        .back-to-cv:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-to-home" title="Quay lại trang chủ">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    <div class="project-detail-container">
+        <img src="./hinhanh/icon.png" alt="Ứng dụng hỗ trợ cấp cứu tức thì" class="project-detail-image">
+        
+        <h1 class="project-detail-title">Ứng dụng hỗ trợ cấp cứu tức thì</h1>
+        <p class="project-detail-tech">Kotlin</p>
+        <p class="project-detail-description">
+            AppResQnow là một ứng dụng di động được phát triển trên nền tảng Android, tập trung vào việc cung cấp dịch vụ khẩn cấp cho người dùng. Ứng dụng được thiết kế theo kiến trúc Client-Server, sử dụng Firebase làm backend và Google Maps API cho các tính năng định vị. Về mặt kiến trúc, ứng dụng được chia thành ba lớp chính: Presentation Layer (UI), Business Logic Layer và Data Access Layer. Presentation Layer được xây dựng bằng cách sử dụng các công nghệ frontend phù hợp để tạo giao diện người dùng thân thiện theo Material Design. Business Logic Layer xử lý các logic nghiệp vụ như quản lý người dùng, xử lý tín hiệu khẩn cấp và quản lý thông báo. Data Access Layer tương tác với Firebase Realtime Database để lưu trữ và truy xuất dữ liệu.
+            <br><br>
+            <img src="./hinhanh/manhinh1.png" alt="Màn hình ứng dụng 1" class="inline-project-image">
+            Hệ thống bao gồm các module chính như xác thực người dùng, quản lý khẩn cấp, bản đồ và định vị. Module xác thực người dùng sử dụng Firebase Authentication để quản lý đăng ký, đăng nhập và khôi phục mật khẩu. Module quản lý khẩn cấp xử lý việc gửi tín hiệu khẩn cấp, theo dõi trạng thái và cập nhật vị trí người dùng. Module bản đồ và định vị tích hợp Google Maps API để hiển thị bản đồ, định vị người dùng và tính toán khoảng cách. Dữ liệu được tổ chức thành các collection trong Firebase, bao gồm Users, Emergencies, Locations và Notifications.
+            <br><br>
+            Về mặt bảo mật, hệ thống sử dụng JWT Authentication và Firebase Authentication để xác thực người dùng, kết hợp với mã hóa dữ liệu và bảo mật API. Hiệu suất được tối ưu hóa thông qua việc sử dụng lazy loading, caching và tối ưu hóa hình ảnh. Quy trình xử lý khẩn cấp được thiết kế để đảm bảo phản hồi nhanh chóng, bao gồm các bước: nhận tín hiệu khẩn cấp, xác định vị trí, gửi thông báo và cập nhật trạng thái. Hệ thống cũng được tích hợp với các dịch vụ bên ngoài như Google Maps API và Firebase Services để cung cấp các tính năng nâng cao.Ứng dụng được phát triển với mục tiêu đảm bảo tính ổn định, bảo mật và hiệu suất cao, đồng thời dễ dàng mở rộng và bảo trì trong tương lai. Các thành phần được tích hợp chặt chẽ với nhau để tạo ra một ứng dụng hoàn chỉnh, đáp ứng nhu cầu của người dùng trong các tình huống khẩn cấp.
+        </p>
+        <div class="project-links">
+            <a href="https://drive.usercontent.google.com/download?id=1MDBkppuivKhj4fGBPji-B841EZqGLfjx&export=download&authuser=0" class="project-link download-link" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-download"></i> Tải ứng dụng
+            </a>
+            <a href="https://github.com/DangTDuy/Instant-Emergency-Assistance.git" class="project-link github-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i> Xem trên GitHub
+            </a>
+        </div>
+        <a href="cv3.html" class="back-to-cv"><i class="fas fa-arrow-left"></i> Quay lại CV</a>
+    </div>
+</body>
+</html> 

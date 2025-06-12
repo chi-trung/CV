@@ -1,58 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Đặng Thanh Duy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="cv3-style.css">
 </head>
 <body>
+    <a href="../index.html" class="back-to-home" title="Quay lại trang chủ">
+        <i class="fas fa-arrow-left"></i>
+    </a>
     <div class="container">
         <header>
+            <div class="avatar-container">
+                <div class="avatar">
+                    <img src="https://cdn-icons-png.flaticon.com/128/1326/1326405.png" alt="Đặng Thanh Duy">
+                    <div class="status away"></div>
+                </div>
+            </div>
             <h1>Đặng Thanh Duy</h1>
-            <p class="title">Software Developer</p>
+            <p class="title">Fullstack Developer</p>
+            <div class="card-details">
+                <span><i class="fas fa-birthday-cake"></i> 25/08/2008</span>
+                <span><i class="fas fa-user-graduate"></i> Sinh Viên Năm 2</span>
+            </div>
         </header>
 
-        <section class="contact-info">
-            <h2>Contact Information</h2>
-            <ul>
-                <li>Email: example@email.com</li>
-                <li>Phone: (123) 456-7890</li>
-                <li>Location: City, Country</li>
-            </ul>
-        </section>
-
-        <section class="education">
-            <h2>Education</h2>
-            <div class="entry">
-                <h3>University Name</h3>
-                <p>Degree in Computer Science</p>
-                <p>2018 - 2022</p>
-            </div>
-        </section>
-
-        <section class="experience">
-            <h2>Work Experience</h2>
-            <div class="entry">
-                <h3>Software Developer</h3>
-                <p>Company Name</p>
-                <p>2022 - Present</p>
+        <div class="main-layout">
+            <nav class="side-menu">
                 <ul>
-                    <li>Key responsibility 1</li>
-                    <li>Key responsibility 2</li>
-                    <li>Key responsibility 3</li>
+                    <li><a href="#contact-info"><i class="fas fa-address-card"></i> Liên hệ</a></li>
+                    <li><a href="#about"><i class="fas fa-user-tie"></i> Giới thiệu</a></li>
+                    <li><a href="#skills"><i class="fas fa-cogs"></i> Kỹ năng</a></li>
+                    <li><a href="#experience"><i class="fas fa-briefcase"></i> Kinh nghiệm</a></li>
+                    <li><a href="#education"><i class="fas fa-graduation-cap"></i> Học vấn</a></li>
+                    <li><a href="#projects"><i class="fas fa-project-diagram"></i> Dự án</a></li>
+                    <li><a href="#certificates"><i class="fas fa-award"></i> Chứng chỉ</a></li>
+                    <li><a href="#social-media"><i class="fas fa-share-alt"></i> Kết nối mạng xã hội</a></li>
                 </ul>
-            </div>
-        </section>
+            </nav>
+            <div class="main-content">
+                <section id="contact-info" class="contact-info">
+                    <h2><i class="fas fa-address-card"></i> Thông tin liên hệ</h2>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> dangthanhduyofficial@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +84 862 388 757</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Bến Tre, Việt Nam</li>
+                    </ul>
+                </section>
 
-        <section class="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Programming Languages: JavaScript, Python, Java</li>
-                <li>Web Technologies: HTML, CSS, React</li>
-                <li>Tools & Others: Git, Docker, AWS</li>
-            </ul>
-        </section>
+                <section id="about" class="about">
+                    <h2><i class="fas fa-user-tie"></i> Giới thiệu bản thân</h2>
+                    <p>Fullstack Developer với đam mê phát triển các ứng dụng web hiệu quả và bảo mật, đồng thời có kinh nghiệm trong việc phát triển ứng dụng di động Android. Có kinh nghiệm trong việc xây dựng và tối ưu hóa các hệ thống backend, đặc biệt là với Java và Spring Boot. Luôn tìm kiếm cơ hội để học hỏi và áp dụng các công nghệ mới.</p>
+                </section>
+
+                <section id="skills" class="skills">
+                    <h2><i class="fas fa-cogs"></i> Kỹ năng chuyên môn</h2>
+                    <ul>
+                        <li><strong>Ngôn ngữ lập trình:</strong> Java, Python, JavaScript, Kotlin</li>
+                        <li><strong>Framework & Thư viện:</strong> Spring Boot, Django</li>
+                        <li><strong>Phát triển di động:</strong> Lập trình ứng dụng di động Android (Native/Hybrid)</li>
+                        <li><strong>Cơ sở dữ liệu:</strong> MySQL, PostgreSQL, MongoDB</li>
+                        <li><strong>Công cụ & DevOps:</strong> Git, Docker, AWS</li>
+                        <li><strong>Khác:</strong> RESTful API, Microservices, CI/CD</li>
+                    </ul>
+                </section>
+
+                <section id="experience" class="experience">
+                    <h2><i class="fas fa-briefcase"></i> Kinh nghiệm làm việc</h2>
+                    <div class="entry">
+                        <h3>Backend Developer Intern</h3>
+                        <p>Tech Company</p>
+                        <p>2023 - Hiện tại</p>
+                        <ul>
+                            <li>Phát triển và tối ưu hóa các API RESTful</li>
+                            <li>Xây dựng và quản lý cơ sở dữ liệu</li>
+                            <li>Tham gia vào quá trình code review và testing</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="education" class="education">
+                    <h2><i class="fas fa-graduation-cap"></i> Học vấn</h2>
+                    <div class="entry">
+                        <h3>Đại học Giao Thông Vận Tải TP.HCM</h3>
+                        <p>Cử nhân Công nghệ Thông tin</p>
+                        <p>2023 - Hiện tại</p>
+                        <ul>
+                            <li>Chuyên ngành: Công nghệ thông tin</li>
+                            <li>GPA: 3.5/4.0</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="projects" class="projects">
+                    <h2><i class="fas fa-project-diagram"></i> Dự án nổi bật</h2>
+                    <div class="entry project-entry">
+                        <img src="./hinhanh/icon.png" alt="Ứng dụng hỗ trợ cấp cứu tức thì" class="project-image">
+                        <h3>Ứng dụng hỗ trợ cấp cứu tức thì</h3>
+                        <p class="project-tech-stack">Kotlin</p>
+                        <ul>
+                            <li>Phát triển hệ thống theo dõi vị trí và gửi yêu cầu cấp cứu</li>
+                            <li>Xây dựng API cho giao tiếp giữa người dùng và trung tâm cấp cứu</li>
+                            <li>Tích hợp bản đồ và thông báo theo thời gian thực</li>
+                        </ul>
+                        <a href="project_details.html" class="view-project-link">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- New Project Entry: Travel Homestay Camping -->
+                    <div class="entry project-entry">
+                        <img src="./hinhanh/thc.png" alt="Travel Homestay Camping" class="project-image">
+                        <h3>Travel Homestay Camping</h3>
+                        <p class="project-tech">Java</p>
+                        <ul>
+                            <li>Xây dựng nền tảng đặt chỗ homestay và camping.</li>
+                            <li>Phát triển hệ thống quản lý đặt phòng và thanh toán.</li>
+                            <li>Tích hợp bản đồ để hiển thị địa điểm.</li>
+                        </ul>
+                        <a href="travel_homestay_camping_details.html" class="view-project-link">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </section>
+
+                <section id="certificates" class="certificates">
+                    <h2><i class="fas fa-award"></i> Chứng chỉ</h2>
+                    <div class="entry">
+                        <h3>Chứng chỉ Lập trình C++</h3>
+                        <p>Trung tâm ABC (hoặc Tổ chức cấp chứng chỉ)</p>
+                        <p>2022</p>
+                        <img src="./hinhanh/chungnhanc++.png" alt="Chứng chỉ C++" class="certificate-image">
+                    </div>
+                    <div class="entry">
+                        <h3>AWS Certified Developer - Associate</h3>
+                        <p>Amazon Web Services</p>
+                        <p>2023</p>
+                    </div>
+                </section>
+
+                <section id="social-media" class="social-media">
+                    <h2><i class="fas fa-share-alt"></i> Kết nối mạng xã hội</h2>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/in/dangthanhduy/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="https://github.com/dangthanhduy0862" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="https://www.facebook.com/dangthanhduy0862" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
     </div>
     <script src="cv3.js"></script>
 </body>
