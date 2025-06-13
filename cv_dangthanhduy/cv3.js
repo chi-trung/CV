@@ -69,4 +69,42 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add any interactive features here
     console.log('CV page loaded');
+});
+
+// Theme Toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const themeCheckbox = document.getElementById('checkbox');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+        themeCheckbox.checked = (savedTheme === 'dark-mode');
+    } else {
+        // Default to light mode if no preference is saved
+        body.classList.remove('dark-mode');
+        themeCheckbox.checked = false;
+    }
+
+    themeCheckbox.addEventListener('change', () => {
+        if (themeCheckbox.checked) {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+        } else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light-mode');
+        }
+    });
+});
+
+// Smooth scroll for side menu links
+document.querySelectorAll('.side-menu a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 }); 

@@ -5,31 +5,141 @@
 }
 
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #34495e;
-    --accent-color: #3498db;
-    --text-color: #333;
-    --light-bg: #f4f4f4;
-    --white: #ffffff;
+    --primary-color: #2c7a9c; /* Deep blue for headings */
+    --secondary-color: #3a9eb8; /* Medium blue for secondary elements */
+    --accent-color: #4ecdc4; /* Turquoise for accents */
+    --text-color: #2c3e50; /* Dark blue-grey for text */
+    --light-bg: #e8f4f8; /* Light blue background */
+    --white: #f5f9fa; /* Off-white with blue tint */
+    --dark-bg: #121212;
     --shadow: 0 2px 15px rgba(0,0,0,0.1);
     --transition: all 0.3s ease;
+    --hover-transition: all 0.2s ease;
+    --bg-color: var(--light-bg);
+    --card-bg: var(--white);
+    --purple-gradient: linear-gradient(135deg, #2c7a9c, #4ecdc4);
+    --glow-shadow: 0 0 15px rgba(78, 205, 196, 0.4);
+    
+    /* Added for consistent button colors */
+    --button-primary-bg: var(--accent-color);
+    --button-primary-hover-bg: #3dbeb6;
+    --button-secondary-bg: #a0a8ad; /* Grey for GitHub */
+    --button-secondary-hover-bg: #b5bdc2;
+    --button-success-bg: #66c285; /* Green for download */
+    --button-success-hover-bg: #66b88a;
+
+    /* RGB values for rgba */
+    --accent-color-rgb: 78, 205, 196;
+}
+
+/* Dark Galaxy (Dark Mode) Variables */
+body.dark-mode {
+    --primary-color: #00e5ff; /* Neon cyan for headings */
+    --secondary-color: #00b8d4; /* Bright cyan for secondary elements */
+    --accent-color: #00ffd5; /* Neon turquoise for accents */
+    --text-color: #e0f7fa; /* Light cyan for text */
+    --light-bg: #001a2c; /* Deep blue background */
+    --white: #002b3d; /* Darker blue for cards */
+    --shadow: 0 2px 15px rgba(0,0,0,0.4);
+    --bg-color: var(--light-bg);
+    --card-bg: var(--white);
+
+    /* Added for consistent button colors in dark mode */
+    --button-primary-bg: var(--accent-color);
+    --button-primary-hover-bg: #00e6c3;
+    --button-secondary-bg: #006064; /* Dark cyan for GitHub */
+    --button-secondary-hover-bg: #00838f;
+    --button-success-bg: #00bfa5;
+    --button-success-hover-bg: #00e0c3;
+
+    /* RGB values for rgba */
+    --accent-color-rgb: 0, 255, 213;
 }
 
 body {
     font-family: 'Inter', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--light-bg);
+    background: linear-gradient(135deg, #e8f4f8 0%, #d1e8f0 25%, #2c7a9c 50%, #4ecdc4 75%, #c4e9d3 100%); /* Blue-green galaxy gradient */
+    background-size: 400% 400%;
+    animation: gradientBackground 15s ease infinite;
+    transition: background 0.6s ease, color var(--transition);
+}
+
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body.dark-mode {
+    background: linear-gradient(135deg, #001a2c 0%, #002b3d 25%, #00363d 50%, #004d4d 75%, #006064 100%); /* Deep blue to cyan galaxy gradient */
+    background-size: 400% 400%;
+    animation: gradientBackground 15s ease infinite;
+}
+
+/* Add subtle star effect */
+body.dark-mode::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #00e5ff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #00ffd5, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 50px 160px, #00b8d4, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, #00e5ff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 130px 80px, #00ffd5, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 160px 120px, #00b8d4, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure content stays above star effect */
+body.dark-mode .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Add glow effect to headings in dark mode */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+/* Add subtle glow to cards in dark mode */
+body.dark-mode section {
+    box-shadow: 0 0 20px rgba(0, 184, 212, 0.2);
+}
+
+/* Add glow to buttons in dark mode */
+body.dark-mode .project-link,
+body.dark-mode .back-to-cv,
+body.dark-mode .view-project-link {
+    box-shadow: 0 0 15px rgba(0, 255, 213, 0.3);
+}
+
+body.dark-mode .project-link:hover,
+body.dark-mode .back-to-cv:hover,
+body.dark-mode .view-project-link:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 213, 0.5);
 }
 
 .container {
     max-width: 1000px;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: var(--white);
+    background-color: var(--card-bg);
     box-shadow: var(--shadow);
     border-radius: 15px;
     animation: fadeIn 0.5s ease-in;
+    transition: background-color var(--transition), box-shadow var(--transition);
 }
 
 @keyframes fadeIn {
@@ -43,6 +153,7 @@ header {
     padding-bottom: 1rem;
     border-bottom: 2px solid #eee;
     position: relative;
+    border-color: var(--secondary-color);
 }
 
 .avatar-container {
@@ -55,14 +166,20 @@ header {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+    background: var(--purple-gradient); /* Use a more specific galaxy gradient for avatar */
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(107, 115, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), var(--glow-shadow); /* Keep glow for avatar */
     overflow: hidden;
     padding: 10px;
+    transition: var(--transition);
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), var(--glow-shadow);
 }
 
 .status {
@@ -72,7 +189,7 @@ header {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 3px solid var(--white);
+    border: 3px solid var(--dark-bg);
     z-index: 2;
 }
 
@@ -81,7 +198,7 @@ header {
 }
 
 .status.away {
-    background-color: #f39c12;
+    background-color: #f39c12; /* Keep for clear status */
 }
 
 .status.offline {
@@ -92,7 +209,7 @@ header {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
 }
 
 .card-details {
@@ -100,7 +217,7 @@ header {
     justify-content: center;
     gap: 2rem;
     margin-top: 1.5rem;
-    color: var(--secondary-color);
+    color: var(--text-color);
     font-size: 1.1rem;
 }
 
@@ -108,68 +225,54 @@ header {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: var(--secondary-color);
+    transition: color var(--transition);
 }
 
 .card-details i {
     color: var(--accent-color);
     font-size: 1.3rem;
+    transition: color var(--transition);
 }
 
 header::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 2px;
-    background: var(--accent-color);
 }
 
-h1 {
+h1, h2, h3 {
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-size: 2.5rem;
-    font-weight: 700;
+    transition: color var(--transition);
 }
 
 .title {
     color: var(--secondary-color);
-    font-size: 1.2rem;
-    font-weight: 500;
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: color var(--transition);
 }
 
 section {
+    animation: slideIn 0.4s ease-out forwards;
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: var(--white);
+    background: var(--card-bg);
     border-radius: 10px;
     box-shadow: var(--shadow);
-    transition: var(--transition);
+    transition: background var(--transition), box-shadow var(--transition);
 }
 
 section:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 h2 {
-    color: var(--primary-color);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #eee;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     position: relative;
 }
 
 h2::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background: var(--accent-color);
 }
 
 .entry {
@@ -180,32 +283,42 @@ h2::after {
 }
 
 .entry:hover {
-    background: rgba(52, 152, 219, 0.05);
+    background: rgba(var(--accent-color-rgb), 0.08); /* Use rgba for consistent tint based on accent */
 }
 
 .project-entry {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    transition: var(--transition);
+}
+
+.project-entry:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .project-image {
     width: 100%;
-    max-height: 250px; /* Limit image height */
+    max-height: 250px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
 .certificate-image {
     width: 100%;
-    max-width: 300px; /* Adjust as needed */
+    max-width: 300px;
     height: auto;
     border-radius: 8px;
     margin-top: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
 .certificate-image:hover {
@@ -217,7 +330,7 @@ h2::after {
     max-width: 900px;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: var(--white);
+    background-color: var(--light-bg);
     box-shadow: var(--shadow);
     border-radius: 15px;
     animation: fadeIn 0.5s ease-in;
@@ -226,11 +339,11 @@ h2::after {
 .project-detail-image {
     width: 100%;
     height: auto;
-    max-height: 500px; /* Limit main image height if needed */
-    object-fit: contain; /* Ensure entire image is visible, no cropping */
+    max-height: 500px;
+    object-fit: contain;
     border-radius: 10px;
     margin-bottom: 1.5rem;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
 .project-detail-title {
@@ -253,14 +366,14 @@ h2::after {
 }
 
 .inline-project-image {
-    display: block; /* Make it a block element to control margins */
-    max-width: 40%; /* Reduce image size to 40% of container width */
-    height: auto; /* Preserve aspect ratio */
-    object-fit: contain; /* Ensure entire image is visible without cropping */
-    float: right; /* Float image to the right */
-    margin: 0 0 1rem 1.5rem; /* Add margin to separate from text */
+    display: block;
+    max-width: 40%;
+    height: auto;
+    object-fit: contain;
+    float: right;
+    margin: 0 0 1rem 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
 /* Add clearfix to prevent text wrapping issues */
@@ -288,30 +401,77 @@ h2::after {
     font-weight: 600;
     text-decoration: none;
     transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2), var(--glow-shadow);
+    background-color: var(--button-primary-bg);
+    color: var(--white);
 }
 
 .project-link:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.02);
     box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    background-color: var(--button-primary-hover-bg);
 }
 
 .download-link {
-    background-color: #28a745;
+    background-color: var(--button-success-bg);
     color: var(--white);
 }
 
 .download-link:hover {
-    background-color: #218838;
+    background-color: var(--button-success-hover-bg);
 }
 
 .github-link {
-    background-color: #333;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
     color: var(--white);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.github-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
 }
 
 .github-link:hover {
-    background-color: #555;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.github-link:hover::before {
+    left: 100%;
+}
+
+/* Dark mode specific styles for GitHub link */
+body.dark-mode .github-link {
+    background: linear-gradient(135deg, #00b8d4, #00e5ff);
+    box-shadow: 0 4px 15px rgba(0, 184, 212, 0.3);
+}
+
+body.dark-mode .github-link:hover {
+    background: linear-gradient(135deg, #00e5ff, #00b8d4);
+    box-shadow: 0 6px 20px rgba(0, 184, 212, 0.5);
+}
+
+body.dark-mode .github-link::before {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
 }
 
 .project-link i {
@@ -321,16 +481,18 @@ h2::after {
 .back-to-cv {
     display: inline-block;
     padding: 0.8rem 1.5rem;
-    background-color: var(--accent-color);
+    background-color: var(--button-primary-bg);
     color: var(--white);
     text-decoration: none;
     border-radius: 8px;
     transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .back-to-cv:hover {
-    background-color: #2980b9;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    background-color: var(--button-primary-hover-bg);
 }
 
 .view-project-link {
@@ -338,26 +500,70 @@ h2::after {
     align-items: center;
     gap: 0.5rem;
     margin-top: 1rem;
-    padding: 0.6rem 1.2rem;
-    background-color: var(--accent-color);
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
     color: var(--white);
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: var(--transition);
-    font-weight: 500;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.view-project-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
 }
 
 .view-project-link:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+.view-project-link:hover::before {
+    left: 100%;
 }
 
 .view-project-link i {
     margin-left: 0.3rem;
+    font-size: 1.1rem;
+}
+
+/* Dark mode specific styles for view project link */
+body.dark-mode .view-project-link {
+    background: linear-gradient(135deg, #00ffd5, #00e5ff);
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+}
+
+body.dark-mode .view-project-link:hover {
+    background: linear-gradient(135deg, #00e5ff, #00ffd5);
+    box-shadow: 0 6px 20px rgba(0, 229, 255, 0.5);
+}
+
+body.dark-mode .view-project-link::before {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
 }
 
 h3 {
-    color: var(--secondary-color);
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
 }
@@ -394,13 +600,20 @@ li::before {
     padding: 0.8rem 1.5rem;
     background: var(--light-bg);
     border-radius: 25px;
-    transition: var(--transition);
+    transition: background var(--transition), color var(--transition), transform var(--hover-transition), box-shadow var(--hover-transition);
+    color: var(--text-color);
+    font-weight: 500;
 }
 
 .contact-info li:hover {
     background: var(--accent-color);
     color: var(--white);
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.contact-info li::before {
+    content: none; /* Remove the bullet itself */
 }
 
 .skills ul {
@@ -411,15 +624,24 @@ li::before {
 
 .skills li {
     background: var(--light-bg);
-    padding: 1rem;
+    padding: 1.2rem;
     border-radius: 8px;
-    transition: var(--transition);
+    transition: background var(--transition), color var(--transition);
+    color: var(--text-color);
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100px; /* Adjust as needed for consistent height */
 }
 
 .skills li:hover {
-    background: var(--accent-color);
-    color: var(--white);
-    transform: translateX(5px);
+    background: var(--light-bg); /* Giữ nguyên màu nền khi hover */
+    color: var(--text-color); /* Giữ nguyên màu chữ khi hover */
+    transform: none; /* Xóa hiệu ứng transform */
+    box-shadow: none; /* Xóa hiệu ứng bóng đổ */
 }
 
 .main-layout {
@@ -430,7 +652,7 @@ li::before {
 }
 
 .side-menu {
-    background-color: var(--white);
+    background-color: var(--card-bg);
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: var(--shadow);
@@ -438,6 +660,7 @@ li::before {
     top: 2rem; /* Stick to top with some margin */
     align-self: start; /* Align to the start of the grid area */
     height: fit-content; /* Adjust height to content */
+    transition: background-color var(--transition), box-shadow var(--transition);
 }
 
 .side-menu ul {
@@ -464,13 +687,15 @@ li::before {
     gap: 0.8rem;
     padding: 0.8rem 1rem;
     border-radius: 8px;
-    transition: var(--transition);
+    transition: color var(--transition);
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .side-menu a:hover {
     background-color: var(--accent-color);
     color: var(--white);
-    transform: translateX(5px);
+    transform: translateX(5px) translateY(-3px) scale(1.02);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.25);
 }
 
 .side-menu a i {
@@ -518,53 +743,74 @@ li::before {
 
 @media (max-width: 768px) {
     .container {
-        margin: 1rem;
+        margin: 0.5rem;
         padding: 1rem;
     }
     
     .main-layout {
-        grid-template-columns: 1fr; /* Single column for mobile */
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .side-menu {
-        position: static; /* Remove sticky behavior on mobile */
-        width: 100%;
-        margin-bottom: 1.5rem; /* Add some space below the menu */
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--white);
+        padding: 1rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     .side-menu ul {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
         gap: 0.5rem;
-    }
-
-    .side-menu li {
-        margin-bottom: 0;
+        justify-content: center;
     }
 
     .side-menu a {
-        padding: 0.6rem 1rem;
+        padding: 0.5rem 0.8rem;
         font-size: 0.9rem;
+        white-space: nowrap;
     }
 
     .side-menu a i {
-        display: none; /* Hide icons on mobile menu to save space */
+        display: inline-block;
+        margin-right: 0.3rem;
     }
 
     .contact-info ul {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
     }
     
     .skills ul {
         grid-template-columns: 1fr;
+        gap: 0.8rem;
     }
 
-    .back-to-home {
+    .project-entry {
+        padding: 1rem;
+    }
+
+    .project-image {
+        max-height: 200px;
+    }
+
+    .social-media ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .social-media a {
+        justify-content: center;
+        padding: 0.8rem;
+    }
+
+    .theme-toggle {
         top: 15px;
-        left: 15px;
+        right: 15px;
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
@@ -576,7 +822,7 @@ li::before {
     top: 20px;
     left: 20px;
     z-index: 100;
-    background: rgba(52, 152, 219, 0.2);
+    background: rgba(var(--accent-color-rgb), 0.2);
     backdrop-filter: blur(10px);
     border-radius: 50%;
     width: 50px;
@@ -588,14 +834,14 @@ li::before {
     font-size: 1.5rem;
     text-decoration: none;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    transition: var(--hover-transition);
 }
 
 .back-to-home:hover {
     background: var(--accent-color);
     color: var(--white);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .social-media ul {
@@ -628,18 +874,270 @@ li::before {
     color: var(--primary-color);
     text-decoration: none;
     border-radius: 25px;
-    transition: var(--transition);
+    transition: background-color var(--transition), color var(--transition), transform var(--hover-transition), box-shadow var(--hover-transition);
     font-weight: 500;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
 .social-media a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     background-color: var(--accent-color);
     color: var(--white);
 }
 
 .social-media a .fab {
     font-size: 1.2rem;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+section:nth-child(2) { animation-delay: 0.1s; }
+section:nth-child(3) { animation-delay: 0.2s; }
+section:nth-child(4) { animation-delay: 0.3s; }
+section:nth-child(5) { animation-delay: 0.4s; }
+section:nth-child(6) { animation-delay: 0.5s; }
+section:nth-child(7) { animation-delay: 0.6s; }
+section:nth-child(8) { animation-delay: 0.7s; }
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove bullets from specific sections */
+#skills ul,
+#experience ul,
+#education ul,
+#projects ul {
+    list-style: none;
+    margin-left: 0; /* Adjust margin if needed */
+    padding-left: 0; /* Adjust padding if needed */
+}
+
+#skills ul li,
+#experience ul li,
+#education ul li,
+#projects ul li {
+    padding-left: 0; /* Remove padding for bullet */
+}
+
+#skills ul li::before,
+#experience ul li::before,
+#education ul li::before,
+#projects ul li::before {
+    content: none; /* Remove the bullet itself */
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    background: var(--card-bg);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    background: var(--accent-color);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Adjust icons for dark mode */
+body.dark-mode .theme-toggle .fa-moon {
+    display: none;
+}
+
+body:not(.dark-mode) .theme-toggle .fa-sun {
+    display: none;
+}
+
+.theme-toggle .fa-sun {
+    color: #f39c12; /* Sun icon color */
+}
+
+.theme-toggle .fa-moon {
+    color: #34495e; /* Moon icon color */
+}
+
+.theme-switch-wrapper {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(var(--accent-color-rgb), 0.2); /* Track color in light mode, lighter tint */
+    transition: 0.4s;
+    border-radius: 34px;
+    box-shadow: var(--shadow);
+}
+
+.slider:before { /* Sun icon as thumb */
+    position: absolute;
+    content: '\f185'; /* Sun icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--accent-color); /* Thumb color in light mode, matches accent */
+    color: var(--white); /* Sun icon color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s, opacity 0.4s, background-color 0.4s, color 0.4s; /* Added color transition */
+    font-size: 1.1rem;
+    opacity: 1; /* Visible in light mode */
+    transform: translateX(0); /* Left position in light mode */
+}
+
+.slider:after { /* Moon icon (fixed on right side) */
+    position: absolute;
+    content: '\f186'; /* Moon icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    height: 26px;
+    width: 26px;
+    left: calc(100% - 26px - 4px); /* Position on the right */
+    bottom: 4px;
+    background-color: transparent;
+    color: var(--primary-color); /* Moon icon color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s, color 0.4s; /* Added color transition */
+    font-size: 1.1rem;
+    opacity: 0; /* Hidden by default */
+    transform: translateX(0); /* Stays fixed on right */
+}
+
+input:checked + .slider {
+    background-color: var(--secondary-color); /* Track color in dark mode */
+}
+
+input:checked + .slider:before { /* Sun icon (thumb) when checked (dark mode) */
+    transform: translateX(calc(100% - 26px - 8px)); /* Move thumb to the right */
+    opacity: 0; /* Sun disappears */
+    background-color: var(--white); /* Thumb color in dark mode, which is dark purple */
+    color: var(--primary-color); /* Sun icon color in dark mode */
+}
+
+input:checked + .slider:after { /* Moon icon when checked (dark mode) */
+    opacity: 1; /* Moon appears */
+    color: var(--primary-color); /* Moon icon color in dark mode */
+}
+
+/* Media query for mobile adjustments */
+@media (max-width: 768px) {
+    .theme-switch-wrapper {
+        top: 15px;
+        right: 15px;
+    }
+
+    .theme-switch {
+        width: 50px;
+        height: 28px;
+    }
+
+    .slider:before,
+    .slider:after {
+        height: 20px;
+        width: 20px;
+        left: 4px;
+        bottom: 4px;
+        font-size: 0.9rem;
+    }
+    
+    .slider:after { /* Moon icon on mobile */
+        left: calc(100% - 20px - 4px); /* Adjust for mobile width */
+    }
+
+    input:checked + .slider:before { /* Sun icon (and thumb) on mobile */
+        transform: translateX(calc(100% - 20px - 8px)); /* Move thumb to the right on mobile */
+    }
+
+    input:checked + .slider:after { /* Moon icon on mobile */
+        opacity: 1;
+    }
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: transparent;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: background-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+footer p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.heart {
+    color: #e74c3c; /* Red heart */
+}
+
+.purple-heart {
+    color: #8e44ad; /* Purple heart */
+}
+
+/* Dark mode adjustments for footer */
+body.dark-mode footer {
+    background-color: transparent;
+    color: var(--text-color);
 } 

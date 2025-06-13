@@ -10,14 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="cv3-style.css"> <!-- Reuse existing style -->
     <style>
+        body {
+            transition: background-color var(--transition), color var(--transition);
+        }
         .project-detail-container {
             max-width: 900px;
             margin: 2rem auto;
             padding: 2rem;
-            background-color: var(--white);
+            background-color: var(--card-bg);
             box-shadow: var(--shadow);
             border-radius: 15px;
             animation: fadeIn 0.5s ease-in;
+            transition: background-color var(--transition), box-shadow var(--transition);
         }
         .project-detail-image {
             width: 100%;
@@ -30,37 +34,46 @@
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
+            transition: color var(--transition);
         }
         .project-detail-tech {
             color: var(--accent-color);
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
+            transition: color var(--transition);
         }
         .project-detail-description {
             font-size: 1.1rem;
             line-height: 1.8;
             color: var(--text-color);
             margin-bottom: 2rem;
+            transition: color var(--transition);
         }
         .back-to-cv {
             display: inline-block;
             padding: 0.8rem 1.5rem;
-            background-color: var(--accent-color);
+            background-color: var(--button-primary-bg);
             color: var(--white);
             text-decoration: none;
             border-radius: 8px;
             transition: var(--transition);
         }
         .back-to-cv:hover {
-            background-color: #2980b9;
+            background-color: var(--button-primary-hover-bg);
             transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
     <a href="../index.html" class="back-to-home" title="Quay lại trang chủ">
-        <i class="fas fa-arrow-left"></i>
+        <i class="fas fa-home"></i>
     </a>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+    </div>
     <div class="project-detail-container">
         <img src="./hinhanh/thc.png" alt="Travel Homestay Camping" class="project-detail-image">
         
@@ -80,5 +93,9 @@
         </div>
         <a href="cv3.html" class="back-to-cv"><i class="fas fa-arrow-left"></i> Quay lại CV</a>
     </div>
+    <script src="cv3.js"></script>
+    <footer>
+        <p>&copy; 2025 Đặng Thanh Duy</p>
+    </footer>
 </body>
 </html> 
