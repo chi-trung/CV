@@ -19,7 +19,7 @@
         <i class="fas fa-moon"></i>
     </button>
     <div class="bg-animation"></div>
-    
+
     <div class="container">
         <!-- Header -->
         <header class="header">
@@ -49,7 +49,7 @@
         <!-- Main Content -->
         <main class="main-content">
             <!-- About Section -->
-            <section class="card full-width-card">
+            <section id="about" class="card full-width-card">
                 <h2 class="card-title">
                     <i class="fas fa-user-tie"></i>
                     Giới thiệu bản thân
@@ -64,7 +64,7 @@
             </section>
 
             <!-- Skills Section -->
-            <section class="card">
+            <section id="skills" class="card">
                 <h2 class="card-title">
                     <i class="fas fa-cogs"></i>
                     Kỹ năng chuyên môn
@@ -141,73 +141,81 @@
                 </div>
                 <div class="section-divider"></div>
                 <!-- Certifications & Awards Section heading -->
-                <h2 class="card-title">
-                    <i class="fas fa-award"></i>
-                    Chứng Chỉ - Giải thưởng
-                </h2>
-                <!-- New frame for "Không có" content -->
-                <div class="award-content-box">
-                    <p class="about-text">Không có</p>
-                </div>
+                <section id="certifications" class="card">
+                    <h2 class="card-title">
+                        <i class="fas fa-award"></i>
+                        Chứng Chỉ - Giải thưởng
+                    </h2>
+                    <!-- New frame for "Không có" content -->
+                    <div class="award-content-box">
+                        <p class="about-text">Không có</p>
+                    </div>
+                </section>
             </section>
 
             <!-- Projects Section -->
-            <section class="card">
+            <section id="projects" class="card">
                 <h2 class="card-title">
                     <i class="fas fa-project-diagram"></i>
                     Dự án nổi bật
                 </h2>
                 <div class="project">
                     <img src="./images/travel1.jpg" alt="Hệ thống đặt chỗ du lịch" class="project-image">
-                    <h3 class="project-title">🏨 Hệ thống đặt chỗ du lịch trực tuyến</h3>
-                    <p class="project-tech">Java • Spring Boot • MySQL • HTML/CSS/JS</p>
-                    <p class="project-description">
-                        Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, 
-                        tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện.
-                    </p>
-                    <a href="#" class="project-link view-project-details"
-                       data-image="./images/travel2.jpg"
-                       data-title="Hệ thống đặt chỗ du lịch trực tuyến"
-                       data-description="Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện."
-                       data-github="https://github.com/DangTDuy/Travel---Homestay-Camping-Booking-Application-">
-                        Xem chi tiết <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <div class="project-info">
+                        <h3 class="project-title">🏨 Hệ thống đặt chỗ du lịch trực tuyến</h3>
+                        <p class="project-tech">Java • Spring Boot • MySQL • HTML/CSS/JS</p>
+                        <p class="project-description">
+                            Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, 
+                            tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện.
+                        </p>
+                        <a href="#" class="project-link view-project-details"
+                           data-image="./images/travel2.jpg"
+                           data-title="Hệ thống đặt chỗ du lịch trực tuyến"
+                           data-description="Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện."
+                           data-github="https://github.com/DangTDuy/Travel---Homestay-Camping-Booking-Application-">
+                            Xem chi tiết <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="project">
                     <img src="./images/caulong1.jpg" alt="Ứng dụng quản lý sân cầu lông" class="project-image">
-                    <h3 class="project-title">🏸 Ứng dụng quản lý sân cầu lông</h3>
-                    <p class="project-tech">Python • Django • HTML/CSS • JavaScript</p>
-                    <p class="project-description">
-                        Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. 
-                        Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến.
-                    </p>
-                    <a href="#" class="project-link view-project-details"
-                       data-image="./images/caulong2.jpg"
-                       data-title="Ứng dụng quản lý sân cầu lông"
-                       data-description="Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến."
-                       data-github="https://github.com/Minh2005tv/Nhom.1">
-                        Xem chi tiết <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <div class="project-info">
+                        <h3 class="project-title">🏸 Ứng dụng quản lý sân cầu lông</h3>
+                        <p class="project-tech">Python • Django • HTML/CSS • JavaScript</p>
+                        <p class="project-description">
+                            Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. 
+                            Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến.
+                        </p>
+                        <a href="#" class="project-link view-project-details"
+                           data-image="./images/caulong2.jpg"
+                           data-title="Ứng dụng quản lý sân cầu lông"
+                           data-description="Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến."
+                           data-github="https://github.com/Minh2005tv/Nhom.1">
+                            Xem chi tiết <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="project">
                     <img src="./images/quanlinguoidung.png" alt="Quản lí người dùng" class="project-image">
-                    <h3 class="project-title">👨‍💻 Quản lí người dùng</h3>
-                    <p class="project-tech">Java • HTML • JavaScript• Spring Boot</p>
-                    <p class="project-description">
-                        Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng.
-                    </p>
-                    <a href="#" class="project-link view-project-details"
-                       data-image="./images/quanlinguoidung2.png"
-                       data-title="Quản lí người dùng"
-                       data-description="Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng."
-                       data-github="https://github.com/chi-trung/baitap">
-                        Xem chi tiết <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <div class="project-info">
+                        <h3 class="project-title">👨‍💻 Quản lí người dùng</h3>
+                        <p class="project-tech">Java • HTML • JavaScript• Spring Boot</p>
+                        <p class="project-description">
+                            Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng.
+                        </p>
+                        <a href="#" class="project-link view-project-details"
+                           data-image="./images/quanlinguoidung2.png"
+                           data-title="Quản lí người dùng"
+                           data-description="Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng."
+                           data-github="https://github.com/chi-trung/baitap">
+                            Xem chi tiết <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
                 </div>
             </section>
 
             <!-- Education Section -->
-            <section class="card">
+            <section id="education" class="card">
                 <h2 class="card-title">
                     <i class="fas fa-graduation-cap"></i>
                     Học vấn
@@ -220,7 +228,7 @@
             </section>
 
             <!-- Hobbies Section -->
-            <section class="card">
+            <section id="hobbies" class="card">
                 <h2 class="card-title">
                     <i class="fas fa-heart"></i>
                     Sở thích cá nhân
@@ -255,30 +263,29 @@
         </main>
 
         <!-- Contact Section -->
-        <section class="card full-width-card">
-    <h2 class="card-title">
-        <i class="fas fa-handshake"></i>
-        Kết nối với tôi
-    </h2>
-    <p style="text-align: center; margin-bottom: 1rem; color: var(--text-secondary);">
-        Hãy kết nối với tôi qua các kênh mạng xã hội để cùng thảo luận về công nghệ!
-    </p>
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/trung-nguy%E1%BB%85n-ch%C3%AD-2520112b7/" class="social-link" title="LinkedIn" target="_blank">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/chi-trung" class="social-link" title="GitHub" target="_blank">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.facebook.com/sutuhobaocu" class="social-link" title="Facebook" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com/nguyenchitrung85/" class="social-link" title="Instagram" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-    </div>
-</section>
-
+        <section id="contact" class="card full-width-card">
+            <h2 class="card-title">
+                <i class="fas fa-handshake"></i>
+                Kết nối với tôi
+            </h2>
+            <p style="text-align: center; margin-bottom: 1rem; color: var(--text-secondary);">
+                Hãy kết nối với tôi qua các kênh mạng xã hội để cùng thảo luận về công nghệ!
+            </p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/trung-nguy%E1%BB%85n-ch%C3%AD-2520112b7/" class="social-link" title="LinkedIn" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/chi-trung" class="social-link" title="GitHub" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.facebook.com/sutuhobaocu" class="social-link" title="Facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/nguyenchitrung85/" class="social-link" title="Instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </section>
 
         <!-- Footer -->
         <footer class="footer">
