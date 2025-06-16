@@ -90,91 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Enhanced Project Modal
-    const projectModal = document.getElementById('projectModal');
-    const closeButton = document.querySelector('.close-button');
-    const modalImage = document.getElementById('modalImage');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDescription = document.getElementById('modalDescription');
-    const modalGithubLink = document.getElementById('modalGithubLink');
-    const viewDetailButtons = document.querySelectorAll('.view-project-details');
-
-    // Add parallax effect to modal image
-    modalImage.addEventListener('mousemove', (e) => {
-        const { left, top, width, height } = modalImage.getBoundingClientRect();
-        const x = (e.clientX - left) / width;
-        const y = (e.clientY - top) / height;
-        
-        modalImage.style.transform = `
-            perspective(1000px)
-            rotateY(${(x - 0.5) * 10}deg)
-            rotateX(${(y - 0.5) * -10}deg)
-            scale3d(1.05, 1.05, 1.05)
-        `;
-    });
-
-    modalImage.addEventListener('mouseleave', () => {
-        modalImage.style.transform = 'none';
-    });
-
-    viewDetailButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const image = this.getAttribute('data-image');
-            const title = this.getAttribute('data-title');
-            const description = this.getAttribute('data-description');
-            const githubLink = this.getAttribute('data-github');
-
-            // Fade in modal
-            projectModal.style.display = 'flex';
-            projectModal.style.opacity = '0';
-            
-            // Load content with delay
-            setTimeout(() => {
-                modalImage.src = image;
-                modalTitle.textContent = title;
-                modalDescription.textContent = description;
-                modalGithubLink.href = githubLink;
-                
-                // Fade in content
-                projectModal.style.opacity = '1';
-            }, 100);
-        });
-    });
-
-    // Xử lý sự kiện cho nút GitHub
-    modalGithubLink.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent default behavior temporarily
-        const githubUrl = this.href; // Store the URL
-        
-        // Open GitHub link in new tab
-        window.open(githubUrl, '_blank');
-        
-        // Close modal after a short delay
-        setTimeout(() => {
-            projectModal.style.opacity = '0';
-            setTimeout(() => {
-                projectModal.style.display = 'none';
-            }, 300);
-        }, 100);
-    });
-
-    closeButton.addEventListener('click', function() {
-        projectModal.style.opacity = '0';
-        setTimeout(() => {
-            projectModal.style.display = 'none';
-        }, 300);
-    });
-
-    window.addEventListener('click', function(event) {
-        if (event.target == projectModal) {
-            projectModal.style.opacity = '0';
-            setTimeout(() => {
-                projectModal.style.display = 'none';
-            }, 300);
-        }
-    });
-
     // Add scroll reveal animation
     const revealElements = document.querySelectorAll('.card, .project, .skill-category');
     const revealObserver = new IntersectionObserver((entries) => {
@@ -213,5 +128,54 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('theme', 'dark-mode');
             themeToggle.querySelector('i').classList.replace('fa-sun', 'fa-moon');
         }
+    });
+
+    // Add image zoom functionality (for cv2.html)
+    const imageModal = document.getElementById('imageModal');
+    const closeModal = document.getElementById('closeModal');
+
+    // Add click event to all project images
+    document.querySelectorAll('.project-image').forEach(img => {
+        img.addEventListener('click', function() {
+            imageModal.style.display = 'flex';
+            modalImage.src = this.src;
+        });
+    });
+
+    // Close modal when clicking the close button
+    closeModal.addEventListener('click', function() {
+        imageModal.style.display = 'none';
+    });
+
+    // Close modal when clicking outside the image
+    imageModal.addEventListener('click', function(e) {
+        if (e.target === imageModal) {
+            imageModal.style.display = 'none';
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && imageModal.style.display === 'flex') {
+            imageModal.style.display = 'none';
+        }
+    });
+
+    // Back to Top Button Logic
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) { // Show button after scrolling 300px
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 }); 
