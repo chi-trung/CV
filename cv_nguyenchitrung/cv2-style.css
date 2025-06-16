@@ -18,6 +18,15 @@
     --card-hover-transform: translateY(-10px);
     --card-hover-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
     --menu-gap: 20px;
+
+    /* Card Specific Styles - Dark Mode */
+    --modern-card-bg: var(--card-bg);
+    --animated-card-back-fill: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05), transparent);
+    --animated-card-badge-bg: rgba(0, 0, 0, 0.3);
+    --animated-card-description-bg: rgba(0, 0, 0, 0.6);
+    --book-hobby-content-h3-color: #4ECDC4;
+    --book-cover-bg: var(--card-bg);
+    --card-content-overlay-bg: rgba(26, 32, 54, 0.7); /* Slightly more opaque for text */
 }
 
 /* Light Mode Variables - Only override what's different */
@@ -31,6 +40,15 @@
     --border-color: rgba(0, 0, 0, 0.15);
     --shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     --glow: 0 0 15px rgba(255, 107, 107, 0.3);
+
+    /* Card Specific Styles - Light Mode Overrides */
+    --modern-card-bg: var(--card-bg);
+    --animated-card-back-fill: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05), transparent);
+    --animated-card-badge-bg: rgba(255, 255, 255, 0.3);
+    --animated-card-description-bg: rgba(255, 255, 255, 0.6);
+    --book-hobby-content-h3-color: #2C3E50;
+    --book-cover-bg: var(--card-bg);
+    --card-content-overlay-bg: rgba(255, 255, 255, 0.7); /* Slightly more opaque for text */
 }
 
 * {
@@ -580,6 +598,13 @@ body {
     }
     .education-grid {
         grid-template-columns: 1fr; /* Một cột trên màn hình nhỏ */
+    }
+    .hobbies-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .book {
+        height: 250px;
     }
 }
 
@@ -1177,49 +1202,112 @@ body.menu-collapsed .container {
 /* Hobbies Section Styles */
 .hobbies-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
 }
 
-.hobby-card {
-    background: var(--glass-bg);
+/* Style for the flipping card container */
+.book {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    transform-style: preserve-3d; /* Enables 3D space for children */
+    perspective: 1500px; /* Creates the 3D depth effect */
     border-radius: 15px;
-    padding: 1.5rem;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(10px);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden; /* Ensures content stays within rounded corners */
 }
 
-.hobby-card h3 {
-    font-size: 1.4rem;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
+/* Common styles for front and back faces */
+.hobby-content, .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    gap: 0.8rem;
+    align-items: center;
+    padding: 1.5rem;
+    text-align: center;
+    backface-visibility: hidden; /* Hides the back of the element when flipped */
+    border-radius: 15px; /* Match parent border-radius */
+    transition: transform 0.6s ease; /* Smooth flip transition */
 }
 
-.hobby-details {
-    margin-top: 1rem;
+/* Front face styles */
+.hobby-content {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for text */
+    z-index: 2; /* Ensures content is above the image */
+    transform: rotateY(0deg); /* Default state: front facing */
 }
 
-.hobby-details p {
+.book-hobby-image-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    z-index: 1; /* Below the hobby-content overlay */
+    filter: brightness(0.7) blur(1px); /* Blurred and darkened image */
+    backface-visibility: hidden;
+    transform: rotateY(0deg); /* Flips with the content */
+    transition: transform 0.6s ease;
+}
+
+.hobby-content h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.hobby-content p {
+    color: white;
+    font-size: 1rem;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Back face styles */
+.cover {
+    background-color: var(--card-bg); /* Opaque background for the back face */
+    color: var(--text-primary);
+    z-index: 3; /* Ensures it's on top when flipped */
+    transform: rotateY(180deg); /* Initial state: flipped away */
+}
+
+.cover h3 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cover p {
     color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-size: 1rem;
 }
 
-/* Dark mode specific adjustments for hobby-card */
-[data-theme="dark"] .hobby-card {
-    border-color: rgba(255, 255, 255, 0.15);
+/* Hover effect for flipping */
+.book:hover .hobby-content, .book:hover .book-hobby-image-front {
+    transform: rotateY(-180deg); /* Flip the front face and image away */
 }
 
-.light-mode .hobby-card {
-    border-color: rgba(0, 0, 0, 0.15);
+.book:hover .cover {
+    transform: rotateY(0deg); /* Bring the back face to the front */
+}
+
+@media (max-width: 768px) {
+    .hobbies-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .book {
+        height: 250px;
+    }
 }
 
 /* Education Section */
@@ -1230,6 +1318,12 @@ body.menu-collapsed .container {
     box-shadow: var(--shadow);
     border: 1px solid var(--border-color);
     backdrop-filter: blur(10px);
+}
+
+.education-card:hover::before {
+    opacity: 1;
+    visibility: visible;
+    top: -45px;
 }
 
 .education-header {
@@ -1264,7 +1358,6 @@ body.menu-collapsed .container {
 }
 
 .education-item {
-    /* Loại bỏ các kiểu dáng cũ */
     display: block;
     gap: unset;
     background: unset;
@@ -1315,159 +1408,103 @@ body.menu-collapsed .container {
     }
 }
 
-/* Social Links */
-.social-links {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin-top: 1.5rem;
-    gap: 1.5rem;
-}
-
-.social-links li a {
-    font-size: 2.2rem;
-    color: var(--text-secondary);
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-links li a:hover {
-    color: var(--primary-color);
-    transform: translateY(-5px) scale(1.1);
-}
-
-.light-mode .social-links li a {
-    color: #4A5568;
-}
-
-.light-mode .social-links li a:hover {
-    color: #4299E1;
-}
-
-/* Social Media Icons */
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 .example-2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .example-2 .icon-content {
-    margin: 0 10px;
-    position: relative;
+  margin: 0 10px;
+  position: relative;
 }
-
 .example-2 .icon-content .tooltip {
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 5px;
-    opacity: 0;
-    visibility: hidden;
-    font-size: 14px;
-    transition: all 0.3s ease;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
-
 .example-2 .icon-content:hover .tooltip {
-    opacity: 1;
-    visibility: visible;
-    top: -50px;
+  opacity: 1;
+  visibility: visible;
+  top: -50px;
 }
-
 .example-2 .icon-content a {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    color: #4d4d4d;
-    background-color: #fff;
-    transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #4d4d4d;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
 }
-
 .example-2 .icon-content a:hover {
-    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
 }
-
 .example-2 .icon-content a svg {
-    position: relative;
-    z-index: 1;
-    width: 30px;
-    height: 30px;
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
 }
-
 .example-2 .icon-content a:hover {
-    color: white;
+  color: white;
 }
-
 .example-2 .icon-content a .filled {
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    background-color: #000;
-    transition: all 0.3s ease-in-out;
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
 }
-
 .example-2 .icon-content a:hover .filled {
-    height: 100%;
+  height: 100%;
 }
 
 .example-2 .icon-content a[data-social="linkedin"] .filled,
 .example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
-    background-color: #0274b3;
+  background-color: #0274b3;
 }
 
 .example-2 .icon-content a[data-social="github"] .filled,
 .example-2 .icon-content a[data-social="github"] ~ .tooltip {
-    background-color: #24262a;
+  background-color: #24262a;
 }
-
 .example-2 .icon-content a[data-social="instagram"] .filled,
 .example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
-    background: linear-gradient(
-        45deg,
-        #405de6,
-        #5b51db,
-        #b33ab4,
-        #c135b4,
-        #e1306c,
-        #fd1f1f
-    );
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5b51db,
+    #b33ab4,
+    #c135b4,
+    #e1306c,
+    #fd1f1f
+  );
+}
+.example-2 .icon-content a[data-social="youtube"] .filled,
+.example-2 .icon-content a[data-social="youtube"] ~ .tooltip {
+  background-color: #ff0000;
 }
 
 .example-2 .icon-content a[data-social="facebook"] .filled,
 .example-2 .icon-content a[data-social="facebook"] ~ .tooltip {
-    background-color: #1877f2;
-}
-
-/* Remove old social media styles */
-#SocailIcons,
-.icons,
-.iconName,
-.icons.instaIcon:hover .iconName,
-.icons.linkedin:hover .iconName,
-.icons.whatsapp:hover .iconName,
-.icons.youtube:hover .iconName,
-.icon,
-.icon:hover,
-.icon::before,
-.icon:hover::before,
-.icon:hover,
-.icon.tube::before,
-.icon.insta::before,
-.icon.link::before,
-.icon.whats::before {
-    display: none;
+  background-color: #3b5998; /* Facebook blue */
 }
