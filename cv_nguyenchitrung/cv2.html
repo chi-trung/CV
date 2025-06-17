@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV của Nguyễn Chí Trung - Fullstack Developer</title>
-    <meta name="description" content="Portfolio của Nguyễn Chí Trung - Fullstack Developer với kinh nghiệm về Java, Spring Boot, Python và Django">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +18,9 @@
         <i class="fas fa-moon"></i>
     </button>
     <div class="bg-animation"></div>
-
+    <div class="rocket-animation">
+        <img src="https://cdn-icons-png.flaticon.com/128/1969/1969118.png" alt="Satellite" class="rocket-icon">
+    </div>
     <div class="container">
         <!-- Header -->
         <header class="header">
@@ -30,21 +31,35 @@
             </div>
             <h1 class="name">Nguyễn Chí Trung</h1>
             <p class="role">Fullstack Developer</p>
+        </header>
+
+        <!-- Personal Contact Section -->
+        <section>
+            <h2 class="card-title">
+                <img src="https://cdn-icons-png.flaticon.com/128/3771/3771518.png" alt="Contact Info Icon" class="card-title-icon">
+                Thông tin liên hệ
+            </h2>
             <div class="contact-info">
                 <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>nguyenchitrung2702@gmail.com</span>
+                    <div class="tooltip-container">
+                        <img src="https://cdn-icons-png.flaticon.com/128/5968/5968534.png" alt="Email Icon">
+                        <span>nguyenchitrung2702@gmail.com</span>
+                    </div>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+84 338 708 330</span>
+                    <div class="tooltip-container">
+                        <img src="https://cdn-icons-png.flaticon.com/128/9946/9946341.png" alt="Phone Icon">
+                        <span>+84 338 708 330</span>
+                    </div>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Đồng Tháp</span>
+                    <div class="tooltip-container">
+                        <img src="https://cdn-icons-png.flaticon.com/128/1865/1865269.png" alt="Location Icon">
+                        <span>Cao Lãnh, Đồng Tháp</span>
+                    </div>
                 </div>
             </div>
-        </header>
+        </section>
 
         <!-- Navigation Bar -->
         <nav class="navbar">
@@ -87,19 +102,19 @@
                         <div class="skill-bars">
                             <div class="skill-item">
                                 <span>Java</span>
-                                <div class="progress-bar progress-bar-languages"><div class="progress" data-level="85"></div></div>
+                                <div class="progress-bar progress-bar-languages"><div class="progress" data-level="85"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
                                 <span>Python</span>
-                                <div class="progress-bar progress-bar-languages"><div class="progress" data-level="80"></div></div>
+                                <div class="progress-bar progress-bar-languages"><div class="progress" data-level="80"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
                                 <span>JavaScript</span>
-                                <div class="progress-bar progress-bar-languages"><div class="progress" data-level="75"></div></div>
+                                <div class="progress-bar progress-bar-languages"><div class="progress" data-level="75"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
                                 <span>C++</span>
-                                <div class="progress-bar progress-bar-languages"><div class="progress" data-level="70"></div></div>
+                                <div class="progress-bar progress-bar-languages"><div class="progress" data-level="70"><span class="progress-percent"></span></div></div>
                             </div>
                         </div>
                     </div>
@@ -108,19 +123,19 @@
                         <div class="skill-bars">
                             <div class="skill-item">
                                 <span>Spring Boot</span>
-                                <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="85"></div></div>
+                                <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="85"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
                                 <span>Laravel</span>
-                                <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="75"></div></div>
+                                <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="75"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
                                 <span>Django</span>
-                                <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="80"></div></div>
+                                <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="80"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
                                 <span>Bootstrap</span>
-                                <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="75"></div></div>
+                                <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="75"><span class="progress-percent"></span></div></div>
                             </div>
                         </div>
                     </div>
@@ -129,15 +144,15 @@
                         <div class="skill-bars">
                             <div class="skill-item">
                                 <span>MySQL</span>
-                                <div class="progress-bar progress-bar-database"><div class="progress" data-level="90"></div></div>
+                                <div class="progress-bar progress-bar-database"><div class="progress" data-level="90"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
                                 <span>PostgreSQL</span>
-                                <div class="progress-bar progress-bar-database"><div class="progress" data-level="85"></div></div>
+                                <div class="progress-bar progress-bar-database"><div class="progress" data-level="85"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
                                 <span>MongoDB</span>
-                                <div class="progress-bar progress-bar-database"><div class="progress" data-level="75"></div></div>
+                                <div class="progress-bar progress-bar-database"><div class="progress" data-level="75"><span class="progress-percent"></span></div></div>
                             </div>
                         </div>
                     </div>
@@ -146,15 +161,15 @@
                         <div class="skill-bars">
                             <div class="skill-item">
                                 <span>Git</span>
-                                <div class="progress-bar"><div class="progress" data-level="70"></div></div>
+                                <div class="progress-bar"><div class="progress" data-level="70"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
                                 <span>Docker</span>
-                                <div class="progress-bar"><div class="progress" data-level="65"></div></div>
+                                <div class="progress-bar"><div class="progress" data-level="65"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
                                 <span>RESTful API</span>
-                                <div class="progress-bar"><div class="progress" data-level="80"></div></div>
+                                <div class="progress-bar"><div class="progress" data-level="80"><span class="progress-percent"></span></div></div>
                             </div>
                         </div>
                     </div>
@@ -178,45 +193,53 @@
                     <i class="fas fa-project-diagram"></i>
                     Dự án nổi bật
                 </h2>
-                <div class="project">
-                    <img src="./images/travel2.jpg" alt="Hệ thống đặt chỗ du lịch" class="project-image">
-                    <div class="project-info">
-                        <h3 class="project-title">🏨 Hệ thống đặt chỗ du lịch trực tuyến</h3>
-                        <p class="project-tech">Java • Spring Boot • MySQL • HTML/CSS/JS</p>
-                        <p class="project-description">
-                            Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, 
-                            tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện.
-                        </p>
-                        <a href="projectdetail.html?title=Hệ thống đặt chỗ du lịch trực tuyến&tech=Java • Spring Boot • MySQL • HTML/CSS/JS&description=Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện.&github=https://github.com/DangTDuy/Travel---Homestay-Camping-Booking-Application-&demo=&images=./images/travel1.jpg,./images/travel2.jpg" class="project-link">
-                            Xem chi tiết <i class="fas fa-external-link-alt"></i>
-                        </a>
+                <div class="projects-list">
+                    <div class="project">
+                        <img src="./images/travel2.jpg" alt="Hệ thống đặt chỗ du lịch" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">🏨 Hệ thống đặt chỗ du lịch trực tuyến</h3>
+                            <p class="project-tech">Java • Spring Boot • MySQL • HTML/CSS/JS</p>
+                            <p class="project-description">
+                                Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, 
+                                tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện.
+                            </p>
+                            <button class="btn project-link" type="button" data-href="projectdetail.html?title=Hệ thống đặt chỗ du lịch trực tuyến&tech=Java • Spring Boot • MySQL • HTML/CSS/JS&description=Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện.&github=https://github.com/DangTDuy/Travel---Homestay-Camping-Booking-Application-&demo=&images=./images/travel1.jpg,./images/travel2.jpg">
+                                <strong>Xem chi tiết</strong>
+                                <div id="container-stars"><div id="stars"></div></div>
+                                <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="project">
-                    <img src="./images/caulong1.jpg" alt="Ứng dụng quản lý sân cầu lông" class="project-image">
-                    <div class="project-info">
-                        <h3 class="project-title">🏸 Ứng dụng quản lý sân cầu lông</h3>
-                        <p class="project-tech">Python • Django • HTML/CSS • JavaScript</p>
-                        <p class="project-description">
-                            Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. 
-                            Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến.
-                        </p>
-                        <a href="projectdetail.html?title=Ứng dụng quản lý sân cầu lông&tech=Python • Django • HTML/CSS • JavaScript&description=Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến.&github=https://github.com/Minh2005tv/Nhom.1&demo=&images=./images/caulong1.jpg,./images/caulong2.jpg" class="project-link">
-                            Xem chi tiết <i class="fas fa-external-link-alt"></i>
-                        </a>
+                    <div class="project">
+                        <img src="./images/caulong1.jpg" alt="Ứng dụng quản lý sân cầu lông" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">🏸 Ứng dụng quản lý sân cầu lông</h3>
+                            <p class="project-tech">Python • Django • HTML/CSS • JavaScript</p>
+                            <p class="project-description">
+                                Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. 
+                                Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến.
+                            </p>
+                            <button class="btn project-link" type="button" data-href="projectdetail.html?title=Ứng dụng quản lý sân cầu lông&tech=Python • Django • HTML/CSS • JavaScript&description=Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến.&github=https://github.com/Minh2005tv/Nhom.1&demo=&images=./images/caulong1.jpg,./images/caulong2.jpg">
+                                <strong>Xem chi tiết</strong>
+                                <div id="container-stars"><div id="stars"></div></div>
+                                <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="project">
-                    <img src="./images/quanlinguoidung2.png" alt="Quản lí người dùng" class="project-image">
-                    <div class="project-info">
-                        <h3 class="project-title">👨‍💻 Quản lí người dùng</h3>
-                        <p class="project-tech">Java • HTML • JavaScript• Spring Boot</p>
-                        <p class="project-description">
-                            Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng.
-                        </p>
-                        <a href="projectdetail.html?title=Quản lí người dùng&tech=Java • HTML • JavaScript• Spring Boot&description=Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng.&github=https://github.com/chi-trung/baitap&demo=&images=./images/quanlinguoidung.png,./images/quanlinguoidung2.png" class="project-link">
-                            Xem chi tiết <i class="fas fa-external-link-alt"></i>
-                        </a>
+                    <div class="project">
+                        <img src="./images/quanlinguoidung2.png" alt="Quản lí người dùng" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">👨‍💻 Quản lí người dùng</h3>
+                            <p class="project-tech">Java • HTML • JavaScript• Spring Boot</p>
+                            <p class="project-description">
+                                Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng.
+                            </p>
+                            <button class="btn project-link" type="button" data-href="projectdetail.html?title=Quản lí người dùng&tech=Java • HTML • JavaScript• Spring Boot&description=Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng.&github=https://github.com/chi-trung/baitap&demo=&images=./images/quanlinguoidung.png,./images/quanlinguoidung2.png">
+                                <strong>Xem chi tiết</strong>
+                                <div id="container-stars"><div id="stars"></div></div>
+                                <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -395,6 +418,7 @@
         <!-- Footer -->
         <footer class="footer">
             <p>&copy; 2025 Nguyễn Chí Trung. Khám phá và Sáng tạo.</p>
+            <p class="last-updated">Cập nhật lần cuối: <span id="last-updated-date">20/05/2024</span></p>
         </footer>
     </div>
 

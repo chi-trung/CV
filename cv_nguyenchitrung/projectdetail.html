@@ -305,7 +305,8 @@
 
         // Add click event to all project images
         document.querySelectorAll('.project-image').forEach(img => {
-            img.addEventListener('click', function() {
+            img.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default navigation
                 modal.style.display = 'flex';
                 modalImg.src = this.src;
             });

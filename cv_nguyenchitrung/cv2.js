@@ -178,4 +178,30 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
+
+    // Thêm sự kiện click cho nút project-link SPACE
+    document.querySelectorAll('.btn.project-link').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const href = this.getAttribute('data-href');
+            if (href) window.location.href = href;
+        });
+    });
+
+    // Add progress bar percentage
+    document.querySelectorAll('.progress').forEach(function(bar) {
+        var percent = bar.getAttribute('data-level');
+        var percentSpan = bar.querySelector('.progress-percent');
+        if(percentSpan && percent) {
+            percentSpan.textContent = percent + '%';
+        }
+    });
+
+    const contactItems = document.querySelectorAll('.contact-item');
+    setTimeout(() => {
+        contactItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add('animate-in');
+            }, index * 100); // 100ms delay between each item
+        });
+    }, 1000); // 1000ms (1 second) delay before the animation starts
 }); 
