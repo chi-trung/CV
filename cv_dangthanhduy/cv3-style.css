@@ -783,13 +783,17 @@ body.dark-mode .contact-social-icons a:hover {
     margin-top: 2rem;
 }
 
+.menu-toggle {
+    display: none; /* Hidden by default on larger screens */
+}
+
 .side-menu {
     background-color: var(--card-bg);
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: var(--shadow);
     position: sticky;
-    top: 2rem; /* Stick to top with some margin */
+    top: 0; /* Reverted to original value */
     align-self: start; /* Align to the start of the grid area */
     height: fit-content; /* Adjust height to content */
     transition: background-color var(--transition), box-shadow var(--transition);
@@ -1008,12 +1012,64 @@ body.dark-mode .side-menu a.side-menu-active-pulse i {
     }
 
     .side-menu {
-        width: 100%;
-        padding-right: 0;
-        margin-bottom: 1.5rem;
-        display: flex; /* Make it a flex container */
-        flex-wrap: wrap; /* Allow items to wrap */
-        justify-content: flex-start; /* Changed from center to flex-start */
+        display: none; /* Hide menu by default on small screens */
+        position: fixed;
+        top: 90px; /* Adjusted spacing */
+        top: 50vh; /* Adjusted to be closer to the middle of the screen */
+        left: 0;
+        height: 100%;
+        width: 250px;
+        z-index: 1000;
+        background-color: var(--card-bg);
+        padding-top: 60px; /* Space for the toggle button */
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+        transform: translateX(-100%); /* Start off-screen */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .side-menu.active {
+        display: block; /* Show menu when active */
+        transform: translateX(0); /* Slide in */
+    }
+
+    /* Hide menu toggle when menu is active */
+    body.menu-open .menu-toggle {
+        display: none;
+    }
+
+    body.menu-open .back-to-home {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block; /* Show toggle button on small screens */
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1001;
+        background: rgba(var(--accent-color-rgb), 0.2);
+        backdrop-filter: blur(10px);
+        color: var(--primary-color);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: var(--hover-transition);
+    }
+
+    .main-layout {
+        grid-template-columns: 1fr; /* Stack content on small screens */
+        padding-left: 0; /* Remove padding for menu */
+    }
+
+    .main-content {
+        padding-top: 80px; /* Adjust content padding to avoid overlap with toggle */
     }
 
     .side-menu ul {
@@ -1095,8 +1151,8 @@ body.dark-mode .side-menu a.side-menu-active-pulse i {
     }
 
     .slider:after { /* Moon icon on mobile */
-        right: 4px; /* Ensure moon icon stays on the right */
-        left: auto; /* Override left property */
+        right: 4px; /* Position from the right */
+        bottom: 4px;
     }
 
     input:checked + .slider:before { /* Sun icon (and thumb) on mobile */
@@ -1104,7 +1160,7 @@ body.dark-mode .side-menu a.side-menu-active-pulse i {
     }
 
     input:checked + .slider:after { /* Moon icon on mobile */
-        transform: translateX(-26px); /* Move moon to the left */
+        transform: translate(25px, -50%) rotate(0deg);
     }
 }
 
@@ -1312,7 +1368,7 @@ html {
     top: 20px;
     right: 20px;
     z-index: 100;
-    background: var(--card-bg);
+    background: #a0a0a0; /* Darker background for light mode toggle */
     color: var(--primary-color);
     border: none;
     border-radius: 50%;
@@ -1323,15 +1379,21 @@ html {
     justify-content: center;
     font-size: 1.5rem;
     cursor: pointer;
-    box-shadow: var(--shadow);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Reduced blur for sharper look */
     transition: var(--transition);
 }
 
 .theme-toggle:hover {
     background: var(--accent-color);
     color: var(--white);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    animation: shake 0.5s infinite;
+}
+
+.theme-toggle:active {
+    transform: none; /* Reset transform */
+    box-shadow: none; /* Reset shadow */
 }
 
 /* Adjust icons for dark mode */
@@ -1378,7 +1440,7 @@ body:not(.dark-mode) .theme-toggle .fa-sun {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(var(--accent-color-rgb), 0.2); /* Track color in light mode, lighter tint */
+    background-color: rgba(var(--accent-color-rgb), 0.5); /* Track color in light mode, darker tint */
     transition: 0.4s;
     border-radius: 34px;
     box-shadow: var(--shadow);
@@ -1391,7 +1453,7 @@ body:not(.dark-mode) .theme-toggle .fa-sun {
     font-weight: 900;
     height: 26px;
     width: 26px;
-    left: 4px;
+    left: 4px; /* Start on the left */
     bottom: 4px;
     background-color: var(--accent-color); /* Thumb color in light mode, matches accent */
     color: var(--white); /* Sun icon color */
@@ -1399,31 +1461,32 @@ body:not(.dark-mode) .theme-toggle .fa-sun {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.4s, opacity 0.4s, background-color 0.4s, color 0.4s; /* Added color transition */
+    transition: transform 0.4s, opacity 0.4s, background-color 0.4s, color 0.4s;
     font-size: 1.1rem;
     opacity: 1; /* Visible in light mode */
-    transform: translateX(0); /* Left position in light mode */
+    transform: translateX(0); /* No initial translation */
 }
 
-.slider:after { /* Moon icon (fixed on right side) */
+.slider:after { /* Moon icon */
     position: absolute;
     content: '\f186'; /* Moon icon */
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     height: 26px;
     width: 26px;
-    left: calc(100% - 26px - 4px); /* Position on the right */
+    right: 4px; /* Fixed position on the right */
     bottom: 4px;
     background-color: transparent;
     color: var(--primary-color); /* Moon icon color */
     border-radius: 50%;
-    display: flex;
+    display: flex; /* Always display flex */
     align-items: center;
     justify-content: center;
-    transition: opacity 0.4s, color 0.4s; /* Added color transition */
+    transition: opacity 0.4s, color 0.4s, transform 0.4s; /* Add transform to transition */
     font-size: 1.1rem;
     opacity: 0; /* Hidden by default */
-    transform: translateX(0); /* Stays fixed on right */
+    left: 4px; /* Ensure it starts at the same base position as the sun */
+    transform: translateX(0); /* No initial translation */
 }
 
 input:checked + .slider {
@@ -1439,6 +1502,7 @@ input:checked + .slider:before { /* Sun icon (thumb) when checked (dark mode) */
 
 input:checked + .slider:after { /* Moon icon when checked (dark mode) */
     opacity: 1; /* Moon appears */
+    transform: translateX(calc(100% - 26px - 8px)); /* Move to the same position as the thumb */
     color: var(--primary-color); /* Moon icon color in dark mode */
 }
 
@@ -1464,7 +1528,8 @@ input:checked + .slider:after { /* Moon icon when checked (dark mode) */
     }
     
     .slider:after { /* Moon icon on mobile */
-        left: calc(100% - 20px - 4px); /* Adjust for mobile width */
+        right: 4px; /* Position from the right on mobile */
+        transform: translateX(0); /* No initial translation on mobile */
     }
 
     input:checked + .slider:before { /* Sun icon (and thumb) on mobile */
@@ -1473,6 +1538,7 @@ input:checked + .slider:after { /* Moon icon when checked (dark mode) */
 
     input:checked + .slider:after { /* Moon icon on mobile */
         opacity: 1;
+        transform: translateX(calc(100% - 20px - 8px)); /* Move to the same position as the thumb on mobile */
     }
 }
 
@@ -1672,4 +1738,52 @@ section.fade-in {
 
 body.dark-mode section.fade-in {
     animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Responsive adjustments for menu (added at the end) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show toggle button on small screens */
+        position: fixed;
+        top: 70px; /* Adjusted to avoid overlap with other buttons */
+        left: 20px;
+        z-index: 1001;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        box-shadow: var(--shadow);
+    }
+
+    .side-menu {
+        display: none; /* Hide menu by default on small screens */
+        position: fixed;
+        top: 0; /* Reverted to original value */
+        left: 0;
+        height: 100%;
+        width: 250px;
+        z-index: 1000;
+        background-color: var(--card-bg);
+        padding-top: 60px; /* Space for the toggle button */
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+        transform: translateX(-100%); /* Start off-screen */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .side-menu.active {
+        display: block; /* Show menu when active */
+        transform: translateX(0); /* Slide in */
+    }
+
+    .main-layout {
+        grid-template-columns: 1fr; /* Stack content on small screens */
+        padding-left: 0; /* Remove padding for menu */
+    }
+
+    .main-content {
+        padding-top: 80px; /* Adjust content padding to avoid overlap with toggle */
+    }
 } 
