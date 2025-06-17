@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./cv2-style.css">
+    <link rel="stylesheet" href="./circular-progress.css">
 </head>
 <body>
     <a href="../index.html" class="back-button" title="Quay lại trang tổng quan">
@@ -101,19 +102,19 @@
                         <h4>Ngôn ngữ lập trình</h4>
                         <div class="skill-bars">
                             <div class="skill-item">
-                                <span>Java</span>
+                                <span><img src="https://cdn-icons-png.flaticon.com/128/226/226777.png" alt="Java icon" class="skill-icon">Java</span>
                                 <div class="progress-bar progress-bar-languages"><div class="progress" data-level="85"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
-                                <span>Python</span>
+                                <span><img src="https://cdn-icons-png.flaticon.com/128/5968/5968350.png" alt="Python icon" class="skill-icon">Python</span>
                                 <div class="progress-bar progress-bar-languages"><div class="progress" data-level="80"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
-                                <span>JavaScript</span>
+                                <span><img src="https://cdn-icons-png.flaticon.com/128/5968/5968292.png" alt="JavaScript icon" class="skill-icon">JavaScript</span>
                                 <div class="progress-bar progress-bar-languages"><div class="progress" data-level="75"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
-                                <span>C++</span>
+                                <span><img src="https://cdn-icons-png.flaticon.com/128/6132/6132222.png" alt="C++ icon" class="skill-icon">C++</span>
                                 <div class="progress-bar progress-bar-languages"><div class="progress" data-level="70"><span class="progress-percent"></span></div></div>
                             </div>
                         </div>
@@ -122,19 +123,19 @@
                         <h4>Framework / Thư viện</h4>
                         <div class="skill-bars">
                             <div class="skill-item">
-                                <span>Spring Boot</span>
+                                <span><img src="https://img.icons8.com/?size=100&id=90519&format=png&color=000000" alt="Spring Boot icon" class="skill-icon">Spring Boot</span>
                                 <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="85"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
-                                <span>Laravel</span>
+                                <span><img src="https://cdn.worldvectorlogo.com/logos/laravel-3.svg" alt="Laravel icon" class="skill-icon">Laravel</span>
                                 <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="75"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
-                                <span>Django</span>
+                                <span><img src="https://www.svgrepo.com/show/353657/django-icon.svg" alt="Django icon" class="skill-icon">Django</span>
                                 <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="80"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
-                                <span>Bootstrap</span>
+                                <span><img src="https://cdn-icons-png.flaticon.com/128/5968/5968672.png" alt="Bootstrap icon" class="skill-icon">Bootstrap</span>
                                 <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="75"><span class="progress-percent"></span></div></div>
                             </div>
                         </div>
@@ -144,15 +145,51 @@
                         <div class="skill-bars">
                             <div class="skill-item">
                                 <span>MySQL</span>
-                                <div class="progress-bar progress-bar-database"><div class="progress" data-level="90"><span class="progress-percent"></span></div></div>
+                                <div class="circular-progress-container" data-level="90">
+                                    <svg class="circular-progress" viewBox="0 0 100 100">
+                                        <defs>
+                                            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" stop-color="#4ECDC4" />
+                                                <stop offset="100%" stop-color="#45B7D1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle class="circular-progress-bg" cx="50" cy="50" r="40"></circle>
+                                        <circle class="circular-progress-bar" cx="50" cy="50" r="40"></circle>
+                                    </svg>
+                                    <span class="circular-progress-percent"></span>
+                                </div>
                             </div>
                             <div class="skill-item">
                                 <span>PostgreSQL</span>
-                                <div class="progress-bar progress-bar-database"><div class="progress" data-level="85"><span class="progress-percent"></span></div></div>
+                                <div class="circular-progress-container" data-level="85">
+                                    <svg class="circular-progress" viewBox="0 0 100 100">
+                                        <defs>
+                                            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" stop-color="#4ECDC4" />
+                                                <stop offset="100%" stop-color="#45B7D1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle class="circular-progress-bg" cx="50" cy="50" r="40"></circle>
+                                        <circle class="circular-progress-bar" cx="50" cy="50" r="40"></circle>
+                                    </svg>
+                                    <span class="circular-progress-percent"></span>
+                                </div>
                             </div>
                             <div class="skill-item">
                                 <span>MongoDB</span>
-                                <div class="progress-bar progress-bar-database"><div class="progress" data-level="75"><span class="progress-percent"></span></div></div>
+                                <div class="circular-progress-container" data-level="75">
+                                    <svg class="circular-progress" viewBox="0 0 100 100">
+                                        <defs>
+                                            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" stop-color="#4ECDC4" />
+                                                <stop offset="100%" stop-color="#45B7D1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle class="circular-progress-bg" cx="50" cy="50" r="40"></circle>
+                                        <circle class="circular-progress-bar" cx="50" cy="50" r="40"></circle>
+                                    </svg>
+                                    <span class="circular-progress-percent"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -161,15 +198,51 @@
                         <div class="skill-bars">
                             <div class="skill-item">
                                 <span>Git</span>
-                                <div class="progress-bar"><div class="progress" data-level="70"><span class="progress-percent"></span></div></div>
+                                <div class="circular-progress-container" data-level="70">
+                                    <svg class="circular-progress" viewBox="0 0 100 100">
+                                        <defs>
+                                            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" stop-color="#4ECDC4" />
+                                                <stop offset="100%" stop-color="#45B7D1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle class="circular-progress-bg" cx="50" cy="50" r="40"></circle>
+                                        <circle class="circular-progress-bar" cx="50" cy="50" r="40"></circle>
+                                    </svg>
+                                    <span class="circular-progress-percent"></span>
+                                </div>
                             </div>
                             <div class="skill-item">
                                 <span>Docker</span>
-                                <div class="progress-bar"><div class="progress" data-level="65"><span class="progress-percent"></span></div></div>
+                                <div class="circular-progress-container" data-level="65">
+                                    <svg class="circular-progress" viewBox="0 0 100 100">
+                                        <defs>
+                                            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" stop-color="#4ECDC4" />
+                                                <stop offset="100%" stop-color="#45B7D1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle class="circular-progress-bg" cx="50" cy="50" r="40"></circle>
+                                        <circle class="circular-progress-bar" cx="50" cy="50" r="40"></circle>
+                                    </svg>
+                                    <span class="circular-progress-percent"></span>
+                                </div>
                             </div>
                             <div class="skill-item">
                                 <span>RESTful API</span>
-                                <div class="progress-bar"><div class="progress" data-level="80"><span class="progress-percent"></span></div></div>
+                                <div class="circular-progress-container" data-level="80">
+                                    <svg class="circular-progress" viewBox="0 0 100 100">
+                                        <defs>
+                                            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" stop-color="#4ECDC4" />
+                                                <stop offset="100%" stop-color="#45B7D1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle class="circular-progress-bg" cx="50" cy="50" r="40"></circle>
+                                        <circle class="circular-progress-bar" cx="50" cy="50" r="40"></circle>
+                                    </svg>
+                                    <span class="circular-progress-percent"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -432,5 +505,6 @@
     </button>
 
     <script src="./cv2.js"></script>
+    <script src="./circular-progress.js"></script>
 </body>
 </html>

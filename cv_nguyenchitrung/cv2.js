@@ -1,9 +1,24 @@
+let isUserClickScrolling = false;
+
 // Add interactive effects
 document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-links li a'); // Ensure navLinks is accessible
+    const sections = document.querySelectorAll('section[id]'); // Ensure sections is accessible
+
     // Smooth scrolling with easing
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
+
+            // Set the flag to true
+            isUserClickScrolling = true;
+
+            // Immediately highlight the clicked link
+            navLinks.forEach(link => { // Use the already defined navLinks
+                link.classList.remove('active');
+            });
+            this.classList.add('active');
+
             const target = document.querySelector(this.getAttribute('href'));
             const headerOffset = 100;
             const elementPosition = target.getBoundingClientRect().top;
@@ -13,6 +28,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 top: offsetPosition,
                 behavior: 'smooth'
             });
+
+            // After a sufficiently long delay, reset the flag.
+            // The scroll event listener will naturally trigger highlightNavLink once isUserClickScrolling is false.
+            setTimeout(() => {
+                isUserClickScrolling = false;
+                // No direct call to highlightNavLink here.
+            }, 800); // Adjust delay as needed, 800ms is a safe bet for smooth scroll
         });
     });
 
@@ -47,48 +69,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Enhanced Skill Bars Animation
     const skillProgressBars = document.querySelectorAll('.progress');
-    if (skillProgressBars.length > 0) {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const skillLevel = entry.target;
-                    const level = skillLevel.dataset.level;
-                    if (level) {
-                        // Animate with easing
-                        let currentWidth = 0;
-                        const targetWidth = parseInt(level);
-                        const duration = 1500; // 1.5 seconds
-                        const startTime = performance.now();
 
-                        function animate(currentTime) {
-                            const elapsed = currentTime - startTime;
-                            const progress = Math.min(elapsed / duration, 1);
-                            
-                            // Easing function
-                            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                            currentWidth = easeOutQuart * targetWidth;
-                            
-                            skillLevel.style.width = currentWidth + '%';
-                            
-                            if (progress < 1) {
-                                requestAnimationFrame(animate);
-                            }
-                        }
+    // Linear Progress Bar Animation Logic
+    const handleLinearProgressIntersection = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillLevel = entry.target;
+                const level = skillLevel.dataset.level;
+                if (level) {
+                    let currentWidth = 0;
+                    const targetWidth = parseInt(level);
+                    const duration = 1500;
+                    const startTime = performance.now();
+
+                    function animateLinearProgress(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                        currentWidth = easeOutQuart * targetWidth;
+                        skillLevel.style.width = currentWidth + '%'
                         
-                        requestAnimationFrame(animate);
-                    }
-                    observer.unobserve(skillLevel);
-                }
-            });
-        }, { 
-            threshold: 0.5,
-            rootMargin: '0px 0px -50px 0px'
-        });
+                        const percentSpan = skillLevel.querySelector('.progress-percent');
+                        if (percentSpan) {
+                            percentSpan.textContent = `${Math.round(currentWidth)}%`;
+                        }
 
-        skillProgressBars.forEach(bar => {
-            observer.observe(bar);
+                        if (progress < 1) {
+                            requestAnimationFrame(animateLinearProgress);
+                        }
+                    }
+                    requestAnimationFrame(animateLinearProgress);
+                }
+                observer.unobserve(entry.target);
+            }
         });
-    }
+    };
+
+    // Create Intersection Observer for linear progress
+    const linearProgressObserver = new IntersectionObserver(handleLinearProgressIntersection, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Observe linear progress bars
+    skillProgressBars.forEach(bar => {
+        linearProgressObserver.observe(bar);
+    });
 
     // Add scroll reveal animation
     const revealElements = document.querySelectorAll('.card, .project, .skill-category');
@@ -187,15 +213,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add progress bar percentage
-    document.querySelectorAll('.progress').forEach(function(bar) {
-        var percent = bar.getAttribute('data-level');
-        var percentSpan = bar.querySelector('.progress-percent');
-        if(percentSpan && percent) {
-            percentSpan.textContent = percent + '%';
-        }
-    });
-
     const contactItems = document.querySelectorAll('.contact-item');
     setTimeout(() => {
         contactItems.forEach((item, index) => {
@@ -204,4 +221,61 @@ document.addEventListener('DOMContentLoaded', function() {
             }, index * 100); // 100ms delay between each item
         });
     }, 1000); // 1000ms (1 second) delay before the animation starts
+
+    // Menu Active State
+    // navLinks and sections are already defined at the top of DOMContentLoaded
+    
+    // Highlight active section in menu
+    function highlightNavLink() {
+        // Only update based on scroll if not currently scrolling due to a user click
+        if (isUserClickScrolling) {
+            return; // Skip update if a click-initiated scroll is ongoing
+        }
+
+        const scrollY = window.pageYOffset;
+        const headerOffset = 100; // Consistent with smooth scroll offset
+        let activeSectionId = null;
+
+        // Remove 'active' class from all nav links
+        // IMPORTANT: Only remove if the current active link is NOT the one that was just clicked
+        // This is handled by the isUserClickScrolling flag.
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+
+        // Determine which section is currently active
+        // Iterate in reverse order to prioritize sections higher up when scrolling down
+        for (let i = sections.length - 1; i >= 0; i--) {
+            const section = sections[i];
+            const sectionTop = section.offsetTop - headerOffset; // Top of section relative to the scrolled position, considering header
+            const sectionBottom = sectionTop + section.offsetHeight;
+
+            // If the current scroll position is within the section's boundaries
+            if (scrollY >= sectionTop && scrollY < sectionBottom) {
+                activeSectionId = section.getAttribute('id');
+                break; // Found the active section
+            }
+        }
+
+        // Special case for the very top of the page
+        // If no section is found active, and we are near the top, activate 'about'
+        if (!activeSectionId && scrollY < 200) { // Threshold for 'near top'
+            activeSectionId = 'about';
+        }
+
+        // Apply the 'active' class to the corresponding nav link
+        if (activeSectionId) {
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === `#${activeSectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    }
+
+    // Call highlightNavLink initially on page load
+    highlightNavLink();
+
+    // Add scroll event listener
+    window.addEventListener('scroll', highlightNavLink);
 }); 
