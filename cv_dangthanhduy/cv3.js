@@ -222,6 +222,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Xử lý phát/tạm dừng nhạc với nút đĩa than
+    const playBtn = document.getElementById('play-music-btn');
+    const audio = document.getElementById('audio-player');
+    if (playBtn && audio) {
+        // Đặt đường dẫn file nhạc tại đây
+        audio.src = './amthanh/thienlyoi.mp3';
+        playBtn.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                playBtn.classList.add('playing');
+            } else {
+                audio.pause();
+                playBtn.classList.remove('playing');
+            }
+        });
+        audio.addEventListener('ended', function() {
+            playBtn.classList.remove('playing');
+        });
+    }
 });
 
 // Function to handle theme toggle for all pages
@@ -294,4 +314,73 @@ document.addEventListener('click', (event) => {
             document.body.classList.remove('menu-open');
         }
     }
+});
+
+// Firefly effect
+function randomBetween(a, b) {
+    return a + Math.random() * (b - a);
+}
+
+function createFirefly() {
+    const firefliesContainer = document.getElementById('fireflies');
+    if (!firefliesContainer) return;
+    const firefly = document.createElement('img');
+    firefly.className = 'firefly';
+    firefly.src = './hinhanh/domdom.png';
+    // Xác định vùng trung tâm màn hình cần loại trừ
+    const centerW = window.innerWidth * 0.6;
+    const centerH = window.innerHeight * 0.7;
+    const centerLeft = (window.innerWidth - centerW) / 2;
+    const centerTop = (window.innerHeight - centerH) / 2;
+    let x, y, tries = 0;
+    do {
+        x = randomBetween(0, window.innerWidth - 32);
+        y = randomBetween(0, window.innerHeight - 32);
+        tries++;
+        // Nếu vị trí nằm ngoài vùng trung tâm thì ok
+        if (x + 32 < centerLeft || x > centerLeft + centerW || y + 32 < centerTop || y > centerTop + centerH) break;
+    } while (tries < 20);
+    firefly.style.left = `${x}px`;
+    firefly.style.top = `${y}px`;
+    firefliesContainer.appendChild(firefly);
+    animateFirefly(firefly);
+}
+
+function animateFirefly(firefly) {
+    const move = () => {
+        const x = randomBetween(0, window.innerWidth - 10);
+        const y = randomBetween(0, window.innerHeight - 10);
+        const duration = randomBetween(4, 10);
+        firefly.style.transition = `transform ${duration}s linear`;
+        firefly.style.transform = `translate(${x - firefly.offsetLeft}px, ${y - firefly.offsetTop}px)`;
+        setTimeout(move, duration * 1000);
+    };
+    move();
+}
+
+// Tạo nhiều đom đóm
+for (let i = 0; i < 5; i++) {
+    createFirefly();
+}
+
+// Hiệu ứng đom đóm bay về vị trí chuột khi rê chuột
+let fireflyTimeout;
+document.addEventListener('mousemove', function(e) {
+    const fireflies = document.querySelectorAll('.firefly');
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    fireflies.forEach(firefly => {
+        // Random một chút quanh vị trí chuột cho tự nhiên
+        const offsetX = randomBetween(-40, 40);
+        const offsetY = randomBetween(-40, 40);
+        firefly.style.transition = 'transform 3s cubic-bezier(.5,1.8,.5,1)';
+        firefly.style.transform = `translate(${mouseX - firefly.offsetLeft + offsetX}px, ${mouseY - firefly.offsetTop + offsetY}px)`;
+    });
+    // Sau 3.5s, đom đóm lại bay tự do
+    clearTimeout(fireflyTimeout);
+    fireflyTimeout = setTimeout(() => {
+        document.querySelectorAll('.firefly').forEach(firefly => {
+            animateFirefly(firefly);
+        });
+    }, 3500);
 }); 
