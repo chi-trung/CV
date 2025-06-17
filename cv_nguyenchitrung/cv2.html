@@ -19,7 +19,7 @@
         <i class="fas fa-moon"></i>
     </button>
     <div class="bg-animation"></div>
-    
+
     <div class="container">
         <!-- Header -->
         <header class="header">
@@ -46,10 +46,22 @@
             </div>
         </header>
 
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#about"><i class="fas fa-user-tie"></i> Giới thiệu</a></li>
+                <li><a href="#skills"><i class="fas fa-cogs"></i> Kỹ năng</a></li>
+                <li><a href="#projects"><i class="fas fa-project-diagram"></i> Dự án</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Học vấn</a></li>
+                <li><a href="#hobbies"><i class="fas fa-heart"></i> Sở thích</a></li>
+                <li><a href="#contact"><i class="fas fa-handshake"></i> Liên hệ</a></li>
+            </ul>
+        </nav>
+
         <!-- Main Content -->
         <main class="main-content">
             <!-- About Section -->
-            <section class="card full-width-card">
+            <section id="about" class="card full-width-card">
                 <h2 class="card-title">
                     <i class="fas fa-user-tie"></i>
                     Giới thiệu bản thân
@@ -64,7 +76,7 @@
             </section>
 
             <!-- Skills Section -->
-            <section class="card">
+            <section id="skills" class="card">
                 <h2 class="card-title">
                     <i class="fas fa-cogs"></i>
                     Kỹ năng chuyên môn
@@ -119,6 +131,14 @@
                                 <span>MySQL</span>
                                 <div class="progress-bar progress-bar-database"><div class="progress" data-level="90"></div></div>
                             </div>
+                            <div class="skill-item">
+                                <span>PostgreSQL</span>
+                                <div class="progress-bar progress-bar-database"><div class="progress" data-level="85"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>MongoDB</span>
+                                <div class="progress-bar progress-bar-database"><div class="progress" data-level="75"></div></div>
+                            </div>
                         </div>
                     </div>
                     <div class="skill-category">
@@ -139,146 +159,238 @@
                         </div>
                     </div>
                 </div>
-                <div class="section-divider"></div>
-                <!-- Certifications & Awards Section heading -->
+            </section>
+
+            <!-- Certifications Section -->
+            <section id="certifications" class="card">
                 <h2 class="card-title">
                     <i class="fas fa-award"></i>
                     Chứng Chỉ - Giải thưởng
                 </h2>
-                <!-- New frame for "Không có" content -->
                 <div class="award-content-box">
                     <p class="about-text">Không có</p>
                 </div>
             </section>
 
             <!-- Projects Section -->
-            <section class="card">
+            <section id="projects" class="card">
                 <h2 class="card-title">
                     <i class="fas fa-project-diagram"></i>
                     Dự án nổi bật
                 </h2>
                 <div class="project">
-                    <img src="./images/travel1.jpg" alt="Hệ thống đặt chỗ du lịch" class="project-image">
-                    <h3 class="project-title">🏨 Hệ thống đặt chỗ du lịch trực tuyến</h3>
-                    <p class="project-tech">Java • Spring Boot • MySQL • HTML/CSS/JS</p>
-                    <p class="project-description">
-                        Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, 
-                        tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện.
-                    </p>
-                    <a href="#" class="project-link view-project-details"
-                       data-image="./images/travel2.jpg"
-                       data-title="Hệ thống đặt chỗ du lịch trực tuyến"
-                       data-description="Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện."
-                       data-github="https://github.com/DangTDuy/Travel---Homestay-Camping-Booking-Application-">
-                        Xem chi tiết <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <img src="./images/travel2.jpg" alt="Hệ thống đặt chỗ du lịch" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">🏨 Hệ thống đặt chỗ du lịch trực tuyến</h3>
+                        <p class="project-tech">Java • Spring Boot • MySQL • HTML/CSS/JS</p>
+                        <p class="project-description">
+                            Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, 
+                            tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện.
+                        </p>
+                        <a href="projectdetail.html?title=Hệ thống đặt chỗ du lịch trực tuyến&tech=Java • Spring Boot • MySQL • HTML/CSS/JS&description=Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện.&github=https://github.com/DangTDuy/Travel---Homestay-Camping-Booking-Application-&demo=&images=./images/travel1.jpg,./images/travel2.jpg" class="project-link">
+                            Xem chi tiết <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="project">
                     <img src="./images/caulong1.jpg" alt="Ứng dụng quản lý sân cầu lông" class="project-image">
-                    <h3 class="project-title">🏸 Ứng dụng quản lý sân cầu lông</h3>
-                    <p class="project-tech">Python • Django • HTML/CSS • JavaScript</p>
-                    <p class="project-description">
-                        Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. 
-                        Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến.
-                    </p>
-                    <a href="#" class="project-link view-project-details"
-                       data-image="./images/caulong2.jpg"
-                       data-title="Ứng dụng quản lý sân cầu lông"
-                       data-description="Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến."
-                       data-github="https://github.com/Minh2005tv/Nhom.1">
-                        Xem chi tiết <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <div class="project-info">
+                        <h3 class="project-title">🏸 Ứng dụng quản lý sân cầu lông</h3>
+                        <p class="project-tech">Python • Django • HTML/CSS • JavaScript</p>
+                        <p class="project-description">
+                            Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. 
+                            Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến.
+                        </p>
+                        <a href="projectdetail.html?title=Ứng dụng quản lý sân cầu lông&tech=Python • Django • HTML/CSS • JavaScript&description=Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến.&github=https://github.com/Minh2005tv/Nhom.1&demo=&images=./images/caulong1.jpg,./images/caulong2.jpg" class="project-link">
+                            Xem chi tiết <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="project">
-                    <img src="./images/quanlinguoidung.png" alt="Quản lí người dùng" class="project-image">
-                    <h3 class="project-title">👨‍💻 Quản lí người dùng</h3>
-                    <p class="project-tech">Java • HTML • JavaScript• Spring Boot</p>
-                    <p class="project-description">
-                        Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng.
-                    </p>
-                    <a href="#" class="project-link view-project-details"
-                       data-image="./images/quanlinguoidung2.png"
-                       data-title="Quản lí người dùng"
-                       data-description="Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng."
-                       data-github="https://github.com/chi-trung/baitap">
-                        Xem chi tiết <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <img src="./images/quanlinguoidung2.png" alt="Quản lí người dùng" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">👨‍💻 Quản lí người dùng</h3>
+                        <p class="project-tech">Java • HTML • JavaScript• Spring Boot</p>
+                        <p class="project-description">
+                            Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng.
+                        </p>
+                        <a href="projectdetail.html?title=Quản lí người dùng&tech=Java • HTML • JavaScript• Spring Boot&description=Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng.&github=https://github.com/chi-trung/baitap&demo=&images=./images/quanlinguoidung.png,./images/quanlinguoidung2.png" class="project-link">
+                            Xem chi tiết <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
                 </div>
             </section>
 
             <!-- Education Section -->
-            <section class="card">
+            <section id="education" class="card">
                 <h2 class="card-title">
                     <i class="fas fa-graduation-cap"></i>
                     Học vấn
                 </h2>
-                <div class="education-item">
-                    <h3 class="education-title">Đại học Giao Thông Vận Tải TP.HCM</h3>
-                    <p class="education-degree">Sinh viên Năm 2 (2023 - Hiện tại)</p>
-                    <p class="education-major">Chuyên ngành: Lập trình Website</p>
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3 class="education-title">Đại học Giao Thông Vận Tải TP.HCM</h3>
+                        <span class="education-period">2023 - Hiện tại</span>
+                    </div>
+                    <div class="education-details">
+                        <div class="education-grid">
+                            <div class="education-item">
+                                <p><strong>MSSV:</strong> 087205007062</p>
+                            </div>
+                            <div class="education-item">
+                                <p><strong>Bậc đào tạo:</strong> Đại học - Chính quy</p>
+                            </div>
+                            <div class="education-item">
+                                <p><strong>GPA:</strong> 3.2/4</p>
+                            </div>
+                            <div class="education-item">
+                                <p><strong>Khóa:</strong> 2023</p>
+                            </div>
+                            <div class="education-item">
+                                <p><strong>Khoa:</strong> Viện Công nghệ Thông tin và Điện, Điện tử</p>
+                            </div>
+                            <div class="education-item">
+                                <p><strong>Ngành:</strong> Công nghệ Thông tin</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- Hobbies Section -->
-            <section class="card">
+            <section id="hobbies" class="card">
                 <h2 class="card-title">
                     <i class="fas fa-heart"></i>
                     Sở thích cá nhân
                 </h2>
                 <div class="hobbies-grid">
-                    <div class="hobby-item">
-                        <i class="fas fa-book-open"></i>
-                        <p>Đọc sách công nghệ</p>
+                    <!-- Đọc sách - Book Effect -->
+                    <div class="book">
+                        <img src="https://images.pexels.com/photos/5608541/pexels-photo-5608541.jpeg" alt="Đọc sách" class="book-hobby-image-front">
+                        <div class="hobby-content">
+                            <h3><i class="fas fa-book-open"></i> Đọc sách</h3>
+                            <p>Đắm mình vào những cuốn sách.</p>
+                        </div>
+                        <div class="cover">
+                            <h3><i class="fas fa-book-open"></i> Đọc sách</h3>
+                            <p>Yêu thích: Khoa học viễn tưởng, Phát triển bản thân, Công nghệ.</p>
+                        </div>
                     </div>
-                    <div class="hobby-item">
-                        <i class="fas fa-gamepad"></i>
-                        <p>Chơi game</p>
+
+                    <!-- Xem phim - Book Effect -->
+                    <div class="book">
+                        <img src="https://images.pexels.com/photos/436413/pexels-photo-436413.jpeg" alt="Xem phim" class="book-hobby-image-front">
+                        <div class="hobby-content">
+                            <h3><i class="fas fa-film"></i> Xem phim</h3>
+                            <p>Thư giãn với những bộ phim hay.</p>
+                        </div>
+                        <div class="cover">
+                            <h3><i class="fas fa-film"></i> Xem phim</h3>
+                            <p>Thể loại: Hành động, Khoa học viễn tưởng, Hài hước.</p>
+                        </div>
                     </div>
-                    <div class="hobby-item">
-                        <i class="fas fa-rocket"></i>
-                        <p>Khám phá công nghệ mới</p>
+
+                    <!-- Chơi game - Book Effect -->
+                    <div class="book">
+                        <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg" alt="Chơi game" class="book-hobby-image-front">
+                        <div class="hobby-content">
+                            <h3><i class="fas fa-gamepad"></i> Chơi game</h3>
+                            <p>Thư giãn và rèn luyện tư duy chiến lược.</p>
+                        </div>
+                        <div class="cover">
+                            <h3><i class="fas fa-gamepad"></i> Chơi game</h3>
+                            <p>Game yêu thích: Minecraft, PUBG, League of Legends.</p>
+                        </div>
                     </div>
-                    <div class="hobby-item">
-                        <i class="fas fa-plane"></i>
-                        <p>Đi du lịch</p>
+
+                    <!-- Nghe nhạc - Book Effect -->
+                    <div class="book">
+                        <img src="https://images.pexels.com/photos/3756766/pexels-photo-3756766.jpeg" alt="Nghe nhạc" class="book-hobby-image-front">
+                        <div class="hobby-content">
+                            <h3><i class="fas fa-music"></i> Nghe nhạc</h3>
+                            <p>Đắm chìm trong thế giới âm nhạc.</p>
+                        </div>
+                        <div class="cover">
+                            <h3><i class="fas fa-music"></i> Nghe nhạc</h3>
+                            <p>Thể loại: Pop, Rock, EDM, Nhạc trẻ.</p>
+                        </div>
                     </div>
-                    <div class="hobby-item">
-                        <i class="fas fa-code"></i>
-                        <p>Lập trình game</p>
+
+                    <!-- Lập trình - Book Effect -->
+                    <div class="book">
+                        <img src="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Lập trình" class="book-hobby-image-front">
+                        <div class="hobby-content">
+                            <h3><i class="fas fa-code"></i> Lập trình</h3>
+                            <p>Khám phá và học hỏi công nghệ mới.</p>
+                        </div>
+                        <div class="cover">
+                            <h3><i class="fas fa-code"></i> Lập trình</h3>
+                            <p>Ngôn ngữ yêu thích: Java, Python, JavaScript.</p>
+                        </div>
                     </div>
-                    <div class="hobby-item">
-                        <i class="fas fa-headphones-alt"></i>
-                        <p>Nghe nhạc</p>
+
+                    <!-- Chụp ảnh - Book Effect -->
+                    <div class="book">
+                        <img src="https://images.pexels.com/photos/905393/pexels-photo-905393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Chụp ảnh" class="book-hobby-image-front">
+                        <div class="hobby-content">
+                            <h3><i class="fas fa-camera"></i> Chụp ảnh</h3>
+                            <p>Ghi lại những khoảnh khắc đẹp.</p>
+                        </div>
+                        <div class="cover">
+                            <h3><i class="fas fa-camera"></i> Chụp ảnh</h3>
+                            <p>Thể loại: Phong cảnh, Chân dung, Đường phố.</p>
+                        </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Social Media Section -->
+            <section id="contact" class="card">
+                <h2 class="card-title">
+                    <i class="fas fa-handshake"></i>
+                    Kết nối với tôi
+                </h2>
+                <p class="about-text">Hãy kết nối với tôi qua các kênh mạng xã hội để cùng thảo luận về công nghệ!</p>
+                <ul class="example-2">
+                    <li class="icon-content">
+                        <a href="https://www.linkedin.com/in/trung-nguy%E1%BB%85n-ch%C3%AD-2520112b7/" aria-label="LinkedIn" data-social="linkedin">
+                            <div class="filled"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16" xml:space="preserve">
+                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                        <div class="tooltip">LinkedIn</div>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://github.com/chi-trung" aria-label="GitHub" data-social="github">
+                            <div class="filled"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16" xml:space="preserve">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                        <div class="tooltip">GitHub</div>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://www.instagram.com/nguyenchitrung85/" aria-label="Instagram" data-social="instagram">
+                            <div class="filled"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16" xml:space="preserve">
+                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                        <div class="tooltip">Instagram</div>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://www.facebook.com/sutuhobaocu" aria-label="Facebook" data-social="facebook">
+                            <div class="filled"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16" xml:space="preserve">
+                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                        <div class="tooltip">Facebook</div>
+                    </li>
+                </ul>
+            </section>
         </main>
-
-        <!-- Contact Section -->
-        <section class="card full-width-card">
-    <h2 class="card-title">
-        <i class="fas fa-handshake"></i>
-        Kết nối với tôi
-    </h2>
-    <p style="text-align: center; margin-bottom: 1rem; color: var(--text-secondary);">
-        Hãy kết nối với tôi qua các kênh mạng xã hội để cùng thảo luận về công nghệ!
-    </p>
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/trung-nguy%E1%BB%85n-ch%C3%AD-2520112b7/" class="social-link" title="LinkedIn" target="_blank">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/chi-trung" class="social-link" title="GitHub" target="_blank">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.facebook.com/sutuhobaocu" class="social-link" title="Facebook" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com/nguyenchitrung85/" class="social-link" title="Instagram" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-    </div>
-</section>
-
 
         <!-- Footer -->
         <footer class="footer">
@@ -286,17 +398,15 @@
         </footer>
     </div>
 
-    <script src="./cv2.js"></script>
-
-    <!-- Project Detail Modal -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <img id="modalImage" src="" alt="Project Image" class="modal-image">
-            <h3 id="modalTitle" class="modal-title"></h3>
-            <p id="modalDescription" class="modal-description"></p>
-            <a id="modalGithubLink" href="#" target="_blank" class="btn btn-modal-link">Xem trên GitHub <i class="fab fa-github"></i></a>
-        </div>
+    <div class="image-modal" id="imageModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img id="modalImage" src="" alt="Project Image">
     </div>
+
+    <button id="back-to-top" class="back-to-top" title="Cuộn lên đầu trang">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="./cv2.js"></script>
 </body>
 </html>
