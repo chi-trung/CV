@@ -81,6 +81,27 @@ body {
     transition: background 0.6s ease, color var(--transition);
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #4ecdc4, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #2c7a9c, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 50px 160px, #00c0ff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, #4ecdc4, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 130px 80px, #2c7a9c, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 160px 120px, #00c0ff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 0;
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -352,7 +373,7 @@ h2::after {
 .entry {
     margin-bottom: 1.5rem;
     padding: 1rem;
-    border-left: 3px solid var(--accent-color);
+    border-left: none;
     transition: var(--transition);
 }
 
@@ -1618,21 +1639,12 @@ body.dark-mode footer {
 .skill-header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Space out name and bar */
-    width: 100%; /* Ensure it takes full width of skill-item */
-    gap: 1rem; /* Space between skill name and bar container */
+    gap: 1rem;
+    width: 100%;
 }
 
 .skill-name {
-    font-weight: 600;
-    color: transparent; /* Make text transparent to show background */
-    background-image: linear-gradient(90deg, #CC0066, #0099CC, #CCAA00); /* Apply darker galaxy gradient */
-    background-size: 200% auto; /* Ensure gradient is larger than text for animation */
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    flex-shrink: 0;
-    animation: galaxyTextAnimation 8s linear infinite; /* Apply continuous animation */
+    min-width: 120px; /* Đảm bảo các tên kỹ năng thẳng hàng */
 }
 
 .skill-description {
@@ -1651,15 +1663,13 @@ body.dark-mode .skill-description {
 }
 
 .skill-bar-container {
-    flex-grow: 1; /* Allow container to take available space */
-    height: 10px;
-    background-color: rgba(var(--secondary-color-rgb, 58, 158, 184), 0.2); /* Lighter background for the bar track */
-    border-radius: 5px;
-    overflow: hidden;
+    flex-grow: 1;
+    width: 100%;
+    margin-left: 0;
 }
 
 .skill-bar {
-    height: 100%;
+    height: 10px;
     background: linear-gradient(90deg, var(--accent-color), var(--primary-color)); /* Gradient for the bar */
     border-radius: 5px;
     width: 0; /* Start at 0 for animation */
