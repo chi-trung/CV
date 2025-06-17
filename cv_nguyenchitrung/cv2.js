@@ -278,6 +278,103 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add scroll event listener
     window.addEventListener('scroll', highlightNavLink);
+
+    // Circular progress cho phần education-progress
+    function animateEducationProgress() {
+        const container = document.querySelector('.education-progress .circular-progress-container');
+        if (!container) return;
+        const percent = parseInt(container.getAttribute('data-level'));
+        const circle = container.querySelector('.circular-progress-bar');
+        const percentSpan = container.querySelector('.circular-progress-percent');
+        const radius = 40;
+        const circumference = 2 * Math.PI * radius;
+        circle.style.strokeDasharray = circumference;
+        circle.style.strokeDashoffset = circumference;
+        let current = 0;
+        function animate() {
+            current += 1;
+            if (current > percent) current = percent;
+            const offset = circumference - (current / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+            percentSpan.textContent = current + '%';
+            if (current < percent) {
+                requestAnimationFrame(animate);
+            }
+        }
+        animate();
+    }
+    animateEducationProgress();
+
+    // Animate education progress bar (rectangular)
+    function animateEducationRectProgress() {
+        const container = document.querySelector('.education-progress-rect');
+        if (!container) return;
+        const value = parseInt(container.querySelector('.progress-value').textContent);
+        const total = parseInt(container.querySelector('.progress-total').textContent);
+        const percent = Math.round((value / total) * 100);
+        const bar = container.querySelector('.progress-bar-inner');
+        const percentSpan = container.querySelector('.progress-percent');
+        let current = 0;
+        function animate() {
+            current += 1;
+            if (current > percent) current = percent;
+            bar.style.width = current + '%';
+            percentSpan.textContent = current;
+            if (current < percent) {
+                requestAnimationFrame(animate);
+            }
+        }
+        animate();
+    }
+    animateEducationRectProgress();
+
+    // Education Progress Animation
+    function initEducationProgress() {
+        const circle = document.querySelector('.progress-ring-circle');
+        const radius = circle.r.baseVal.value;
+        const circumference = radius * 2 * Math.PI;
+        const progressNumber = document.querySelector('.progress-number');
+        
+        circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        circle.style.strokeDashoffset = circumference;
+        
+        function setProgress(percent) {
+            const offset = circumference - (percent / 100 * circumference);
+            circle.style.strokeDashoffset = offset;
+        }
+        
+        function animateValue(obj, start, end, duration) {
+            const range = end - start;
+            const minTimer = 50;
+            const stepTime = Math.abs(Math.floor(duration / range));
+            const timer = Math.max(stepTime, minTimer);
+            const startTime = new Date().getTime();
+            const endTime = startTime + duration;
+            let timerID;
+
+            function run() {
+                const now = new Date().getTime();
+                const remaining = Math.max((endTime - now) / duration, 0);
+                const value = Math.round(end - (remaining * range));
+                obj.innerHTML = value;
+                if (value === end) {
+                    clearInterval(timerID);
+                }
+            }
+
+            timerID = setInterval(run, timer);
+            run();
+        }
+        
+        // Animate progress circle
+        setTimeout(() => {
+            setProgress((70/120) * 100);
+            animateValue(progressNumber, 0, 70, 2000);
+        }, 500);
+    }
+
+    // Call the function when the page loads
+    initEducationProgress();
 });
 
 // Contact Form Email Sending
