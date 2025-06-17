@@ -67,4 +67,12 @@
 .light-mode .circular-progress-percent {
     color: var(--text-primary); /* Ensure text color is appropriate for light mode */
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5); /* Light shadow for light mode */
+}
+
+.skill-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    vertical-align: middle;
+    object-fit: contain;
 } 
