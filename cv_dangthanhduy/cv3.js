@@ -24,7 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    setTimeout(typeWriter, 1000);
+    // Only run typewriter effect on the main CV page
+    if (titleElement) {
+        setTimeout(typeWriter, 1000);
+    }
 
     // Add scroll animations
     const sectionObserverOptions = {
@@ -131,29 +134,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Theme Toggle (moved here)
-    const themeCheckbox = document.getElementById('checkbox');
-    const body = document.body;
-
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        body.classList.add(savedTheme);
-        themeCheckbox.checked = (savedTheme === 'dark-mode');
-    } else {
-        body.classList.remove('dark-mode');
-        themeCheckbox.checked = false;
-    }
-
-    themeCheckbox.addEventListener('change', () => {
-        if (themeCheckbox.checked) {
-            body.classList.add('dark-mode');
-            localStorage.setItem('theme', 'dark-mode');
-        } else {
-            body.classList.remove('dark-mode');
-            localStorage.setItem('theme', 'light-mode');
-        }
-    });
-
     // Skill bar animation
     const skillBars = document.querySelectorAll('.skill-bar');
     skillBars.forEach(bar => {
@@ -204,7 +184,76 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add any interactive features here
     console.log('CV page loaded');
+
+    // Collapsible skill section functionality
+    const skillsToggle = document.querySelector('#skills .collapse-toggle');
+    const skillsContent = document.querySelector('.skills-collapsible-content');
+
+    if (skillsToggle && skillsContent) {
+        // Initialize based on screen size: collapsed on small screens
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        if (isMobile) {
+            skillsContent.classList.remove('expanded');
+            skillsToggle.classList.remove('rotated');
+        } else {
+            skillsContent.classList.add('expanded');
+            skillsToggle.classList.add('rotated'); // Arrow up for expanded state
+        }
+
+        // Add event listener for toggle button
+        skillsToggle.addEventListener('click', () => {
+            skillsContent.classList.toggle('expanded');
+            skillsToggle.classList.toggle('rotated');
+        });
+
+        // Add event listener for window resize to adjust initial state
+        window.addEventListener('resize', () => {
+            const currentIsMobile = window.matchMedia('(max-width: 768px)').matches;
+            if (currentIsMobile) {
+                // If transitioning to mobile, ensure it's collapsed unless it was explicitly expanded
+                if (!skillsContent.classList.contains('expanded')) {
+                    skillsContent.classList.remove('expanded');
+                    skillsToggle.classList.remove('rotated');
+                }
+            } else {
+                // If transitioning to desktop, ensure it's expanded
+                skillsContent.classList.add('expanded');
+                skillsToggle.classList.add('rotated');
+            }
+        });
+    }
 });
+
+// Function to handle theme toggle for all pages
+function initializeThemeToggle() {
+    const themeCheckbox = document.getElementById('checkbox');
+    const body = document.body;
+
+    // Set initial theme based on localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+        themeCheckbox.checked = (savedTheme === 'dark-mode');
+    } else {
+        // Default to light mode if no theme saved
+        body.classList.remove('dark-mode');
+        themeCheckbox.checked = false;
+    }
+
+    // Add event listener for theme changes
+    themeCheckbox.addEventListener('change', () => {
+        if (themeCheckbox.checked) {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+        } else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light-mode');
+        }
+    });
+}
+
+// Call the theme toggle initialization function when the DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeThemeToggle);
 
 // Smooth scroll for side menu links (already merged above)
 // document.querySelectorAll('.side-menu a[href^="#"]').forEach(anchor => {
