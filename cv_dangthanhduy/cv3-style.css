@@ -1151,7 +1151,7 @@ body.dark-mode .side-menu a.side-menu-active-pulse i {
     }
 
     .theme-switch-wrapper {
-        top: 10px;
+        top: 90px;
         right: 10px;
         transform: scale(0.8);
         transform-origin: top right;
@@ -1183,6 +1183,11 @@ body.dark-mode .side-menu a.side-menu-active-pulse i {
 
     input:checked + .slider:after { /* Moon icon on mobile */
         transform: translate(25px, -50%) rotate(0deg);
+    }
+
+    .music-disc-btn {
+        right: 10px;
+        top: 40px;
     }
 }
 
@@ -1756,7 +1761,7 @@ body.dark-mode section.fade-in {
     .menu-toggle {
         display: block; /* Show toggle button on small screens */
         position: fixed;
-        top: 70px; /* Adjusted to avoid overlap with other buttons */
+        top: 80px; /* Adjusted to avoid overlap with other buttons */
         left: 20px;
         z-index: 1001;
         background-color: var(--primary-color);
@@ -1830,8 +1835,8 @@ body.dark-mode section.fade-in {
 
 .music-disc-btn {
     position: absolute;
-    top: 18px;
-    right: 28px;
+    top: 60px;
+    right: 10px;
     width: 52px;
     height: 52px;
     border: none;
