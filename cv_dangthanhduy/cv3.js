@@ -264,4 +264,34 @@ document.addEventListener('DOMContentLoaded', initializeThemeToggle);
 //             behavior: 'smooth'
 //         });
 //     });
-// }); 
+// });
+
+// Menu toggle functionality for mobile
+const menuToggle = document.querySelector('.menu-toggle');
+const sideMenu = document.querySelector('.side-menu');
+
+if (menuToggle && sideMenu) {
+    menuToggle.addEventListener('click', () => {
+        sideMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open'); // Toggle class on body
+    });
+
+    // Close menu when a link inside is clicked
+    sideMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            sideMenu.classList.remove('active');
+            document.body.classList.remove('menu-open'); // Remove class from body when menu closes
+        });
+    });
+}
+
+// Close menu when clicking anywhere on the page
+document.addEventListener('click', (event) => {
+    if (sideMenu && sideMenu.classList.contains('active')) {
+        // Check if the click is outside the menu and not on the toggle button
+        if (!sideMenu.contains(event.target) && event.target !== menuToggle) {
+            sideMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    }
+}); 
