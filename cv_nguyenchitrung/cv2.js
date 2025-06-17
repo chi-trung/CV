@@ -278,4 +278,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add scroll event listener
     window.addEventListener('scroll', highlightNavLink);
-}); 
+});
+
+// Contact Form Email Sending
+function sendEmail(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    // Create mailto link
+    const mailtoLink = `mailto:nguyenchitrung2702@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+        `Tên: ${name}\nEmail: ${email}\n\nNội dung tin nhắn:\n${message}`
+    )}`;
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+    
+    // Clear form
+    document.getElementById('contactForm').reset();
+    
+    // Show success message
+    alert('Cảm ơn bạn đã liên hệ! Vui lòng kiểm tra email của bạn để hoàn tất việc gửi tin nhắn.');
+    
+    return false;
+} 

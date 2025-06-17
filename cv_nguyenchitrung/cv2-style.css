@@ -999,13 +999,22 @@ body {
 
 /* Liquid Button Styles */
 .button {
-  background-color: transparent;
+  cursor: pointer;
+  padding: 0.7em 2em;
+  border-radius: 2em;
   border: none;
+  background: #72ecff;
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0px 3px 5px 0px #0005;
+  transition: all 0.3s;
+  width: fit-content;
+  min-width: 140px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
 
 .button svg {
@@ -3887,4 +3896,304 @@ html {
 
 .Social-media#pop-up li {
   margin: 0;
+}
+
+/* Contact Form Styles - Modern Sky Blue Theme */
+.contact-form {
+    width: 100%;
+    margin: 1.2rem 0 0 0;
+    padding: 1.1rem 1.2rem;
+    background: rgba(255,255,255,0.10);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px 0 rgba(56,182,255,0.10);
+    border: 1.5px solid #38b6ff33;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    transition: box-shadow 0.3s, background 0.3s;
+}
+
+.contact-form .form-group {
+    margin-bottom: 0;
+}
+
+.contact-form .form-group:nth-child(3),
+.contact-form .form-group:nth-child(4) {
+    grid-column: span 2;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #38b6ff;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+    transition: color 0.3s;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+    border: 1.5px solid #b6e0fe;
+    border-radius: 7px;
+    background: rgba(255,255,255,0.85);
+    color: #1a365d;
+    font-size: 1rem;
+    transition: border 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #38b6ff;
+    box-shadow: 0 0 0 2px #38b6ff33;
+    background: #fff;
+    color: #007cf0;
+}
+
+.contact-form textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #a0aec0;
+    opacity: 1;
+    font-size: 0.97em;
+}
+
+.contact-form button {
+    grid-column: span 2; 
+    background: linear-gradient(90deg, #38b6ff 0%, #007cf0 100%);
+    /* border: none; */
+    color: #fff;
+    font-size: 1.08rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px 0 rgba(56, 182, 255, 0.10);
+    letter-spacing: 0.5px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.contact-form button:hover {
+    background: linear-gradient(90deg, #007cf0 0%, #38b6ff 100%);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 18px 0 rgba(56,182,255,0.18);
+}
+
+.contact-form button:active {
+    transform: translateY(0) scale(1);
+}
+
+/* Dark mode adjustments */
+body:not(.light-mode) .contact-form {
+    background: rgba(20, 30, 50, 0.85);
+    border: 1.5px solid #38b6ff44;
+}
+body:not(.light-mode) .contact-form label {
+    color: #90cdf4;
+}
+body:not(.light-mode) .contact-form input,
+body:not(.light-mode) .contact-form textarea {
+    background: rgba(255,255,255,0.10);
+    color: #e2e8f0;
+}
+body:not(.light-mode) .contact-form input:focus,
+body:not(.light-mode) .contact-form textarea:focus {
+    background: #232f45;
+    color: #38b6ff;
+}
+body:not(.light-mode) .contact-form input::placeholder,
+body:not(.light-mode) .contact-form textarea::placeholder {
+    color: #b0b8c9;
+}
+
+/* Light mode adjustments */
+.light-mode .contact-form {
+    background: #fff;
+    border: 1.5px solid #b6e0fe;
+    box-shadow: 0 4px 24px 0 rgba(80, 180, 255, 0.10);
+}
+.light-mode .contact-form label {
+    color: #007cf0;
+}
+.light-mode .contact-form input,
+.light-mode .contact-form textarea {
+    background: #fafdff;
+    color: #1a365d;
+}
+.light-mode .contact-form input:focus,
+.light-mode .contact-form textarea:focus {
+    background: #fff;
+    color: #007cf0;
+}
+.light-mode .contact-form input::placeholder,
+.light-mode .contact-form textarea::placeholder {
+    color: #a0aec0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 0.7rem;
+        grid-template-columns: 1fr;
+    }
+    .contact-form .form-group:nth-child(3),
+    .contact-form .form-group:nth-child(4) {
+        grid-column: span 1;
+    }
+    .contact-form button {
+        grid-column: span 1;
+    }
+}
+@media (max-width: 480px) {
+    .contact-form {
+        padding: 0.5rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.4rem 0.5rem;
+    }
+}
+
+/* Wavy Button Effect for Contact Form */
+.button {
+  cursor: pointer;
+  padding: 2em 3em;
+  border-radius: 3em;
+  border: none;
+  background: #72ecff;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0px 3px 5px 0px #0005;
+  transition: all 0.3s;
+}
+
+.button:active {
+  box-shadow: 0px 3px 5px 0px #0000;
+  background: #00ddff;
+}
+
+.inset-shadow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0px 6px 6px -4px #0005,
+    inset 0px -6px 6px -4px #0000;
+  transition: all 0.3s;
+}
+
+.button:active .inset-shadow {
+  box-shadow:
+    inset 0px 4px 5px -2px #0007,
+    inset 0px -6px 6px -4px #0007;
+}
+
+.top-white {
+  background: linear-gradient(#fff8, #fff0);
+  position: absolute;
+  inset: 4px 12px;
+  height: 3em;
+  border-radius: 3em 3em 1em;
+  transition: all 0.3s;
+}
+
+.button:active .top-white {
+  opacity: 0;
+}
+
+.bottom-white {
+  background: linear-gradient(#fff0, #fff9);
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 5px;
+  height: 3em;
+  border-radius: 1em 1em 3em 3em;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.button:active .bottom-white {
+  opacity: 1;
+}
+
+.wave {
+  position: absolute;
+  inset: 0;
+  filter: url(#wave-filter);
+  z-index: -1;
+  color: #00ddff;
+  transition: all 0.3s;
+}
+
+.button:active .wave {
+  color: #72ecff;
+}
+
+.wave::before {
+  content: "";
+  position: absolute;
+  top: -3.5em;
+  left: -1em;
+  width: 8em;
+  height: 4em;
+  background: currentColor;
+  animation: spin 2s linear infinite;
+}
+
+.wave::after {
+  content: "";
+  position: absolute;
+  top: -3.5em;
+  right: -1em;
+  width: 8em;
+  height: 4em;
+  background: currentColor;
+  animation: spin -0.5s 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+.text {
+  font-weight: 650;
+  color: #fff;
+  text-shadow: 0px 0px 4px #0009;
+}
+
+/* Nút gửi tin nhắn hiện đại, nhỏ gọn, gradient xanh bầu trời */
+.contact-submit-btn {
+  display: block;
+  margin: 0.7rem auto 0 auto;
+  padding: 0.65em 2.2em;
+  border: none;
+  border-radius: 2em;
+  background: linear-gradient(90deg, #38b6ff 0%, #007cf0 100%);
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px 0 rgba(56,182,255,0.10);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+.contact-submit-btn:hover {
+  background: linear-gradient(90deg, #007cf0 0%, #38b6ff 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 18px 0 rgba(56,182,255,0.18);
+}
+.contact-submit-btn:active {
+  transform: translateY(0) scale(1);
 }

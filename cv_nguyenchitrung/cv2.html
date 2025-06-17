@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="./circular-progress.css">
 </head>
 <body>
+    <svg viewBox="0 0 0 0" width="0" height="0">
+      <filter id="wave-filter">
+        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="25"></feGaussianBlur>
+        <feColorMatrix in="blur" type="matrix"
+          values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 48 -7"></feColorMatrix>
+      </filter>
+    </svg>
     <a href="../index.html" class="back-button" title="Quay lại trang tổng quan">
         <i class="fas fa-arrow-left"></i>
     </a>
@@ -443,7 +453,62 @@
             <!-- Social Media Section -->
             <section id="contact" class="card">
                 <div class="contact-title"><i class="fas fa-handshake contact-title-icon"></i>Liên Hệ</div>
+                
+                <!-- Contact Form -->
+                <form class="contact-form" id="contactForm" onsubmit="return sendEmail(event)">
+                    <div class="form-group">
+                        <label for="name">Họ và tên</label>
+                        <input type="text" id="name" name="name" required placeholder="Nhập họ và tên của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Nhập email của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Nội dung tin nhắn</label>
+                        <textarea id="message" name="message" required placeholder="Nhập nội dung tin nhắn của bạn"></textarea>
+                    </div>
+                    <button type="submit" class="button">
+                      <div class="top-white"></div>
+                      <div class="bottom-white"></div>
+                      <div class="wave"></div>
+                      <div class="text">Gửi tin nhắn</div>
+                      <div class="inset-shadow"></div>
+                    </button>
+                </form>
+
                 <ul class="Social-media" id="pop-up">
+                    <li id="Twitter-X">
+                        <div id="twitter-x-tooltip-container">
+                            <div id="twitter-x-tooltip">
+                                <div id="twitter-x-profile">
+                                    <div id="twitter-x-user">
+                                        <img id="twitter-x-img" src="https://cdn-icons-png.flaticon.com/128/145/145867.png" alt="avatar" style="width:50px;height:50px;border-radius:10px;object-fit:cover;">
+                                        <div id="twitter-x-details">
+                                            <div id="twitter-x-name">gnurts</div>
+                                            <div id="twitter-x-username">@gnurt2702</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="x-text">
+                                <a id="twitter-x-icon" href="https://x.com/gnurt2702" target="_blank">
+                                    <div id="twitter-x-layer">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span id="twitter-xSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 50 50">
+                                                <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="text">Twitter X</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
                     <li id="Facebook">
                         <div id="facebook-tooltip-container">
                             <div id="facebook-tooltip">
@@ -511,37 +576,6 @@
                             </div>
                         </div>
                     </li>
-                    <li id="Twitter-X">
-                        <div id="twitter-x-tooltip-container">
-                            <div id="twitter-x-tooltip">
-                                <div id="twitter-x-profile">
-                                    <div id="twitter-x-user">
-                                        <img id="twitter-x-img" src="https://cdn-icons-png.flaticon.com/128/145/145867.png" alt="avatar" style="width:50px;height:50px;border-radius:10px;object-fit:cover;">
-                                        <div id="twitter-x-details">
-                                            <div id="twitter-x-name">gnurts</div>
-                                            <div id="twitter-x-username">@gnurt2702</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="x-text">
-                                <a id="twitter-x-icon" href="https://x.com/gnurt2702" target="_blank">
-                                    <div id="twitter-x-layer">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span id="twitter-xSVG">
-                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-                                                <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div class="text">Twitter X</div>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
                     <li id="GitHub">
                         <div id="github-tooltip-container">
                             <div id="github-tooltip">
@@ -563,7 +597,7 @@
                                         <span></span>
                                         <span></span>
                                         <span id="githubSVG">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 24 24">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                             </svg>
                                         </span>
@@ -622,7 +656,7 @@
                 <div class="hacker-container">
                     <button class="hacker-btn">last-update</button>
                     <div data-text="18/06/2025" class="hacker-tooltip">
-                        <span>01:30 AM</span>
+                        <span>02:52 AM</span>
                     </div>
                 </div>
             </div>
