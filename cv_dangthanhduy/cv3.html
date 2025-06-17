@@ -24,7 +24,7 @@
         <header>
             <div class="avatar-container">
                 <div class="avatar">
-                    <img src="https://cdn-icons-png.flaticon.com/128/1326/1326405.png" alt="Đặng Thanh Duy">
+                    <img src="./hinhanh/avt.png" alt="Đặng Thanh Duy">
                     <div class="status away"></div>
                 </div>
             </div>
@@ -54,9 +54,13 @@
                     <h2><i class="fas fa-address-card"></i> Thông tin liên hệ</h2>
                     <ul>
                         <li><i class="fas fa-envelope"></i> dangthanhduyofficial@gmail.com</li>
-                        <li><i class="fas fa-phone"></i> +84 862 388 757</li>
                         <li><i class="fas fa-map-marker-alt"></i> Bến Tre, Việt Nam</li>
                     </ul>
+                    <div class="contact-social-icons">
+                        <a href="https://www.linkedin.com/in/duy-dang-258ba7277/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/DangTDuy" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/thanhduy.it2508/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
                 </section>
 
                 <section id="about" class="about">
@@ -65,15 +69,148 @@
                 </section>
 
                 <section id="skills" class="skills">
-                    <h2><i class="fas fa-cogs"></i> Kỹ năng chuyên môn</h2>
-                    <ul>
-                        <li><strong>Ngôn ngữ lập trình:</strong> C++, Java, JavaScript, Kotlin</li>
-                        <li><strong>Framework & Thư viện:</strong> Spring Boot, Django, React, Node.js, Express.js</li>
-                        <li><strong>Phát triển di động:</strong> Lập trình ứng dụng di động Android (Native/Hybrid)</li>
-                        <li><strong>Cơ sở dữ liệu:</strong> MySQL, PostgreSQL, MongoDB, Firebase, SQLite</li>
-                        <li><strong>Công cụ & DevOps:</strong> Git, Docker, AWS</li>
-                        <li><strong>Khác:</strong> RESTful API, Microservices, CI/CD</li>
-                    </ul>
+                    <h2><i class="fas fa-cogs"></i> Kỹ năng chuyên môn <button class="collapse-toggle fas fa-chevron-down"></button></h2>
+                    <div class="skills-collapsible-content">
+                        <div class="skill-category-block">
+                            <h3>Ngôn ngữ lập trình</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span class="skill-name">C++</span>
+                                        <div class="skill-bar-container">
+                                            <div class="skill-bar" data-level="80"></div>
+                                        </div>
+                                    </div>
+                                    <p class="skill-description">Đã nắm vững cú pháp cơ bản, các khái niệm lập trình hướng đối tượng (OOP) như kế thừa, đa hình, trừu tượng, và biết cách áp dụng hiệu quả để giải quyết các bài toán phức tạp. Đồng thời, có kiến thức sâu về cấu trúc dữ liệu và giải thuật, tối ưu hóa hiệu suất chương trình.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span class="skill-name">Java</span>
+                                        <div class="skill-bar-container">
+                                            <div class="skill-bar" data-level="90"></div>
+                                        </div>
+                                    </div>
+                                    <p class="skill-description">Đã nắm vững cú pháp Java, hiểu rõ về JVM, lập trình hướng đối tượng và phát triển ứng dụng trên nền tảng Java. Đặc biệt có kinh nghiệm với các thư viện và framework phổ biến như Spring Boot để xây dựng các ứng dụng web mạnh mẽ và có khả năng mở rộng.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span class="skill-name">JavaScript</span>
+                                        <div class="skill-bar-container">
+                                            <div class="skill-bar" data-level="85"></div>
+                                        </div>
+                                    </div>
+                                    <p class="skill-description">Đã nắm vững cú pháp JavaScript ES6+, thành thạo thao tác DOM để tạo ra các giao diện người dùng động và tương tác. Có kinh nghiệm với các thư viện frontend như React để xây dựng các component tái sử dụng và quản lý state hiệu quả.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span class="skill-name">Kotlin</span>
+                                        <div class="skill-bar-container">
+                                            <div class="skill-bar" data-level="75"></div>
+                                        </div>
+                                    </div>
+                                    <p class="skill-description">Đã tìm hiểu sâu về cú pháp hiện đại của Kotlin, các tính năng lập trình hàm và khả năng tương tác với Java. Có kinh nghiệm trong việc phát triển ứng dụng Android Native, xây dựng giao diện người dùng với Android XML và Jetpack Compose.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category-block">
+                            <h3>Framework & Thư viện</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">Spring Boot</span>
+                                    <p class="skill-description">Đã tìm hiểu sâu về kiến trúc Microservices, phát triển các RESTful API mạnh mẽ, sử dụng Spring Data JPA để tương tác với cơ sở dữ liệu, và quản lý các dependency với Maven/Gradle. Có khả năng xây dựng các ứng dụng backend hiệu suất cao.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Django</span>
+                                    <p class="skill-description">Đã tìm hiểu về khung phát triển web nhanh của Python, bao gồm tích hợp ORM mạnh mẽ, hệ thống admin tự động, và cách xây dựng các ứng dụng web với kiến trúc MVT (Model-View-Template) một cách hiệu quả.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">React</span>
+                                    <p class="skill-description">Đã tìm hiểu về xây dựng giao diện người dùng tương tác và hiệu quả với React.js, sử dụng JSX, quản lý state với Hooks (useState, useEffect) và Context API. Có khả năng phát triển các ứng dụng SPA (Single Page Application) hiện đại.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Node.js</span>
+                                    <p class="skill-description">Đã tìm hiểu về phát triển backend với JavaScript bằng Node.js, sử dụng các module và quản lý package với npm. Có khả năng xây dựng các server-side application, xử lý bất đồng bộ với Promises và async/await.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Express.js</span>
+                                    <p class="skill-description">Đã tìm hiểu về xây dựng API RESTful nhanh chóng và mạnh mẽ với Express.js, quản lý routing, middleware, và tích hợp với cơ sở dữ liệu. Có khả năng phát triển các ứng dụng web dựa trên kiến trúc client-server.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category-block">
+                            <h3>Phát triển di động</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">Lập trình ứng dụng di động Android (Native/Hybrid)</span>
+                                    <p class="skill-description">Am hiểu sâu về quy trình phát triển ứng dụng di động trên nền tảng Android, từ thiết kế UI/UX theo Material Design đến tích hợp các API (như bản đồ, thông báo), xử lý dữ liệu offline và tối ưu hóa hiệu suất ứng dụng.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category-block">
+                            <h3>Cơ sở dữ liệu</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">MySQL</span>
+                                    <p class="skill-description">Đã tìm hiểu chuyên sâu về thiết kế schema cơ sở dữ liệu quan hệ, tối ưu hóa truy vấn SQL, quản lý chỉ mục và sao lưu/phục hồi dữ liệu để đảm bảo hiệu suất và tính toàn vẹn.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">PostgreSQL</span>
+                                    <p class="skill-description">Đã tìm hiểu về các tính năng nâng cao của PostgreSQL như JSONB, FTS (Full-Text Search), các loại dữ liệu tùy chỉnh, và tối ưu hóa hiệu suất truy vấn phức tạp cho các ứng dụng yêu cầu cao.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">MongoDB</span>
+                                    <p class="skill-description">Đã tìm hiểu về cơ sở dữ liệu NoSQL dựa trên tài liệu, mô hình hóa dữ liệu linh hoạt, cách thực hiện các thao tác CRUD, và sử dụng Aggregation Framework để xử lý dữ liệu phức tạp trong các ứng dụng web hiện đại.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Firebase</span>
+                                    <p class="skill-description">Đã tìm hiểu về tích hợp Firebase Realtime Database và Cloud Firestore để đồng bộ hóa dữ liệu theo thời gian thực, quản lý xác thực người dùng (Authentication), và sử dụng Firebase Storage để lưu trữ tệp tin.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">SQLite</span>
+                                    <p class="skill-description">Đã tìm hiểu về việc sử dụng SQLite trong các ứng dụng di động và nhúng, cách quản lý cơ sở dữ liệu cục bộ, thực hiện các truy vấn cơ bản và nâng cao để lưu trữ dữ liệu người dùng offline.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category-block">
+                            <h3>Công cụ & DevOps</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">Git</span>
+                                    <p class="skill-description">Đã tìm hiểu về quản lý phiên bản phân tán, các lệnh cơ bản (commit, push, pull, branch, merge), giải quyết xung đột, và quy trình làm việc nhóm hiệu quả trên GitHub/GitLab.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Docker</span>
+                                    <p class="skill-description">Đã tìm hiểu về container hóa ứng dụng, viết Dockerfile, xây dựng và quản lý Docker images, và triển khai ứng dụng trong môi trường Docker để đảm bảo tính nhất quán và khả năng mở rộng.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">AWS</span>
+                                    <p class="skill-description">Đã tìm hiểu về các dịch vụ điện toán đám mây cơ bản của Amazon Web Services (AWS) như EC2 (máy chủ ảo), S3 (lưu trữ đối tượng), RDS (cơ sở dữ liệu quản lý), và VPC (mạng ảo riêng tư) để triển khai và quản lý ứng dụng.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category-block">
+                            <h3>Khác</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">RESTful API</span>
+                                    <p class="skill-description">Đã tìm hiểu sâu về nguyên tắc thiết kế RESTful API, các phương thức HTTP (GET, POST, PUT, DELETE), quản lý trạng thái, và cách xây dựng các API hiệu quả, dễ sử dụng và bảo mật cho các ứng dụng phân tán.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Microservices</span>
+                                    <p class="skill-description">Đã tìm hiểu về kiến trúc Microservices, cách chia nhỏ ứng dụng thành các dịch vụ độc lập, quản lý giao tiếp giữa các dịch vụ, và triển khai chúng một cách linh hoạt và có khả năng mở rộng.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">CI/CD</span>
+                                    <p class="skill-description">Đã tìm hiểu về quy trình tích hợp liên tục (CI) và triển khai liên tục (CD), sử dụng các công cụ như Jenkins, GitHub Actions để tự động hóa kiểm thử, xây dựng và triển khai ứng dụng một cách hiệu quả và đáng tin cậy.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 <section id="experience" class="experience">
@@ -137,19 +274,21 @@
                         <h3>Chứng chỉ Lập trình C++</h3>
                         <p>Trung tâm Codelearn.io</p>
                         <p>2022</p>
+                        <a href="./hinhanh/chungnhanc++.png" target="_blank">
                         <img src="./hinhanh/chungnhanc++.png" alt="Chứng chỉ C++" class="certificate-image">
+                        </a>
                     </div>
                 </section>
 
                 <section id="social-media" class="social-media">
                     <h2><i class="fas fa-share-alt"></i> Kết nối mạng xã hội</h2>
                     <ul>
-                        <li><a href="https://www.linkedin.com/in/thanh-duy-%C4%91%E1%BA%B7ng-a3971436b/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                        <li><a href="https://github.com/DangTDuy" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></li>
-                        <li><a href="https://www.facebook.com/share/1MtCPx7mta/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="https://www.linkedin.com/in/duy-dang-258ba7277/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+                        <li><a href="https://github.com/DangTDuy" target="_blank" title="GitHub"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="https://www.facebook.com/thanhduy.it2508/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i> Facebook</a></li>
                     </ul>
                 </section>
-            </div>z
+            </div>
         </div>
     </div>
     <script src="cv3.js"></script>
