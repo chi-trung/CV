@@ -375,6 +375,81 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Call the function when the page loads
     initEducationProgress();
+
+    document.querySelectorAll('.book').forEach(book => {
+        const cover = book.querySelector('.cover');
+        if (cover && cover.querySelector('.gun-button')) {
+            let shootInterval = null;
+            book.addEventListener('mouseenter', function() {
+                shootInterval = setInterval(() => {
+                    cover.classList.add('shooting');
+                    setTimeout(() => cover.classList.remove('shooting'), 250);
+                }, 400);
+            });
+            book.addEventListener('mouseleave', function() {
+                clearInterval(shootInterval);
+                cover.classList.remove('shooting');
+            });
+        }
+    });
+
+    // Audio Player
+    const audioPlayer = document.getElementById('audio-player');
+    const playButton = document.getElementById('play-button');
+    const progressBar = document.getElementById('progress-bar');
+    const progress = document.getElementById('progress');
+    const currentTimeEl = document.getElementById('current-time');
+    const totalTimeEl = document.getElementById('total-time');
+    const playIcon = playButton.querySelector('.play-icon svg');
+
+    // Format time
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        seconds = Math.floor(seconds % 60);
+        return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    // Update progress bar
+    function updateProgress() {
+        const percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progress.style.width = `${percent}%`;
+        currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+    }
+
+    // Update total time when metadata is loaded
+    audioPlayer.addEventListener('loadedmetadata', () => {
+        totalTimeEl.textContent = formatTime(audioPlayer.duration);
+    });
+
+    // Play/Pause
+    playButton.addEventListener('click', () => {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playIcon.innerHTML = '<path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" fill="currentColor"/>';
+            playButton.querySelector('span').textContent = 'Pause';
+        } else {
+            audioPlayer.pause();
+            playIcon.innerHTML = '<path d="M8 5.14v14l11-7-11-7z" fill="currentColor"/>';
+            playButton.querySelector('span').textContent = 'Click to Play';
+        }
+    });
+
+    // Update progress bar while playing
+    audioPlayer.addEventListener('timeupdate', updateProgress);
+
+    // Click on progress bar to seek
+    progressBar.addEventListener('click', (e) => {
+        const percent = (e.offsetX / progressBar.offsetWidth);
+        audioPlayer.currentTime = percent * audioPlayer.duration;
+    });
+
+    // Handle audio end
+    audioPlayer.addEventListener('ended', () => {
+        playIcon.innerHTML = '<path d="M8 5.14v14l11-7-11-7z" fill="currentColor"/>';
+        playButton.querySelector('span').textContent = 'Click to Play';
+        progress.style.width = '0%';
+        currentTimeEl.textContent = '0:00';
+    });
 });
 
 // Contact Form Email Sending
