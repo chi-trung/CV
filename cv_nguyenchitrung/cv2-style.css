@@ -2057,14 +2057,31 @@ ul {
     .navbar {
         padding: 0.5rem;
     }
-    
     .nav-links {
+        /* Luôn giữ hàng ngang, không chuyển thành column */
+        flex-direction: row !important;
+        align-items: center;
         gap: 0.5rem;
+        overflow-x: auto;
+        min-width: 0;
+        width: 100%;
+        justify-content: flex-start;
+        /* Cho phép cuộn ngang */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
-    
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+    .nav-links li {
+        width: auto;
+        text-align: center;
+        flex-shrink: 0;
+    }
     .nav-links li a {
-        padding: 0.5rem;
+        justify-content: center;
         font-size: 0.9rem;
+        min-width: 90px;
     }
 }
 
@@ -2072,10 +2089,10 @@ ul {
     .navbar {
         padding: 0.3rem;
     }
-    
     .nav-links li a {
         padding: 0.3rem;
         font-size: 0.8rem;
+        min-width: 80px;
     }
 }
 
