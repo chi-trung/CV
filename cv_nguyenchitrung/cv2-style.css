@@ -1967,7 +1967,7 @@ ul {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--navbar-bg-solid);
     backdrop-filter: blur(10px);
     padding: 1rem;
     border-radius: 10px;
@@ -1978,6 +1978,8 @@ ul {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
 }
 
 .navbar::-webkit-scrollbar {
@@ -1999,12 +2001,56 @@ ul {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #fff;
+    color: var(--text-primary);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     transition: all 0.3s ease;
     white-space: nowrap;
+    font-weight: 500;
+}
+
+.nav-links li a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-primary);
+}
+
+.nav-links li a.active {
+    color: #FF6B6B;
+    font-weight: 600;
+    position: relative;
+    background-color: rgba(255, 107, 107, 0.1);
+}
+
+.nav-links li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: #FF6B6B;
+    border-radius: 2px;
+}
+
+/* Light mode specific styles */
+.light-mode .navbar {
+    background: var(--navbar-bg-solid);
+    border: 1px solid var(--border-color);
+}
+
+.light-mode .nav-links li a {
+    color: var(--text-primary);
+}
+
+.light-mode .nav-links li a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .nav-links li a.active {
+    color: #FF6B6B;
+    background-color: rgba(255, 107, 107, 0.1);
 }
 
 @media (max-width: 768px) {
