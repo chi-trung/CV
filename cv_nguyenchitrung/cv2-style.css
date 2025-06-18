@@ -179,14 +179,14 @@ body {
 }
 
 .avatar::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-    animation: shine 3s linear infinite;
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  z-index: 0;
+  background: conic-gradient(from 0deg, #38b6ff, #7b2ff2, #38b6ff 100%);
+  box-shadow: 0 0 0 4px #fff, 0 4px 24px 0 #38b6ff33;
+  transition: background 0.4s;
 }
 
 .avatar::after {
@@ -7062,5 +7062,25 @@ body:not(.light-mode) .contact-form textarea::placeholder {
   color: #263238 !important;
   font-weight: 700;
   text-shadow: none;
+}
+
+.live-clock-container {
+  background: black;
+  color: red;
+  font-weight: 700;
+  font-size: 1.15rem;
+  border-radius: 12px;
+  padding: 0.5em 1.3em;
+  margin-left: 0.5em;
+  display: flex;
+  align-items: center;
+  min-width: 110px;
+  letter-spacing: 1px;
+  user-select: none;
+}
+#live-clock {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.13em;
+  letter-spacing: 1px;
 }
 

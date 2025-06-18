@@ -519,6 +519,19 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateProjectActive);
     window.addEventListener('resize', updateProjectActive);
     document.addEventListener('DOMContentLoaded', updateProjectActive);
+
+    // Live clock in footer
+    function updateLiveClock() {
+        const clock = document.getElementById('live-clock');
+        if (!clock) return;
+        const now = new Date();
+        const h = String(now.getHours()).padStart(2, '0');
+        const m = String(now.getMinutes()).padStart(2, '0');
+        const s = String(now.getSeconds()).padStart(2, '0');
+        clock.textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateLiveClock, 1000);
+    document.addEventListener('DOMContentLoaded', updateLiveClock);
 });
 
 // Contact Form Email Sending
