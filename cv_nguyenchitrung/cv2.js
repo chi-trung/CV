@@ -67,54 +67,58 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setTimeout(typeWriter, 1000);
 
-    // Enhanced Skill Bars Animation
-    const skillProgressBars = document.querySelectorAll('.progress');
+    // Enhanced Skill Bars Animation with Intersection Observer
+    const skillBars = document.querySelectorAll('.progress-bar .progress');
+    const skillSection = document.querySelector('#skills');
 
-    // Linear Progress Bar Animation Logic
-    const handleLinearProgressIntersection = (entries, observer) => {
+    const skillObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const skillLevel = entry.target;
-                const level = skillLevel.dataset.level;
-                if (level) {
-                    let currentWidth = 0;
-                    const targetWidth = parseInt(level);
-                    const duration = 1500;
-                    const startTime = performance.now();
-
-                    function animateLinearProgress(currentTime) {
-                        const elapsed = currentTime - startTime;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                        currentWidth = easeOutQuart * targetWidth;
-                        skillLevel.style.width = currentWidth + '%'
+                skillBars.forEach(skillBar => {
+                    const level = skillBar.getAttribute('data-level');
+                    const skillLevel = skillBar;
+                    
+                    // Trigger animation bằng cách set width
+                    setTimeout(() => {
+                        skillLevel.style.width = level + '%';
                         
+                        // Update percent text
                         const percentSpan = skillLevel.querySelector('.progress-percent');
                         if (percentSpan) {
-                            percentSpan.textContent = `${Math.round(currentWidth)}%`;
+                            let currentPercent = 0;
+                            const targetPercent = parseInt(level);
+                            const duration = 1500;
+                            const startTime = performance.now();
+                            
+                            function updatePercent(currentTime) {
+                                const elapsed = currentTime - startTime;
+                                const progress = Math.min(elapsed / duration, 1);
+                                
+                                // Ease out quad function
+                                const easeProgress = 1 - Math.pow(1 - progress, 2);
+                                currentPercent = Math.floor(easeProgress * targetPercent);
+                                
+                                percentSpan.textContent = currentPercent + '%';
+                                
+                                if (progress < 1) {
+                                    requestAnimationFrame(updatePercent);
+                                }
+                            }
+                            
+                            requestAnimationFrame(updatePercent);
                         }
-
-                        if (progress < 1) {
-                            requestAnimationFrame(animateLinearProgress);
-                        }
-                    }
-                    requestAnimationFrame(animateLinearProgress);
-                }
-                observer.unobserve(entry.target);
+                    }, 100);
+                });
+                skillObserver.unobserve(entry.target);
             }
         });
-    };
-
-    // Create Intersection Observer for linear progress
-    const linearProgressObserver = new IntersectionObserver(handleLinearProgressIntersection, {
-        threshold: 0.5,
-        rootMargin: '0px 0px -50px 0px'
+    }, {
+        threshold: 0.2 // Bắt đầu animation khi 20% của section xuất hiện
     });
 
-    // Observe linear progress bars
-    skillProgressBars.forEach(bar => {
-        linearProgressObserver.observe(bar);
-    });
+    if (skillSection) {
+        skillObserver.observe(skillSection);
+    }
 
     // Add scroll reveal animation
     const revealElements = document.querySelectorAll('.card, .project, .skill-category');
@@ -450,6 +454,50 @@ document.addEventListener('DOMContentLoaded', function() {
         progress.style.width = '0%';
         currentTimeEl.textContent = '0:00';
     });
+
+    // Animate education progress circle only when in view
+    (function() {
+        const progressVisual = document.querySelector('.progress-visual');
+        if (!progressVisual) return;
+        let animated = false;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    animated = true;
+                    // Animate progress circle (phiên bản đầu: easeOutCubic, 2.5s)
+                    const circle = progressVisual.querySelector('.progress-ring-circle');
+                    const radius = circle.r.baseVal.value;
+                    const circumference = radius * 2 * Math.PI;
+                    const progressNumber = progressVisual.querySelector('.progress-number');
+                    const value = 70; // Số tín chỉ tích lũy
+                    const total = 120; // Tổng số tín chỉ
+                    circle.style.strokeDasharray = `${circumference} ${circumference}`;
+                    circle.style.strokeDashoffset = circumference;
+                    let current = 0;
+                    const duration = 2500; // 2.5 giây
+                    const startTime = performance.now();
+                    function animate(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        // Easing: easeOutCubic (nhanh lúc đầu, chậm về cuối)
+                        const ease = 1 - Math.pow(1 - progress, 3);
+                        current = Math.round(ease * value);
+                        const offset = circumference - ((current / total) * circumference);
+                        circle.style.strokeDashoffset = offset;
+                        progressNumber.textContent = current;
+                        if (progress < 1) {
+                            requestAnimationFrame(animate);
+                        } else {
+                            progressNumber.textContent = value;
+                        }
+                    }
+                    requestAnimationFrame(animate);
+                    observer.unobserve(progressVisual);
+                }
+            });
+        }, { threshold: 0.3 });
+        observer.observe(progressVisual);
+    })();
 });
 
 // Contact Form Email Sending

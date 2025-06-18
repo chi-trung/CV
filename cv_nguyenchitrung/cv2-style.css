@@ -1405,11 +1405,29 @@ body {
 }
 
 .light-mode .progress {
-    background: var(--accent-gradient);
-    border-radius: 10px;
     height: 100%;
+    background: linear-gradient(90deg, #4ECDC4, #45B7D1);
+    border-radius: 4px;
+    width: 0; /* Set width ban đầu là 0 */
+    transition: width 1.5s ease-in-out; /* Thêm transition */
     position: relative;
     overflow: hidden;
+}
+
+.light-mode .progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: progressShine 2s infinite;
 }
 
 .light-mode .progress-percent {
@@ -2377,9 +2395,11 @@ html {
 }
 
 .progress {
-    background: var(--accent-gradient);
-    border-radius: 10px;
     height: 100%;
+    background: linear-gradient(90deg, #4ECDC4, #45B7D1);
+    border-radius: 4px;
+    width: 0; /* Set width ban đầu là 0 */
+    transition: width 1.5s ease-in-out; /* Thêm transition */
     position: relative;
     overflow: hidden;
 }
@@ -2389,11 +2409,15 @@ html {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    animation: progressShine 2s linear infinite;
-    opacity: 0.6;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: progressShine 2s infinite;
 }
 
 /* Specific progress bar variants */
