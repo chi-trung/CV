@@ -3,24 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trần Minh Nhựt - Web Developer</title>
+    <title>Digital CV - Trần Minh Nhựt</title>
     <link rel="stylesheet" href="cv1-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="cv1.js"></script>
 </head>
-<body>
-    <button class="control-btn back-btn" onclick="goBack()" title="Quay lại">
-        ←
-    </button>
+<body data-theme="dark">
+    <div class="floating-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+    </div>
 
     <div class="controls">
-        <button class="control-btn" onclick="toggleTheme()" title="Chuyển giao diện">
-            🌓
-        </button>
+        <button class="control-btn" id="theme-toggle">🌙</button>
+        <button class="control-btn back-btn" onclick="goBack()">←</button>
+    </div>
+
+    <div class="nav-toggle animated">
+        <i class="fas fa-chevron-left"></i>
+    </div>
+    <div class="nav-menu hidden">
+        <div class="nav-avatar-container">
+            <div class="nav-avatar">
+                <img src="imgs/avatar.jpg" alt="Avatar">
+            </div>
+            <span class="nav-avatar-name">Trần Minh Nhựt</span>
+        </div>
+        <a href="#about">Giới thiệu</a>
+        <a href="#skills">Kỹ năng chuyên môn</a>
+        <a href="#education">Học vấn</a>
+        <a href="#interests">Sở thích cá nhân</a>
+        <a href="#certifications">Chứng chỉ - Giải thưởng</a>
+        <a href="#projects">Dự án nổi bật</a>
+        <a href="#career-goals">Mục tiêu nghề nghiệp</a>
+        <a href="#contact">Liên hệ</a>
     </div>
 
     <div class="container">
-        <div class="intro-section">
+        <section id="intro" class="section intro-section">
             <div class="profile-img">
-                <img src="https://cdn-icons-png.flaticon.com/128/3940/3940417.png" alt="Avatar" />
+                <img src="imgs/avatar.jpg" alt="Trần Minh Nhựt">
             </div>
             <div class="profile-info">
                 <h1 class="name">Trần Minh Nhựt</h1>
@@ -31,25 +54,16 @@
                         <span class="title-text">Fullstack Developer</span>
                     </div>
                 </div>
-            </div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span>📞</span>
-                    <span>0786953253</span>
-                </div>
-                <div class="contact-item">
-                    <span>✉️</span>
-                    <span>tranminhnhut200125@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <span>🏠</span>
-                    <span>Cao Lãnh, Đồng Tháp</span>
+                <div class="contact-info">
+                    <a href="tel:0786953253" class="contact-item"><i class="fas fa-phone"></i> 0786953253</a>
+                    <a href="mailto:tranminhnhut200125@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> tranminhnhut200125@gmail.com</a>
+                    <span class="contact-item"><i class="fas fa-map-marker-alt"></i> Cao Lãnh, Đồng Tháp</span>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <main class="main-content">
-            <section class="section">
+        <div class="main-content">
+            <section id="about" class="section">
                 <h2 class="section-title">Giới thiệu</h2>
                 <p class="about-text">
                     Tôi là sinh viên năm 2 chuyên ngành Web Development với niềm đam mê mãnh liệt dành cho công nghệ và lập trình.
@@ -58,172 +72,208 @@
                 </p>
             </section>
 
-            <div class="skills-content">
-                <section class="section">
-                    <h2 class="section-title">Kỹ năng chuyên môn</h2>
+            <section id="skills" class="section">
+                <h2 class="section-title">Kỹ năng chuyên môn</h2>
+                <div class="skills-content">
                     <div class="skills-categories">
-                        <div class="skill-category">
-                            <div class="category-title">Kỹ năng lập trình</div>
+                        <div class="skill-category programming">
+                            <h3 class="category-title">Kỹ năng lập trình</h3>
                             <div class="skills-grid">
                                 <div class="skill-item">
                                     <div class="skill-name">C/C++</div>
+                                    <div class="skill-progress">
+                                        <div class="skill-progress-bar" data-proficiency="85"></div>
+                                    </div>
                                 </div>
                                 <div class="skill-item">
                                     <div class="skill-name">Python</div>
+                                    <div class="skill-progress">
+                                        <div class="skill-progress-bar" data-proficiency="90"></div>
+                                    </div>
                                 </div>
                                 <div class="skill-item">
                                     <div class="skill-name">Java</div>
+                                    <div class="skill-progress">
+                                        <div class="skill-progress-bar" data-proficiency="80"></div>
+                                    </div>
                                 </div>
                                 <div class="skill-item">
                                     <div class="skill-name">JavaScript</div>
+                                    <div class="skill-progress">
+                                        <div class="skill-progress-bar" data-proficiency="85"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="skill-category">
-                            <div class="category-title">Framework & Thư viện</div>
+                        <div class="skill-category frameworks">
+                            <h3 class="category-title">Framework & Thư viện</h3>
                             <div class="skills-grid">
                                 <div class="skill-item">
                                     <div class="skill-name">React</div>
+                                    <div class="skill-progress">
+                                        <div class="skill-progress-bar" data-proficiency="80"></div>
+                                    </div>
                                 </div>
                                 <div class="skill-item">
                                     <div class="skill-name">Node.js</div>
+                                    <div class="skill-progress">
+                                        <div class="skill-progress-bar" data-proficiency="75"></div>
+                                    </div>
                                 </div>
                                 <div class="skill-item">
                                     <div class="skill-name">HTML/CSS</div>
+                                    <div class="skill-progress">
+                                        <div class="skill-progress-bar" data-proficiency="90"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="skill-category">
-                            <div class="category-title">Công cụ & DevOps</div>
+                        <div class="skill-category devops">
+                            <h3 class="category-title">Công cụ & DevOps</h3>
                             <div class="skills-grid">
                                 <div class="skill-item">
                                     <div class="skill-name">Git/GitHub</div>
+                                    <div class="skill-progress">
+                                        <div class="skill-progress-bar" data-proficiency="85"></div>
+                                    </div>
                                 </div>
                                 <div class="skill-item">
                                     <div class="skill-name">VS Code</div>
+                                    <div class="skill-progress">
+                                        <div class="skill-progress-bar" data-proficiency="90"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="skill-category">
-                            <div class="category-title">Cơ sở dữ liệu</div>
+                        <div class="skill-category database">
+                            <h3 class="category-title">Cơ sở dữ liệu</h3>
                             <div class="skills-grid">
                                 <div class="skill-item">
                                     <div class="skill-name">MySQL</div>
+                                    <div class="skill-progress">
+                                        <div class="skill-progress-bar" data-proficiency="80"></div>
+                                    </div>
                                 </div>
                                 <div class="skill-item">
                                     <div class="skill-name">MongoDB</div>
+                                    <div class="skill-progress">
+                                        <div class="skill-progress-bar" data-proficiency="75"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <!-- Cập nhật học vấn -->
-                <section class="section education-section" style="width: fit-content; padding: 1rem;">
-                    <h2 class="section-title">Học vấn</h2>
-                    <div class="education-item">
-                        <div class="item-title">Sinh viên năm 2 - Đại học Giao thông Vận tải</div>
-                        <div class="item-subtitle">2023 - 2027</div>
-                        <div class="item-description">
-                            Đang theo học chuyên ngành phát triển web, tập trung vào việc xây dựng ứng dụng web hiện đại
-                            và học hỏi các công nghệ mới nhất trong ngành.
+            <section id="education" class="section">
+                <h2 class="section-title">Học vấn</h2>
+                <div class="education-section">
+                    <div class="education-grid">
+                        <div class="education-grid-item">
+                            <p><strong>Bậc đào tạo:</strong> Đại học - chính quy</p>
+                        </div>
+                        <div class="education-grid-item">
+                            <p><strong>Ngành:</strong> Công nghệ Thông tin</p>
+                        </div>
+                        <div class="education-grid-item">
+                            <p><strong>Chuyên ngành:</strong> Lập trình web (Web Programming)</p>
+                        </div>
+                        <div class="education-grid-item">
+                            <p><strong>GPA hiện tại:</strong> 3.38 / 4.0</p>
                         </div>
                     </div>
-                </section>
-            </div>
+                    <div class="education-item">
+                        <h3 class="item-title">Đại học Giao thông Vận tải – Sinh viên năm 2 (Khóa 2023)</h3>
+                        <p class="item-description">
+                            Đang theo học chương trình đào tạo chuyên sâu về phát triển phần mềm web hiện đại, bao gồm cả front-end và back-end, kết hợp kiến thức về cơ sở dữ liệu, bảo mật và kỹ năng làm việc nhóm trong dự án thực tế.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-            <section class="section full-width">
+            <section id="interests" class="section">
                 <h2 class="section-title">Sở thích cá nhân</h2>
-                <ul class="about-text interest-list">
-                    <li>📚 Đọc sách công nghệ</li>
-                    <li>🎧 Nghe nhạc</li>
-                    <li>🌐 Tìm hiểu công nghệ mới</li>
-                    <li>🧗 Du lịch và khám phá</li>
+                <ul class="interest-list">
+                    <li>
+                        <img src="imgs/TB.webp" alt="Đọc sách công nghệ" class="interest-img">
+                        Đọc sách công nghệ
+                    </li>
+                    <li>
+                        <img src="imgs/playlists.png" alt="Nghe nhạc" class="interest-img">
+                        Nghe nhạc
+                    </li>
+                    <li>
+                        <img src="imgs/newT.webp" alt="Tìm hiểu công nghệ mới" class="interest-img">
+                        Tìm hiểu công nghệ mới
+                    </li>
+                    <li>
+                        <img src="imgs/travel.webp" alt="Du lịch và khám phá" class="interest-img">
+                        Du lịch và khám phá
+                    </li>
                 </ul>
             </section>
 
-            <section class="section full-width">
+            <section id="certifications" class="section">
                 <h2 class="section-title">Chứng chỉ - Giải thưởng</h2>
-                <p class="about-text">Chưa có chứng chỉ hay giải thưởng nào được cập nhật.</p>
+                <p class="about-text">Không có</p>
             </section>
 
-
-            <section class="section full-width">
+            <section id="projects" class="section">
                 <h2 class="section-title">Dự án nổi bật</h2>
                 <div class="projects-grid">
                     <div class="project-item">
-                        <img src="imgs/thc.png" alt="Hệ thống đặt chỗ du lịch" class="project-img">
-                        <div class="item-title">Hệ thống đặt chỗ du lịch trực tuyến</div>
-                        <div class="item-subtitle">Full-stack Web Application</div>
-                        <div class="item-description">
+                        <img src="imgs/thc.png" alt="Hệ thống đặt chỗ du lịch trực tuyến" class="project-img">
+                        <h3 class="item-title">Hệ thống đặt chỗ du lịch trực tuyến</h3>
+                        <p class="item-subtitle">Full-stack Web Application</p>
+                        <p class="item-description">
                             Ứng dụng web đặt chỗ du lịch với các tính năng booking homestay, camping,
                             quản lý đặt chỗ và thanh toán trực tuyến.
-                        </div>
-                        <a href="https://github.com/DangTDuy/Travel---Homestay-Camping-Booking-Application-" class="github-link" target="_blank">
-                            <span>⚡</span>
+                        </p>
+                        <a href="https://github.com/DangTDuy/Travel---Homestay-Camping-Booking-Application-" class="github-link">
                             <span>Xem trên GitHub</span>
                         </a>
-                        <div class="project-overlay">
-                            <div class="overlay-title">Hệ thống đặt chỗ du lịch</div>
-                            <div class="overlay-description">Ứng dụng toàn diện cho đặt chỗ du lịch</div>
-                        </div>
                     </div>
-
                     <div class="project-item">
                         <img src="imgs/qltp.png" alt="Hệ thống quản lý tội phạm" class="project-img">
-                        <div class="item-title">Hệ thống quản lý tội phạm</div>
-                        <div class="item-subtitle">Database Management System</div>
-                        <div class="item-description">
+                        <h3 class="item-title">Hệ thống quản lý tội phạm</h3>
+                        <p class="item-subtitle">Database Management System</p>
+                        <p class="item-description">
                             Hệ thống quản lý thông tin tội phạm với các chức năng CRUD,
                             báo cáo thống kê và giao diện quản trị hiện đại.
-                        </div>
-                        <a href="https://github.com/66TranMinhNhut/Criminal-Management-System" class="github-link" target="_blank">
-                            <span>⚡</span>
+                        </p>
+                        <a href="https://github.com/66TranMinhNhut/Criminal-Management-System" class="github-link">
                             <span>Xem trên GitHub</span>
                         </a>
-                        <div class="project-overlay">
-                            <div class="overlay-title">Hệ thống quản lý tội phạm</div>
-                            <div class="overlay-description">Quản lý dữ liệu hiệu quả</div>
-                        </div>
                     </div>
                 </div>
             </section>
 
-            <section class="section full-width">
+            <section id="career-goals" class="section">
                 <h2 class="section-title">Mục tiêu nghề nghiệp</h2>
                 <p class="about-text">
-                    <strong>Ngắn hạn:</strong> Hoàn thành tốt chương trình học, nâng cao kỹ năng lập trình web và tham gia các dự án thực tế.<br><br>
+                    <strong>Ngắn hạn:</strong> Hoàn thành tốt chương trình học, nâng cao kỹ năng lập trình web và tham gia các dự án thực tế.
+                </p>
+                <p class="about-text">
                     <strong>Dài hạn:</strong> Trở thành Full-stack Developer chuyên nghiệp, có khả năng phát triển các ứng dụng web quy mô lớn và đóng góp cho cộng đồng developer Việt Nam.
                 </p>
             </section>
-        </main>
 
-        <section class="contact-section">
-            <h2 class="section-title">Liên hệ với tôi?</h2>
-            <div class="contact-info footer-contact">
-                <div class="contact-item">
-                    <span>📞</span>
-                    <span>0786953253</span>
+            <section id="contact" class="section contact-section">
+                <h2 class="section-title">Liên hệ với tôi?</h2>
+                <div class="contact-info footer-contact">
+                    <a href="tel:0786953253" class="contact-item"><i class="fas fa-phone"></i> 0786953253</a>
+                    <a href="mailto:tranminhnhut200125@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> tranminhnhut200125@gmail.com</a>
+                    <a href="https://www.facebook.com/tran.minh.nhut.522995" class="contact-item"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="https://github.com/66TranMinhNhut" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
                 </div>
-                <div class="contact-item">
-                    <span>✉️</span>
-                    <span>tranminhnhut200125@gmail.com</span>
-                </div>
-                <a href="https://www.facebook.com/tran.minh.nhut.522995/" class="contact-item" target="_blank">
-                    <span>📘</span>
-                    <span>Facebook</span>
-                </a>
-                <a href="https://github.com/66TranMinhNhut" class="contact-item" target="_blank">
-                    <span>🔗</span>
-                    <span>GitHub</span>
-                </a>
-            </div>
-        </section>
+            </section>
+
+            <hr class="footer-divider">
+            <footer class="footer-section">
+                <p class="footer-text animated-footer">© 2025 Trần Minh Nhựt - Với đam mê là nguồn cảm hứng dồi dào</p>
+            </footer>
+        </div>
     </div>
-
-    <script src="cv1.js"></script>
 </body>
 </html>
