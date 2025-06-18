@@ -78,22 +78,28 @@
     // Active section highlight
     const sections = document.querySelectorAll('.section');
     window.addEventListener('scroll', () => {
-        let current = '';
+        let closestSection = null;
+        let closestDistance = Number.POSITIVE_INFINITY;
+
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
-                current = section.getAttribute('id');
+            const rect = section.getBoundingClientRect();
+            const distance = Math.abs(rect.top - window.innerHeight / 4);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestSection = section;
             }
         });
 
+        const currentId = closestSection ? closestSection.getAttribute('id') : '';
+
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === current) {
+            if (link.getAttribute('href').substring(1) === currentId) {
                 link.classList.add('active');
             }
         });
     });
+
 
     // Skill progress bars animation
     const skillBars = document.querySelectorAll('.skill-progress-bar');
