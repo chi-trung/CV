@@ -1,0 +1,78 @@
+.skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.skill-item span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    flex: 1;
+}
+
+.circular-progress-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    margin-left: 20px;
+}
+
+.circular-progress {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.circular-progress-bg {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 8;
+}
+
+.circular-progress-bar {
+    fill: none;
+    stroke: url(#progressGradient);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.circular-progress-percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary); /* Use text-primary for theme compatibility */
+    display: block; /* Ensure it's visible */
+    line-height: 1; /* Prevent extra space */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Add subtle shadow for readability */
+}
+
+/* Dark mode styles */
+.dark-mode .circular-progress-bg {
+    stroke: #2a2a2a;
+}
+
+/* Light mode styles */
+.light-mode .circular-progress-bg {
+    stroke: #e0e0e0;
+}
+
+/* Light mode adjustments for percentage text */
+.light-mode .circular-progress-percent {
+    color: var(--text-primary); /* Ensure text color is appropriate for light mode */
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5); /* Light shadow for light mode */
+}
+
+.skill-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    vertical-align: middle;
+    object-fit: contain;
+} 
