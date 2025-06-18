@@ -1078,3 +1078,54 @@ body {
 .project-item:hover .project-img {
 	transform: scale(1.05);
 }
+
+.contact-info {
+    display: flex;
+    justify-content: center;  /* ➕ thêm dòng này để căn giữa */
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+    text-align: center; /* ➕ để chữ và icon cân giữa */
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-primary);
+  text-decoration: none;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+  background: linear-gradient(120deg, transparent, rgba(0, 212, 255, 0.1));
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+  animation: floatLink 3s ease-in-out infinite alternate;
+}
+
+.github-link:hover {
+  background: var(--accent-primary);
+  color: var(--text-primary);
+  border-color: var(--accent-secondary);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--accent-secondary);
+  text-shadow: 0 0 10px var(--text-primary);
+}
+
+@keyframes floatLink {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
