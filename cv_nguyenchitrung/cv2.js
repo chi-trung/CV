@@ -67,54 +67,58 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setTimeout(typeWriter, 1000);
 
-    // Enhanced Skill Bars Animation
-    const skillProgressBars = document.querySelectorAll('.progress');
+    // Enhanced Skill Bars Animation with Intersection Observer
+    const skillBars = document.querySelectorAll('.progress-bar .progress');
+    const skillSection = document.querySelector('#skills');
 
-    // Linear Progress Bar Animation Logic
-    const handleLinearProgressIntersection = (entries, observer) => {
+    const skillObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const skillLevel = entry.target;
-                const level = skillLevel.dataset.level;
-                if (level) {
-                    let currentWidth = 0;
-                    const targetWidth = parseInt(level);
-                    const duration = 1500;
-                    const startTime = performance.now();
-
-                    function animateLinearProgress(currentTime) {
-                        const elapsed = currentTime - startTime;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                        currentWidth = easeOutQuart * targetWidth;
-                        skillLevel.style.width = currentWidth + '%'
+                skillBars.forEach(skillBar => {
+                    const level = skillBar.getAttribute('data-level');
+                    const skillLevel = skillBar;
+                    
+                    // Trigger animation bằng cách set width
+                    setTimeout(() => {
+                        skillLevel.style.width = level + '%';
                         
+                        // Update percent text
                         const percentSpan = skillLevel.querySelector('.progress-percent');
                         if (percentSpan) {
-                            percentSpan.textContent = `${Math.round(currentWidth)}%`;
+                            let currentPercent = 0;
+                            const targetPercent = parseInt(level);
+                            const duration = 1500;
+                            const startTime = performance.now();
+                            
+                            function updatePercent(currentTime) {
+                                const elapsed = currentTime - startTime;
+                                const progress = Math.min(elapsed / duration, 1);
+                                
+                                // Ease out quad function
+                                const easeProgress = 1 - Math.pow(1 - progress, 2);
+                                currentPercent = Math.floor(easeProgress * targetPercent);
+                                
+                                percentSpan.textContent = currentPercent + '%';
+                                
+                                if (progress < 1) {
+                                    requestAnimationFrame(updatePercent);
+                                }
+                            }
+                            
+                            requestAnimationFrame(updatePercent);
                         }
-
-                        if (progress < 1) {
-                            requestAnimationFrame(animateLinearProgress);
-                        }
-                    }
-                    requestAnimationFrame(animateLinearProgress);
-                }
-                observer.unobserve(entry.target);
+                    }, 100);
+                });
+                skillObserver.unobserve(entry.target);
             }
         });
-    };
-
-    // Create Intersection Observer for linear progress
-    const linearProgressObserver = new IntersectionObserver(handleLinearProgressIntersection, {
-        threshold: 0.5,
-        rootMargin: '0px 0px -50px 0px'
+    }, {
+        threshold: 0.2 // Bắt đầu animation khi 20% của section xuất hiện
     });
 
-    // Observe linear progress bars
-    skillProgressBars.forEach(bar => {
-        linearProgressObserver.observe(bar);
-    });
+    if (skillSection) {
+        skillObserver.observe(skillSection);
+    }
 
     // Add scroll reveal animation
     const revealElements = document.querySelectorAll('.card, .project, .skill-category');
@@ -278,4 +282,280 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add scroll event listener
     window.addEventListener('scroll', highlightNavLink);
-}); 
+
+    // Circular progress cho phần education-progress
+    function animateEducationProgress() {
+        const container = document.querySelector('.education-progress .circular-progress-container');
+        if (!container) return;
+        const percent = parseInt(container.getAttribute('data-level'));
+        const circle = container.querySelector('.circular-progress-bar');
+        const percentSpan = container.querySelector('.circular-progress-percent');
+        const radius = 40;
+        const circumference = 2 * Math.PI * radius;
+        circle.style.strokeDasharray = circumference;
+        circle.style.strokeDashoffset = circumference;
+        let current = 0;
+        function animate() {
+            current += 1;
+            if (current > percent) current = percent;
+            const offset = circumference - (current / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+            percentSpan.textContent = current + '%';
+            if (current < percent) {
+                requestAnimationFrame(animate);
+            }
+        }
+        animate();
+    }
+    animateEducationProgress();
+
+    // Animate education progress bar (rectangular)
+    function animateEducationRectProgress() {
+        const container = document.querySelector('.education-progress-rect');
+        if (!container) return;
+        const value = parseInt(container.querySelector('.progress-value').textContent);
+        const total = parseInt(container.querySelector('.progress-total').textContent);
+        const percent = Math.round((value / total) * 100);
+        const bar = container.querySelector('.progress-bar-inner');
+        const percentSpan = container.querySelector('.progress-percent');
+        let current = 0;
+        function animate() {
+            current += 1;
+            if (current > percent) current = percent;
+            bar.style.width = current + '%';
+            percentSpan.textContent = current;
+            if (current < percent) {
+                requestAnimationFrame(animate);
+            }
+        }
+        animate();
+    }
+    animateEducationRectProgress();
+
+    // Education Progress Animation
+    function initEducationProgress() {
+        const circle = document.querySelector('.progress-ring-circle');
+        const radius = circle.r.baseVal.value;
+        const circumference = radius * 2 * Math.PI;
+        const progressNumber = document.querySelector('.progress-number');
+        
+        circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        circle.style.strokeDashoffset = circumference;
+        
+        function setProgress(percent) {
+            const offset = circumference - (percent / 100 * circumference);
+            circle.style.strokeDashoffset = offset;
+        }
+        
+        function animateValue(obj, start, end, duration) {
+            const range = end - start;
+            const minTimer = 50;
+            const stepTime = Math.abs(Math.floor(duration / range));
+            const timer = Math.max(stepTime, minTimer);
+            const startTime = new Date().getTime();
+            const endTime = startTime + duration;
+            let timerID;
+
+            function run() {
+                const now = new Date().getTime();
+                const remaining = Math.max((endTime - now) / duration, 0);
+                const value = Math.round(end - (remaining * range));
+                obj.innerHTML = value;
+                if (value === end) {
+                    clearInterval(timerID);
+                }
+            }
+
+            timerID = setInterval(run, timer);
+            run();
+        }
+        
+        // Animate progress circle
+        setTimeout(() => {
+            setProgress((70/120) * 100);
+            animateValue(progressNumber, 0, 70, 2000);
+        }, 500);
+    }
+
+    // Call the function when the page loads
+    initEducationProgress();
+
+    document.querySelectorAll('.book').forEach(book => {
+        const cover = book.querySelector('.cover');
+        if (cover && cover.querySelector('.gun-button')) {
+            let shootInterval = null;
+            book.addEventListener('mouseenter', function() {
+                shootInterval = setInterval(() => {
+                    cover.classList.add('shooting');
+                    setTimeout(() => cover.classList.remove('shooting'), 250);
+                }, 400);
+            });
+            book.addEventListener('mouseleave', function() {
+                clearInterval(shootInterval);
+                cover.classList.remove('shooting');
+            });
+        }
+    });
+
+    // Audio Player
+    const audioPlayer = document.getElementById('audio-player');
+    const playButton = document.getElementById('play-button');
+    const progressBar = document.getElementById('progress-bar');
+    const progress = document.getElementById('progress');
+    const currentTimeEl = document.getElementById('current-time');
+    const totalTimeEl = document.getElementById('total-time');
+    const playIcon = playButton.querySelector('.play-icon svg');
+
+    // Format time
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        seconds = Math.floor(seconds % 60);
+        return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    // Update progress bar
+    function updateProgress() {
+        const percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progress.style.width = `${percent}%`;
+        currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+    }
+
+    // Update total time when metadata is loaded
+    audioPlayer.addEventListener('loadedmetadata', () => {
+        totalTimeEl.textContent = formatTime(audioPlayer.duration);
+    });
+
+    // Play/Pause
+    playButton.addEventListener('click', () => {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playIcon.innerHTML = '<path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" fill="currentColor"/>';
+            playButton.querySelector('span').textContent = 'Pause';
+        } else {
+            audioPlayer.pause();
+            playIcon.innerHTML = '<path d="M8 5.14v14l11-7-11-7z" fill="currentColor"/>';
+            playButton.querySelector('span').textContent = 'Click to Play';
+        }
+    });
+
+    // Update progress bar while playing
+    audioPlayer.addEventListener('timeupdate', updateProgress);
+
+    // Click on progress bar to seek
+    progressBar.addEventListener('click', (e) => {
+        const percent = (e.offsetX / progressBar.offsetWidth);
+        audioPlayer.currentTime = percent * audioPlayer.duration;
+    });
+
+    // Handle audio end
+    audioPlayer.addEventListener('ended', () => {
+        playIcon.innerHTML = '<path d="M8 5.14v14l11-7-11-7z" fill="currentColor"/>';
+        playButton.querySelector('span').textContent = 'Click to Play';
+        progress.style.width = '0%';
+        currentTimeEl.textContent = '0:00';
+    });
+
+    // Animate education progress circle only when in view
+    (function() {
+        const progressVisual = document.querySelector('.progress-visual');
+        if (!progressVisual) return;
+        let animated = false;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    animated = true;
+                    // Animate progress circle
+                    const circle = progressVisual.querySelector('.progress-ring-circle');
+                    const radius = circle.r.baseVal.value;
+                    const circumference = radius * 2 * Math.PI;
+                    const progressNumber = progressVisual.querySelector('.progress-number');
+                    const value = 70; // Số tín chỉ tích lũy
+                    const total = 120; // Tổng số tín chỉ
+                    const percent = (value / total) * 100;
+                    circle.style.strokeDasharray = `${circumference} ${circumference}`;
+                    circle.style.strokeDashoffset = circumference;
+                    let current = 0;
+                    function animate() {
+                        current += 1;
+                        if (current > value) current = value;
+                        const offset = circumference - ((current / total) * circumference);
+                        circle.style.strokeDashoffset = offset;
+                        progressNumber.textContent = current;
+                        if (current < value) {
+                            requestAnimationFrame(animate);
+                        }
+                    }
+                    animate();
+                    observer.unobserve(progressVisual);
+                }
+            });
+        }, { threshold: 0.3 });
+        observer.observe(progressVisual);
+    })();
+
+    // Project spotlight: luôn có 1 project gần tâm viewport nhất được active
+    function updateProjectActive() {
+        const projects = document.querySelectorAll('.project');
+        let minDist = Infinity;
+        let activeProject = null;
+        const viewportCenter = window.innerHeight / 2;
+        projects.forEach(project => {
+            const rect = project.getBoundingClientRect();
+            const projectCenter = rect.top + rect.height / 2;
+            const dist = Math.abs(projectCenter - viewportCenter);
+            if (dist < minDist) {
+                minDist = dist;
+                activeProject = project;
+            }
+        });
+        projects.forEach(project => {
+            if (project === activeProject) {
+                project.classList.add('active');
+            } else {
+                project.classList.remove('active');
+            }
+        });
+    }
+    window.addEventListener('scroll', updateProjectActive);
+    window.addEventListener('resize', updateProjectActive);
+    document.addEventListener('DOMContentLoaded', updateProjectActive);
+
+    // Live clock in footer
+    function updateLiveClock() {
+        const clock = document.getElementById('live-clock');
+        if (!clock) return;
+        const now = new Date();
+        const h = String(now.getHours()).padStart(2, '0');
+        const m = String(now.getMinutes()).padStart(2, '0');
+        const s = String(now.getSeconds()).padStart(2, '0');
+        clock.textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateLiveClock, 1000);
+    document.addEventListener('DOMContentLoaded', updateLiveClock);
+});
+
+// Contact Form Email Sending
+function sendEmail(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    // Create mailto link
+    const mailtoLink = `mailto:nguyenchitrung2702@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+        `Tên: ${name}\nEmail: ${email}\n\nNội dung tin nhắn:\n${message}`
+    )}`;
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+    
+    // Clear form
+    document.getElementById('contactForm').reset();
+    
+    // Show success message
+    alert('Cảm ơn bạn đã liên hệ! Vui lòng kiểm tra email của bạn để hoàn tất việc gửi tin nhắn.');
+    
+    return false;
+} 

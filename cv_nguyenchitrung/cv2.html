@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="./circular-progress.css">
 </head>
 <body>
+    <svg viewBox="0 0 0 0" width="0" height="0">
+      <filter id="wave-filter">
+        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="25"></feGaussianBlur>
+        <feColorMatrix in="blur" type="matrix"
+          values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 48 -7"></feColorMatrix>
+      </filter>
+    </svg>
     <a href="../index.html" class="back-button" title="Quay lại trang tổng quan">
         <i class="fas fa-arrow-left"></i>
     </a>
@@ -27,95 +37,83 @@
         <header class="header">
             <div class="avatar-container">
                 <div class="avatar">
-                    <img src="https://cdn-icons-png.flaticon.com/128/1326/1326390.png" alt="Nguyễn Chí Trung">
+                    <img src="./images/avt.png" alt="Nguyễn Chí Trung">
                 </div>
             </div>
             <h1 class="name">Nguyễn Chí Trung</h1>
             <p class="role">Fullstack Developer</p>
-        </header>
-
-        <!-- Personal Contact Section -->
-        <section>
-            <h2 class="card-title">
-                <img src="https://cdn-icons-png.flaticon.com/128/3771/3771518.png" alt="Contact Info Icon" class="card-title-icon">
-                Thông tin liên hệ
-            </h2>
             <div class="contact-info">
                 <div class="contact-item">
                     <div class="tooltip-container">
-                        <img src="https://cdn-icons-png.flaticon.com/128/5968/5968534.png" alt="Email Icon">
+                        <img src="https://cdn-icons-png.flaticon.com/128/2913/2913990.png" alt="Email">
                         <span>nguyenchitrung2702@gmail.com</span>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="tooltip-container">
-                        <img src="https://cdn-icons-png.flaticon.com/128/9946/9946341.png" alt="Phone Icon">
+                        <img src="https://cdn-icons-png.flaticon.com/128/724/724664.png" alt="Phone">
                         <span>+84 338 708 330</span>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="tooltip-container">
-                        <img src="https://cdn-icons-png.flaticon.com/128/1865/1865269.png" alt="Location Icon">
+                        <img src="https://cdn-icons-png.flaticon.com/128/684/684908.png" alt="Location">
                         <span>Cao Lãnh, Đồng Tháp</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </header>
 
         <!-- Navigation Bar -->
         <nav class="navbar">
             <ul class="nav-links">
-                <li><a href="#about"><i class="fas fa-user-tie"></i> Giới thiệu</a></li>
-                <li><a href="#skills"><i class="fas fa-cogs"></i> Kỹ năng</a></li>
-                <li><a href="#projects"><i class="fas fa-project-diagram"></i> Dự án</a></li>
-                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Học vấn</a></li>
-                <li><a href="#hobbies"><i class="fas fa-heart"></i> Sở thích</a></li>
-                <li><a href="#contact"><i class="fas fa-handshake"></i> Liên hệ</a></li>
+                <li><a href="#about" class="active">Giới Thiệu</a></li>
+                <li><a href="#skills">Kỹ Năng</a></li>
+                <li><a href="#projects">Dự Án</a></li>
+                <li><a href="#education">Học Vấn</a></li>
+                <li><a href="#hobbies">Sở Thích</a></li>
+                <li><a href="#contact">Liên Hệ</a></li>
             </ul>
         </nav>
 
         <!-- Main Content -->
         <main class="main-content">
             <!-- About Section -->
-            <section id="about" class="card full-width-card">
+            <section id="about" class="card">
                 <h2 class="card-title">
-                    <i class="fas fa-user-tie"></i>
-                    Giới thiệu bản thân
+                    <i class="fas fa-user"></i>
+                    Giới Thiệu
                 </h2>
-                <p class="about-text">
-                    Fullstack Developer đam mê công nghệ với khả năng làm việc trên cả frontend và backend. 
-                    Chuyên sâu về Java, Spring Boot, Python, Django, Laravel và có kỹ năng thiết kế với Figma, HTML, CSS, Bootstrap. 
-                    Có kinh nghiệm với C++ trong phát triển ứng dụng desktop và game. 
-                    Luôn tìm kiếm cơ hội để phát triển các giải pháp phần mềm sáng tạo và hiệu quả, 
-                    đồng thời không ngừng học hỏi và cập nhật các công nghệ mới nhất.
-                </p>
+                <div class="about-text">
+                    <p>Xin chào! Tôi là Nguyễn Chí Trung, một lập trình viên Full Stack đam mê phát triển web. Với kinh nghiệm trong việc xây dựng các ứng dụng web hiện đại, tôi luôn tìm kiếm những thách thức mới để phát triển bản thân.</p>
+                </div>
             </section>
 
             <!-- Skills Section -->
             <section id="skills" class="card">
                 <h2 class="card-title">
-                    <i class="fas fa-cogs"></i>
-                    Kỹ năng chuyên môn
+                    <i class="fas fa-code"></i>
+                    Kỹ Năng
                 </h2>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h4>Ngôn ngữ lập trình</h4>
+                        <h4>Ngôn Ngữ Lập Trình</h4>
                         <div class="skill-bars">
                             <div class="skill-item">
-                                <span><img src="https://cdn-icons-png.flaticon.com/128/226/226777.png" alt="Java icon" class="skill-icon">Java</span>
-                                <div class="progress-bar progress-bar-languages"><div class="progress" data-level="85"><span class="progress-percent"></span></div></div>
+                                <span><img src="https://cdn-icons-png.flaticon.com/128/5968/5968292.png" alt="JavaScript icon" class="skill-icon">JavaScript</span>
+                                <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="90"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
                                 <span><img src="https://cdn-icons-png.flaticon.com/128/5968/5968350.png" alt="Python icon" class="skill-icon">Python</span>
-                                <div class="progress-bar progress-bar-languages"><div class="progress" data-level="80"><span class="progress-percent"></span></div></div>
+                                <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="85"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
-                                <span><img src="https://cdn-icons-png.flaticon.com/128/5968/5968292.png" alt="JavaScript icon" class="skill-icon">JavaScript</span>
-                                <div class="progress-bar progress-bar-languages"><div class="progress" data-level="75"><span class="progress-percent"></span></div></div>
+                                <span><img src="https://cdn-icons-png.flaticon.com/128/226/226777.png" alt="Java icon" class="skill-icon">Java</span>
+                                <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="80"><span class="progress-percent"></span></div></div>
                             </div>
                             <div class="skill-item">
                                 <span><img src="https://cdn-icons-png.flaticon.com/128/6132/6132222.png" alt="C++ icon" class="skill-icon">C++</span>
-                                <div class="progress-bar progress-bar-languages"><div class="progress" data-level="70"><span class="progress-percent"></span></div></div>
+                                <div class="progress-bar progress-bar-frameworks"><div class="progress" data-level="75"><span class="progress-percent"></span></div></div>
                             </div>
                         </div>
                     </div>
@@ -264,54 +262,68 @@
             <section id="projects" class="card">
                 <h2 class="card-title">
                     <i class="fas fa-project-diagram"></i>
-                    Dự án nổi bật
+                    Dự Án
                 </h2>
                 <div class="projects-list">
                     <div class="project">
-                        <img src="./images/travel2.jpg" alt="Hệ thống đặt chỗ du lịch" class="project-image">
-                        <div class="project-info">
-                            <h3 class="project-title">🏨 Hệ thống đặt chỗ du lịch trực tuyến</h3>
-                            <p class="project-tech">Java • Spring Boot • MySQL • HTML/CSS/JS</p>
-                            <p class="project-description">
-                                Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, 
-                                tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện.
-                            </p>
-                            <button class="btn project-link" type="button" data-href="projectdetail.html?title=Hệ thống đặt chỗ du lịch trực tuyến&tech=Java • Spring Boot • MySQL • HTML/CSS/JS&description=Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện.&github=https://github.com/DangTDuy/Travel---Homestay-Camping-Booking-Application-&demo=&images=./images/travel1.jpg,./images/travel2.jpg">
-                                <strong>Xem chi tiết</strong>
-                                <div id="container-stars"><div id="stars"></div></div>
-                                <div id="glow"><div class="circle"></div><div class="circle"></div></div>
-                            </button>
+                        <div class="project-grid">
+                            <div class="project-image-container">
+                                <img src="./images/travel2.jpg" alt="Hệ thống đặt chỗ du lịch" class="project-image">
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">🏨 Hệ thống đặt chỗ du lịch trực tuyến</h3>
+                                <p class="project-tech">Java • Spring Boot • MySQL • HTML/CSS/JS</p>
+                                <p class="project-description">
+                                    Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, 
+                                    tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện.
+                                </p>
+                                <button class="btn project-link" type="button" data-href="projectdetail.html?title=Hệ thống đặt chỗ du lịch&tech=Java • Spring Boot • MySQL • HTML/CSS/JS&description=Phát triển một hệ thống đặt chỗ du lịch hoàn chỉnh, bao gồm quản lý người dùng, tìm kiếm chuyến bay/khách sạn, đặt chỗ và thanh toán trực tuyến với giao diện thân thiện.&github=https://github.com/chi-trung/baitap&demo=&images=./images/travel1.jpg,./images/travel2.jpg">
+                                    <strong>Xem chi tiết</strong>
+                                    <div id="container-stars"><div id="stars"></div></div>
+                                    <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                                </button>
+                            </div>
                         </div>
                     </div>
+
                     <div class="project">
-                        <img src="./images/caulong1.jpg" alt="Ứng dụng quản lý sân cầu lông" class="project-image">
-                        <div class="project-info">
-                            <h3 class="project-title">🏸 Ứng dụng quản lý sân cầu lông</h3>
-                            <p class="project-tech">Python • Django • HTML/CSS • JavaScript</p>
-                            <p class="project-description">
-                                Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. 
-                                Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến.
-                            </p>
-                            <button class="btn project-link" type="button" data-href="projectdetail.html?title=Ứng dụng quản lý sân cầu lông&tech=Python • Django • HTML/CSS • JavaScript&description=Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến.&github=https://github.com/Minh2005tv/Nhom.1&demo=&images=./images/caulong1.jpg,./images/caulong2.jpg">
-                                <strong>Xem chi tiết</strong>
-                                <div id="container-stars"><div id="stars"></div></div>
-                                <div id="glow"><div class="circle"></div><div class="circle"></div></div>
-                            </button>
+                        <div class="project-grid">
+                            <div class="project-image-container">
+                                <img src="./images/caulong1.jpg" alt="Ứng dụng quản lý sân cầu lông" class="project-image">
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">🏸 Ứng dụng quản lý sân cầu lông</h3>
+                                <p class="project-tech">Python • Django • HTML/CSS • JavaScript</p>
+                                <p class="project-description">
+                                    Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. 
+                                    Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến.
+                                </p>
+                                <button class="btn project-link" type="button" data-href="projectdetail.html?title=Ứng dụng quản lý sân cầu lông&tech=Python • Django • HTML/CSS • JavaScript&description=Xây dựng ứng dụng web cho phép người dùng tìm kiếm, đặt lịch và quản lý sân cầu lông. Hỗ trợ quản lý người dùng, lịch đặt sân và thanh toán trực tuyến.&github=https://github.com/chi-trung/baitap&demo=&images=./images/caulong1.jpg,./images/caulong2.jpg">
+                                    <strong>Xem chi tiết</strong>
+                                    <div id="container-stars"><div id="stars"></div></div>
+                                    <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                                </button>
+                            </div>
                         </div>
                     </div>
+
                     <div class="project">
-                        <img src="./images/quanlinguoidung2.png" alt="Quản lí người dùng" class="project-image">
-                        <div class="project-info">
-                            <h3 class="project-title">👨‍💻 Quản lí người dùng</h3>
-                            <p class="project-tech">Java • HTML • JavaScript• Spring Boot</p>
-                            <p class="project-description">
-                                Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng.
-                            </p>
-                            <button class="btn project-link" type="button" data-href="projectdetail.html?title=Quản lí người dùng&tech=Java • HTML • JavaScript• Spring Boot&description=Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng.&github=https://github.com/chi-trung/baitap&demo=&images=./images/quanlinguoidung.png,./images/quanlinguoidung2.png">
-                                <strong>Xem chi tiết</strong>
-                                <div id="container-stars"><div id="stars"></div></div>
-                                <div id="glow"><div class="circle"></div><div class="circle"></div></div>
-                            </button>
+                        <div class="project-grid">
+                            <div class="project-image-container">
+                                <img src="./images/quanlinguoidung2.png" alt="Quản lí người dùng" class="project-image">
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">👨‍💻 Quản lí người dùng</h3>
+                                <p class="project-tech">Java • HTML • JavaScript• Spring Boot</p>
+                                <p class="project-description">
+                                    Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng.
+                                </p>
+                                <button class="btn project-link" type="button" data-href="projectdetail.html?title=Quản lí người dùng&tech=Java • HTML • JavaScript• Spring Boot&description=Phát triển một ứng dụng quản lý người dùng cơ bản, cho phép thêm, sửa, xóa và hiển thị thông tin người dùng.&github=https://github.com/chi-trung/baitap&demo=&images=./images/quanlinguoidung.png,./images/quanlinguoidung2.png">
+                                    <strong>Xem chi tiết</strong>
+                                    <div id="container-stars"><div id="stars"></div></div>
+                                    <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -321,32 +333,57 @@
             <section id="education" class="card">
                 <h2 class="card-title">
                     <i class="fas fa-graduation-cap"></i>
+                    Học Vấn
                     Học vấn
                 </h2>
-                <div class="education-card">
-                    <div class="education-header">
-                        <h3 class="education-title">Đại học Giao Thông Vận Tải TP.HCM</h3>
-                        <span class="education-period">2023 - Hiện tại</span>
-                    </div>
-                    <div class="education-details">
-                        <div class="education-grid">
-                            <div class="education-item">
-                                <p><strong>MSSV:</strong> 087205007062</p>
+                <div class="education-progress-container">
+                    <div class="education-progress-grid">
+                        <div class="education-content">
+                            <div class="education-details">
+                                <div class="education-item">
+                                    <p><strong>Trường:</strong> Đại học Giao thông Vận tải TP.HCM</p>
+                                </div>
+                                <div class="education-item">
+                                    <p><strong>Khoa:</strong> Viện Công nghệ Thông tin và Điện, Điện tử</p>
+                                </div>
+                                <div class="education-item">
+                                    <p><strong>Bậc đào tạo:</strong> Đại học - Chính quy</p>
+                                </div>
+                                <div class="education-item">
+                                    <p><strong>Ngành:</strong> Công nghệ Thông Tin</p>
+                                </div>
+                                <div class="education-item">
+                                    <p><strong>Lớp:</strong> CN2303E</p>
+                                </div>
+                                <div class="education-item">
+                                    <p><strong>Khóa:</strong> 2023</p>
+                                </div>
+                                <div class="education-item">
+                                    <p><strong>GPA:</strong> 3.3/4</p>
+                                </div>
                             </div>
-                            <div class="education-item">
-                                <p><strong>Bậc đào tạo:</strong> Đại học - Chính quy</p>
+                        </div>
+                        <div class="progress-visual">
+                            <h3>Tiến độ học tập</h3>
+                            <div class="progress-circle">
+                                <svg class="progress-ring" width="200" height="200">
+                                    <circle class="progress-ring-circle-bg" stroke="#e6e6e6" stroke-width="8" fill="transparent" r="80" cx="100" cy="100"/>
+                                    <circle class="progress-ring-circle" stroke="#4CAF50" stroke-width="8" fill="transparent" r="80" cx="100" cy="100"/>
+                                </svg>
+                                <div class="progress-text">
+                                    <span class="progress-number">0</span>
+                                    <span class="progress-label">/ 120</span>
+                                </div>
                             </div>
-                            <div class="education-item">
-                                <p><strong>GPA:</strong> 3.2/4</p>
-                            </div>
-                            <div class="education-item">
-                                <p><strong>Khóa:</strong> 2023</p>
-                            </div>
-                            <div class="education-item">
-                                <p><strong>Khoa:</strong> Viện Công nghệ Thông tin và Điện, Điện tử</p>
-                            </div>
-                            <div class="education-item">
-                                <p><strong>Ngành:</strong> Công nghệ Thông tin</p>
+                            <div class="progress-details">
+                                <div class="progress-item">
+                                    <span class="progress-title">Số tín chỉ tích lũy</span>
+                                    <span class="progress-value">70</span>
+                                </div>
+                                <div class="progress-item">
+                                    <span class="progress-title">Tổng số tín chỉ</span>
+                                    <span class="progress-value">120</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -368,8 +405,9 @@
                             <p>Đắm mình vào những cuốn sách.</p>
                         </div>
                         <div class="cover">
-                            <h3><i class="fas fa-book-open"></i> Đọc sách</h3>
-                            <p>Yêu thích: Khoa học viễn tưởng, Phát triển bản thân, Công nghệ.</p>
+                            <div class="book-flashlight-bg">
+                                <p>Yêu thích: Khoa học viễn tưởng, Phát triển bản thân, Công nghệ.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -381,8 +419,48 @@
                             <p>Thư giãn với những bộ phim hay.</p>
                         </div>
                         <div class="cover">
-                            <h3><i class="fas fa-film"></i> Xem phim</h3>
-                            <p>Thể loại: Hành động, Khoa học viễn tưởng, Hài hước.</p>
+                            <div style="text-align:center; font-size:1.05rem; color:var(--text-secondary); margin-bottom:0.7em;">Thể loại: Hành động, Khoa học viễn tưởng, Hài hước.</div>
+                            <div class="main">
+                              <div class="tv">
+                                <div class="cruve">
+                                  <svg class="curve_svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 189.929 189.929" xml:space="preserve">
+                                    <path d="M70.343,70.343c-30.554,30.553-44.806,72.7-39.102,115.635l-29.738,3.951C-5.442,137.659,11.917,86.34,49.129,49.13 C86.34,11.918,137.664-5.445,189.928,1.502l-3.95,29.738C143.041,25.54,100.895,39.789,70.343,70.343z"></path>
+                                  </svg>
+                                </div>
+                                <div class="display_div">
+                                  <div class="screen_out">
+                                    <div class="screen_out1">
+                                      <div class="screen">
+                                        <span class="notfound_text"> NOT FOUND</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="lines">
+                                  <div class="line1"></div>
+                                  <div class="line2"></div>
+                                  <div class="line3"></div>
+                                </div>
+                                <div class="buttons_div">
+                                  <div class="b1"><div></div></div>
+                                  <div class="b2"></div>
+                                  <div class="speakers">
+                                    <div class="g1">
+                                      <div class="g11"></div>
+                                      <div class="g12"></div>
+                                      <div class="g13"></div>
+                                    </div>
+                                    <div class="g"></div>
+                                    <div class="g"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="bottom">
+                                <div class="base1"></div>
+                                <div class="base2"></div>
+                                <div class="base3"></div>
+                              </div>
+                            </div>
                         </div>
                     </div>
 
@@ -394,8 +472,16 @@
                             <p>Thư giãn và rèn luyện tư duy chiến lược.</p>
                         </div>
                         <div class="cover">
-                            <h3><i class="fas fa-gamepad"></i> Chơi game</h3>
                             <p>Game yêu thích: Minecraft, PUBG, League of Legends.</p>
+                            <button class="gun-button">
+                              <svg viewBox="0 0 250 150">
+                                <rect x="20" y="50" width="160" height="20" rx="5" ry="5"></rect>
+                                <rect x="140" y="70" width="40" height="60" rx="5" ry="5"></rect>
+                                <circle cx="170" cy="90" r="12"></circle>
+                                <rect x="120" y="70" width="30" height="10" rx="5" ry="5"></rect>
+                                <rect x="180" y="55" width="40" height="10" rx="2" ry="2"></rect>
+                              </svg>
+                            </button>
                         </div>
                     </div>
 
@@ -407,8 +493,40 @@
                             <p>Đắm chìm trong thế giới âm nhạc.</p>
                         </div>
                         <div class="cover">
-                            <h3><i class="fas fa-music"></i> Nghe nhạc</h3>
-                            <p>Thể loại: Pop, Rock, EDM, Nhạc trẻ.</p>
+                            <audio id="audio-player" src="./mp3/music.mp3"></audio>
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <h3 style="color: #545FE5; margin-bottom: 10px;">2 AM</h3>
+                                <p style="color: #666; font-size: 0.9em;">JustaTee</p>
+                            </div>
+                            <div class="play-button" id="play-button">
+                                <div class="play-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 5.14v14l11-7-11-7z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <span>Click to Play</span>
+                            </div>
+                            <div class="song-progress">
+                                <div class="progress-bar" id="progress-bar">
+                                    <div class="progress" id="progress"></div>
+                                </div>
+                                <div class="time-info">
+                                    <span class="current-time" id="current-time">0:00</span>
+                                    <span class="total-time" id="total-time">4:10</span>
+                                </div>
+                            </div>
+                            <ul class="wave-menu">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
                         </div>
                     </div>
 
@@ -420,8 +538,34 @@
                             <p>Khám phá và học hỏi công nghệ mới.</p>
                         </div>
                         <div class="cover">
-                            <h3><i class="fas fa-code"></i> Lập trình</h3>
-                            <p>Ngôn ngữ yêu thích: Java, Python, JavaScript.</p>
+                          <div class="console-window-container">
+                            <div class="window">
+                              <div class="window-title">
+                                <p>Console Window</p>
+                                <div class="window-buttons">
+                                  <div class="window-button fullscreen"></div>
+                                  <div class="window-button reduce"></div>
+                                  <div class="window-button close"></div>
+                                </div>
+                              </div>
+                              <div class="console">
+                                <pre><code><span class="keyword">function</span> <span class="function">main</span>() {
+  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i < <span class="number">100</span>; i++) {
+    <span class="console">console</span>.<span class="method">log</span>(<span class="string">`Add to favorites ${i}`</span>);
+    <span class="keyword">if</span> (favorite === <span class="boolean">true</span>) {
+      <span class="function">Favorite</span>();
+    }
+  }
+}
+
+<span class="keyword">function</span> <span class="function">Favorite</span>() {
+  <span class="console">console</span>.<span class="method">log</span>(<span class="string">"thanks"</span>);
+}
+
+<span class="function">main</span>();</code></pre>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                     </div>
 
@@ -433,8 +577,23 @@
                             <p>Ghi lại những khoảnh khắc đẹp.</p>
                         </div>
                         <div class="cover">
-                            <h3><i class="fas fa-camera"></i> Chụp ảnh</h3>
-                            <p>Thể loại: Phong cảnh, Chân dung, Đường phố.</p>
+                          <div class="center">
+                            <div class="design">
+                              <div class="circle-1 center color-border">
+                                <div class="circle-2 center color-border">
+                                  <div class="circle-3 center color-border">
+                                    <div class="circle-4 center color-border">
+                                      <div class="circle-5"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="mountain-1 shape shadow"></div>
+                              <div class="mountain-2 shape"></div>
+                              <div class="mountain-3 shape shadow"></div>
+                            </div>
+                          </div>
+                          <p>Thể loại: Phong cảnh, Chân dung, Đường phố.</p>
                         </div>
                     </div>
                 </div>
@@ -443,7 +602,56 @@
             <!-- Social Media Section -->
             <section id="contact" class="card">
                 <div class="contact-title"><i class="fas fa-handshake contact-title-icon"></i>Liên Hệ</div>
+                
+                <!-- Contact Form -->
+                <form class="contact-form" id="contactForm" onsubmit="return sendEmail(event)">
+                    <div class="form-group">
+                        <label for="name">Họ và tên</label>
+                        <input type="text" id="name" name="name" required placeholder="Nhập họ và tên của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Nhập email của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Nội dung tin nhắn</label>
+                        <textarea id="message" name="message" required placeholder="Nhập nội dung tin nhắn của bạn"></textarea>
+                    </div>
+                    <button type="submit" class="contact-submit-btn"><span>Gửi tin nhắn</span> <i class="fas fa-paper-plane"></i></button>
+                </form>
+
                 <ul class="Social-media" id="pop-up">
+                    <li id="Twitter-X">
+                        <div id="twitter-x-tooltip-container">
+                            <div id="twitter-x-tooltip">
+                                <div id="twitter-x-profile">
+                                    <div id="twitter-x-user">
+                                        <img id="twitter-x-img" src="https://cdn-icons-png.flaticon.com/128/145/145867.png" alt="avatar" style="width:50px;height:50px;border-radius:10px;object-fit:cover;">
+                                        <div id="twitter-x-details">
+                                            <div id="twitter-x-name">gnurts</div>
+                                            <div id="twitter-x-username">@gnurt2702</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="x-text">
+                                <a id="twitter-x-icon" href="https://x.com/gnurt2702" target="_blank">
+                                    <div id="twitter-x-layer">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span id="twitter-xSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 50 50">
+                                                <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="text">Twitter X</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
                     <li id="Facebook">
                         <div id="facebook-tooltip-container">
                             <div id="facebook-tooltip">
@@ -511,37 +719,6 @@
                             </div>
                         </div>
                     </li>
-                    <li id="Twitter-X">
-                        <div id="twitter-x-tooltip-container">
-                            <div id="twitter-x-tooltip">
-                                <div id="twitter-x-profile">
-                                    <div id="twitter-x-user">
-                                        <img id="twitter-x-img" src="https://cdn-icons-png.flaticon.com/128/145/145867.png" alt="avatar" style="width:50px;height:50px;border-radius:10px;object-fit:cover;">
-                                        <div id="twitter-x-details">
-                                            <div id="twitter-x-name">gnurts</div>
-                                            <div id="twitter-x-username">@gnurt2702</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="x-text">
-                                <a id="twitter-x-icon" href="https://x.com/gnurt2702" target="_blank">
-                                    <div id="twitter-x-layer">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span id="twitter-xSVG">
-                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-                                                <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div class="text">Twitter X</div>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
                     <li id="GitHub">
                         <div id="github-tooltip-container">
                             <div id="github-tooltip">
@@ -563,7 +740,7 @@
                                         <span></span>
                                         <span></span>
                                         <span id="githubSVG">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 24 24">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                             </svg>
                                         </span>
@@ -622,8 +799,11 @@
                 <div class="hacker-container">
                     <button class="hacker-btn">last-update</button>
                     <div data-text="18/06/2025" class="hacker-tooltip">
-                        <span>01:30 AM</span>
+                        <span>19:00 PM</span>
                     </div>
+                </div>
+                <div class="live-clock-container">
+                    <span id="live-clock"></span>
                 </div>
             </div>
         </footer>
