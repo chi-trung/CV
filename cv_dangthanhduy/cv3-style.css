@@ -1816,8 +1816,8 @@ body.dark-mode section.fade-in {
 
 .firefly {
     position: absolute;
-    width: 32px;
-    height: 32px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 0 16px 6px #fff70088, 0 0 32px 12px #fff70033;
